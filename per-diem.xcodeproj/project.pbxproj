@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		71507312299EE61900100B88 /* per_diemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507311299EE61900100B88 /* per_diemApp.swift */; };
-		71507314299EE61900100B88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507313299EE61900100B88 /* ContentView.swift */; };
 		71507316299EE61A00100B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71507315299EE61A00100B88 /* Assets.xcassets */; };
 		71507319299EE61A00100B88 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71507318299EE61A00100B88 /* Preview Assets.xcassets */; };
 		7150731B299EE61A00100B88 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150731A299EE61A00100B88 /* Persistence.swift */; };
@@ -16,9 +15,13 @@
 		71507329299EE61A00100B88 /* per_diemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507328299EE61A00100B88 /* per_diemTests.swift */; };
 		71507333299EE61A00100B88 /* per_diemUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507332299EE61A00100B88 /* per_diemUITests.swift */; };
 		71507335299EE61A00100B88 /* per_diemUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507334299EE61A00100B88 /* per_diemUITestsLaunchTests.swift */; };
-		71507342299EEC0400100B88 /* DateListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507341299EEC0400100B88 /* DateListScreen.swift */; };
 		71507344299EF05200100B88 /* DayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507343299EF05200100B88 /* DayList.swift */; };
 		7150734A29A18D0400100B88 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150734929A18D0400100B88 /* Day.swift */; };
+		715DB9E329A1942200260B7C /* ActivityCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9DE29A1942200260B7C /* ActivityCreatorView.swift */; };
+		715DB9E429A1942200260B7C /* ActivityOptionCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9DF29A1942200260B7C /* ActivityOptionCreatorView.swift */; };
+		715DB9E529A1942200260B7C /* DayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9E029A1942200260B7C /* DayListView.swift */; };
+		715DB9E629A1942200260B7C /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9E129A1942200260B7C /* EntryView.swift */; };
+		715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9E229A1942200260B7C /* ActivityEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +44,6 @@
 /* Begin PBXFileReference section */
 		7150730E299EE61900100B88 /* per-diem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "per-diem.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71507311299EE61900100B88 /* per_diemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = per_diemApp.swift; sourceTree = "<group>"; };
-		71507313299EE61900100B88 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		71507315299EE61A00100B88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71507318299EE61A00100B88 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7150731A299EE61A00100B88 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -52,9 +54,13 @@
 		7150732E299EE61A00100B88 /* per-diemUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "per-diemUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71507332299EE61A00100B88 /* per_diemUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = per_diemUITests.swift; sourceTree = "<group>"; };
 		71507334299EE61A00100B88 /* per_diemUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = per_diemUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		71507341299EEC0400100B88 /* DateListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateListScreen.swift; sourceTree = "<group>"; };
 		71507343299EF05200100B88 /* DayList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayList.swift; sourceTree = "<group>"; };
 		7150734929A18D0400100B88 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		715DB9DE29A1942200260B7C /* ActivityCreatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityCreatorView.swift; sourceTree = "<group>"; };
+		715DB9DF29A1942200260B7C /* ActivityOptionCreatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityOptionCreatorView.swift; sourceTree = "<group>"; };
+		715DB9E029A1942200260B7C /* DayListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayListView.swift; sourceTree = "<group>"; };
+		715DB9E129A1942200260B7C /* EntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		715DB9E229A1942200260B7C /* ActivityEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,13 +114,11 @@
 				7150734829A18CD400100B88 /* models */,
 				7150734729A18CC000100B88 /* views */,
 				71507311299EE61900100B88 /* per_diemApp.swift */,
-				71507313299EE61900100B88 /* ContentView.swift */,
 				71507315299EE61A00100B88 /* Assets.xcassets */,
 				7150731A299EE61A00100B88 /* Persistence.swift */,
 				7150731F299EE61A00100B88 /* Info.plist */,
 				7150731C299EE61A00100B88 /* per_diem.xcdatamodeld */,
 				71507317299EE61A00100B88 /* Preview Content */,
-				71507341299EEC0400100B88 /* DateListScreen.swift */,
 			);
 			path = "per-diem";
 			sourceTree = "<group>";
@@ -147,6 +151,11 @@
 		7150734729A18CC000100B88 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				715DB9DE29A1942200260B7C /* ActivityCreatorView.swift */,
+				715DB9E229A1942200260B7C /* ActivityEditorView.swift */,
+				715DB9DF29A1942200260B7C /* ActivityOptionCreatorView.swift */,
+				715DB9E029A1942200260B7C /* DayListView.swift */,
+				715DB9E129A1942200260B7C /* EntryView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -290,12 +299,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715DB9E629A1942200260B7C /* EntryView.swift in Sources */,
 				7150734A29A18D0400100B88 /* Day.swift in Sources */,
 				7150731B299EE61A00100B88 /* Persistence.swift in Sources */,
-				71507314299EE61900100B88 /* ContentView.swift in Sources */,
+				715DB9E529A1942200260B7C /* DayListView.swift in Sources */,
+				715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */,
 				7150731E299EE61A00100B88 /* per_diem.xcdatamodeld in Sources */,
 				71507344299EF05200100B88 /* DayList.swift in Sources */,
-				71507342299EEC0400100B88 /* DateListScreen.swift in Sources */,
+				715DB9E429A1942200260B7C /* ActivityOptionCreatorView.swift in Sources */,
+				715DB9E329A1942200260B7C /* ActivityCreatorView.swift in Sources */,
 				71507312299EE61900100B88 /* per_diemApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

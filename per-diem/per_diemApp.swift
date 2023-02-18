@@ -13,7 +13,7 @@ struct per_diemApp: App {
 
     var body: some Scene {
         WindowGroup {
-            DayList()
+            DayListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

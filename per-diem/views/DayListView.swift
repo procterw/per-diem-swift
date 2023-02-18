@@ -3,7 +3,7 @@ import SwiftUI
 struct DayLabel: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    var day: DateItem
+    var day: DayItem
     var activities: Array<Activity>
 
     var body: some View {
@@ -18,10 +18,10 @@ struct DayLabel: View {
     }
 }
 
-struct DayList: View {
+struct DayListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    private var dateList: DateList = DateList()
+    private var dateList: DayList = DayList()
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateId, ascending: true)],
@@ -35,16 +35,16 @@ struct DayList: View {
                     DayLabel(day: day, activities: activities.filter { $0.dateId == day.dateId })
                 }
             }
-            .navigationDestination(for: DateItem.self) { day in
-                EntryScreen(day: day, activities: activities.filter { $0.dateId == day.dateId })
+            .navigationDestination(for: DayItem.self) { day in
+                EntryView(day: day, activities: activities.filter { $0.dateId == day.dateId })
             }
             .navigationTitle("Calendar")
         }
     }
 }
 
-struct DayList_Previews: PreviewProvider {
+struct DayListView_Previews: PreviewProvider {
     static var previews: some View {
-        DayList()
+        DayListView()
     }
 }

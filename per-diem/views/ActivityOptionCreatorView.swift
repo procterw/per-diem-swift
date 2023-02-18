@@ -12,7 +12,7 @@ class ActivityViewModel: ObservableObject {
     @Published var activity: String = "test"
 }
 
-struct ActivityOptionCreator: View {
+struct ActivityOptionCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ActivityViewModel = ActivityViewModel()
@@ -36,8 +36,8 @@ struct ActivityOptionCreator: View {
     }
 }
 
-struct ActivityOptionCreator_Previews: PreviewProvider {
+struct ActivityOptionCreatorView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityOptionCreator()
+        ActivityOptionCreatorView()
     }
 }

@@ -1,31 +1,31 @@
 import SwiftUI
 
-struct Entry: View {
+struct EntryView: View {
     @State private var showingSheet = false
 
-    var day: DateItem
+    var day: DayItem
     var activities: Array<Activity>
 
     var body: some View {
         Text(day.dateString)
-        VStack {
+//        VStack {
             ForEach(activities) { activity in
-                ActivityEditor(activity: activity)
+                ActivityEditorView(activity: activity)
             }
-            ActivityCreator(day: day)
+            ActivityCreatorView(day: day)
             Button("Add activity type") {
                 showingSheet.toggle()
             }
             .sheet(isPresented: $showingSheet) {
-                ActivityOptionCreator()
+                ActivityOptionCreatorView()
             }
-        }
+//        }
     }
 }
 
 
-struct Entry_Previews: PreviewProvider {
+struct EntryView_Previews: PreviewProvider {
     static var previews: some View {
-        Entry()
+        EntryView(day: DayItem(date: Date(), activities: []), activities: [])
     }
 }

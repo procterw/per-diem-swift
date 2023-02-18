@@ -15,7 +15,7 @@ class ActivityEditorViewModel: ObservableObject {
     }
 }
 
-struct ActivityEditor: View {
+struct ActivityEditorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var viewModel: ActivityEditorViewModel
 
@@ -45,8 +45,8 @@ struct ActivityEditor: View {
     }
 }
 
-struct ActivityEditor_Previews: PreviewProvider {
+struct ActivityEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityEditor()
+        ActivityEditorView(activity: Activity())
     }
 }

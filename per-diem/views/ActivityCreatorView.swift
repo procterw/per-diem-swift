@@ -1,16 +1,16 @@
 import SwiftUI
 
-struct ActivityCreator: View {
+struct ActivityCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    var day: DateItem
+    var day: DayItem
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ActivityOption.type, ascending: true)],
         animation: .default)
     private var activityOptions: FetchedResults<ActivityOption>
     
-    init(day: DateItem) {
+    init(day: DayItem) {
         self.day = day
     }
     
@@ -23,8 +23,8 @@ struct ActivityCreator: View {
     }
 }
 
-struct ActivityCreator_Previews: PreviewProvider {
+struct ActivityCreatorView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityCreator()
+        ActivityCreatorView(day: DayItem(date: Date(), activities: []))
     }
 }
