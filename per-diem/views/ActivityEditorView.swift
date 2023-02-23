@@ -26,27 +26,57 @@ struct ActivityEditorView: View {
         self.viewModel = ActivityEditorViewModel(note: activity.note ?? "")
     }
     
+    func getTitle() -> String {
+        return [activity.option?.icon ?? "", activity.option?.type ?? ""].joined(separator: "")
+    }
+    
     var body: some View {
-        Form {
-            Text(activity.type ?? "")
-            TextField("Foo", text: $viewModel.note, axis: .vertical)
-        }
-        .scrollDisabled(true)
-        .onReceive(
-            viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
-        ) { note in
-            activity.note = note;
-            do {
-                try viewContext.save()
-            } catch {
-                // Handle error
+        VStack(spacing: 15) {
+            HStack {
+                Text(getTitle())
+                    .font(.callout)
+                Spacer()
+                Button("Delete", role: .destructive) {
+                    viewContext.delete(activity)
+                    do {
+                        try viewContext.save()
+                    } catch {
+                        // Handle error
+                    }
+                }
             }
+            .padding([.top, .leading, .trailing])
+            
+            HStack {
+                TextField("Foo", text: $viewModel.note, axis: .vertical)
+                    .scrollDisabled(true)
+                    .onReceive(
+                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
+                    ) { note in
+                        activity.note = note;
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            // Handle error
+                        }
+                    }
+                    .font(.subheadline)
+            }
+            .padding([.leading, .bottom, .trailing])
+//            .overlay(
+//                RoundedRectangle(cornerRadius: 10)
+//                    .stroke(Color("CardBorder"), lineWidth: 1)
+//            )
+//            .cornerRadius(10)
+        
         }
+        .background(Color("CardBackground"))
+        .padding()
     }
 }
-
-struct ActivityEditorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityEditorView(activity: Activity())
-    }
-}
+//
+//struct ActivityEditorView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActivityEditorView(activity: Activity())
+//    }
+//}

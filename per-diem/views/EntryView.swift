@@ -5,13 +5,17 @@ struct EntryView: View {
 
     var day: DayItem
     var activities: Array<Activity>
+    
+    func delete(at offsets: IndexSet) {
+        print("delete")
+    }
 
     var body: some View {
-        Text(day.dateString)
-//        VStack {
+        VStack {
             ForEach(activities) { activity in
                 ActivityEditorView(activity: activity)
             }
+            .onDelete(perform: delete)
             ActivityCreatorView(day: day)
             Button("Add activity type") {
                 showingSheet.toggle()
@@ -19,7 +23,9 @@ struct EntryView: View {
             .sheet(isPresented: $showingSheet) {
                 ActivityOptionCreatorView()
             }
-//        }
+            Spacer()
+        }
+        .background(Color("AppBackground"))
     }
 }
 

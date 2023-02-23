@@ -22,6 +22,8 @@
 		715DB9E529A1942200260B7C /* DayListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9E029A1942200260B7C /* DayListView.swift */; };
 		715DB9E629A1942200260B7C /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9E129A1942200260B7C /* EntryView.swift */; };
 		715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9E229A1942200260B7C /* ActivityEditorView.swift */; };
+		715DB9EA29A3661800260B7C /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 715DB9E929A3661800260B7C /* WrappingHStack */; };
+		715DB9EC29A6078D00260B7C /* WrappedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9EB29A6078D00260B7C /* WrappedHStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		715DB9E029A1942200260B7C /* DayListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayListView.swift; sourceTree = "<group>"; };
 		715DB9E129A1942200260B7C /* EntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		715DB9E229A1942200260B7C /* ActivityEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEditorView.swift; sourceTree = "<group>"; };
+		715DB9EB29A6078D00260B7C /* WrappedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715DB9EA29A3661800260B7C /* WrappingHStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +169,7 @@
 			children = (
 				71507343299EF05200100B88 /* DayList.swift */,
 				7150734929A18D0400100B88 /* Day.swift */,
+				715DB9EB29A6078D00260B7C /* WrappedHStack.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -185,6 +190,9 @@
 			dependencies = (
 			);
 			name = "per-diem";
+			packageProductDependencies = (
+				715DB9E929A3661800260B7C /* WrappingHStack */,
+			);
 			productName = "per-diem";
 			productReference = 7150730E299EE61900100B88 /* per-diem.app */;
 			productType = "com.apple.product-type.application";
@@ -257,6 +265,9 @@
 				Base,
 			);
 			mainGroup = 71507305299EE61900100B88;
+			packageReferences = (
+				715DB9E829A3661800260B7C /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+			);
 			productRefGroup = 7150730F299EE61900100B88 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,6 +313,7 @@
 				715DB9E629A1942200260B7C /* EntryView.swift in Sources */,
 				7150734A29A18D0400100B88 /* Day.swift in Sources */,
 				7150731B299EE61A00100B88 /* Persistence.swift in Sources */,
+				715DB9EC29A6078D00260B7C /* WrappedHStack.swift in Sources */,
 				715DB9E529A1942200260B7C /* DayListView.swift in Sources */,
 				715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */,
 				7150731E299EE61A00100B88 /* per_diem.xcdatamodeld in Sources */,
@@ -633,6 +645,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		715DB9E829A3661800260B7C /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		715DB9E929A3661800260B7C /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 715DB9E829A3661800260B7C /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7150731C299EE61A00100B88 /* per_diem.xcdatamodeld */ = {

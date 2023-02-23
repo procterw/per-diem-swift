@@ -5,10 +5,12 @@
         <attribute name="note" attributeType="String" defaultValueString=""/>
         <attribute name="notePreview" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="type" attributeType="String" defaultValueString=""/>
+        <relationship name="option" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityOption" inverseName="activities" inverseEntity="ActivityOption"/>
     </entity>
     <entity name="ActivityOption" representedClassName="ActivityOption" syncable="YES" codeGenerationType="class">
         <attribute name="icon" attributeType="String" defaultValueString=""/>
         <attribute name="type" attributeType="String" defaultValueString=""/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="option" inverseEntity="Activity"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

@@ -15,6 +15,18 @@ class DayItem: Identifiable, Hashable {
         return hasher.combine(id)
     }
     
+    public func getDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        return dateFormatter.string(from: date)
+    }
+    
+    public func getDayOfWeek() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E"
+        return dateFormatter.string(from: date)
+    }
+    
     init(date: Date, activities: Array<Activity>) {
         self.date = date;
         

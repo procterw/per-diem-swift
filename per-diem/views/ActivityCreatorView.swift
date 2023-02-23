@@ -1,4 +1,5 @@
 import SwiftUI
+//import WrappingHStack
 
 struct ActivityCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -15,11 +16,42 @@ struct ActivityCreatorView: View {
     }
     
     var body: some View {
-        HStack {
-            Button("foo") {
-                print("foooo")
+        WrappedHStack(activityOptions) { activityOpt in
+            Button([activityOpt.icon ?? "", activityOpt.type ?? ""].joined(separator: " ")) {
+                let x = Activity(context: viewContext)
+                x.type = activityOpt.type
+                x.note = ""
+                x.notePreview = ""
+                x.dateId = day.dateId
+                x.option = activityOpt
+                do {
+                    try viewContext.save()
+                } catch {
+                    // Handle error
+                }
             }
+            .buttonStyle(.bordered)
+            
         }
+//        HStack {
+//            ForEach(activityOptions) { activityOpt in
+//                Button([activityOpt.icon ?? "", activityOpt.type ?? ""].joined(separator: " ")) {
+//                    let x = Activity(context: viewContext)
+//                    x.type = activityOpt.type
+//                    x.note = ""
+//                    x.notePreview = ""
+//                    x.dateId = day.dateId
+//                    x.option = activityOpt
+//                    do {
+//                        try viewContext.save()
+//                    } catch {
+//                        // Handle error
+//                    }
+//                }
+//                .buttonStyle(.bordered)
+//            }
+//        }
+//        .fixedSize(horizontal: false, vertical: false)
     }
 }
 
