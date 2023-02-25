@@ -4,8 +4,8 @@ struct DayLabel: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var day: DayItem
-    var activities: Array<Activity>
-
+    var activities: FetchedResults<Activity>
+    
     var body: some View {
         HStack(alignment: .top){
             VStack {
@@ -19,16 +19,15 @@ struct DayLabel: View {
             .padding(.top, 10)
             .frame(width: 50)
             VStack(alignment: .leading, spacing: 10) {
-                ForEach(activities) { activity in
+                ForEach(activities.filter { $0.dateId == day.dateId }) { activity in
                     HStack(alignment: .top, spacing: 3) {
                         Text(activity.option?.icon ?? "")
                             .font(.title)
                         VStack(alignment: .leading) {
                             Text(activity.type ?? "")
                                 .font(.headline)
-                            Text(activity.note ?? "")
-                                .font(.subheadline)
-                                .lineLimit(1)
+                            Text(activity.notePreview ?? "")
+                                .font(.subheadline)                            .lineLimit(1)
                         }
                         Spacer()
                     }
@@ -38,7 +37,6 @@ struct DayLabel: View {
             .padding(.vertical, 8)
             .padding(.horizontal, 12)
             .background(Color("CardBackground"))
-//            .border(Color("CardBorder"), width: 1)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color("CardBorder"), lineWidth: 1)
@@ -58,23 +56,24 @@ struct DayListView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateId, ascending: false)],
         animation: .default)
     private var activities: FetchedResults<Activity>
-//
-//    init() {
-//        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont.systemFont(ofSize: 18)]
-//    }
 
     var body: some View {
         NavigationStack {
             List(dateList.list) { day in
                 ZStack {
-                    NavigationLink(destination: EntryView(day: day, activities: activities.filter { $0.dateId == day.dateId }).navigationTitle(day.getDate())) {
+                    NavigationLink(destination:
+                        EntryView(
+                            day: day,
+                            activities: activities.filter { $0.dateId == day.dateId })
+                            .navigationTitle(day.getDate())
+                    ) {
                         EmptyView()
                     }
                     .opacity(0.0)
                     .buttonStyle(PlainButtonStyle())
-                    
+
                     HStack {
-                        DayLabel(day: day, activities: activities.filter { $0.dateId == day.dateId })
+                        DayLabel(day: day, activities: activities)
                         Spacer()
                     }
                 }

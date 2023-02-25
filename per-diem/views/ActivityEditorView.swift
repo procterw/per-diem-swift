@@ -31,19 +31,20 @@ struct ActivityEditorView: View {
     }
     
     var body: some View {
-        VStack(spacing: 15) {
+        VStack(alignment: .leading) {
             HStack {
                 Text(getTitle())
-                    .font(.callout)
-                Spacer()
-                Button("Delete", role: .destructive) {
-                    viewContext.delete(activity)
-                    do {
-                        try viewContext.save()
-                    } catch {
-                        // Handle error
-                    }
-                }
+                    .fontWeight(.bold)
+                    .font(.subheadline)
+                //                Spacer()
+                //                Button("🗑️", role: .destructive) {
+                //                    viewContext.delete(activity)
+                //                    do {
+                //                        try viewContext.save()
+                //                    } catch {
+                //                        // Handle error
+                //                    }
+                //                }
             }
             .padding([.top, .leading, .trailing])
             
@@ -54,6 +55,12 @@ struct ActivityEditorView: View {
                         viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
                     ) { note in
                         activity.note = note;
+                        if (note.count < 50) {
+                            activity.notePreview = note
+                        } else {
+                            activity.notePreview = String(note.prefix(upTo: note.index(note.startIndex, offsetBy: 50)))
+                        }
+                        print(activity)
                         do {
                             try viewContext.save()
                         } catch {
@@ -63,15 +70,14 @@ struct ActivityEditorView: View {
                     .font(.subheadline)
             }
             .padding([.leading, .bottom, .trailing])
-//            .overlay(
-//                RoundedRectangle(cornerRadius: 10)
-//                    .stroke(Color("CardBorder"), lineWidth: 1)
-//            )
-//            .cornerRadius(10)
-        
         }
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color("CardBorder"), lineWidth: 1)
+        )
+        .cornerRadius(10)
         .background(Color("CardBackground"))
-        .padding()
+//        .padding([.top, .leading, .trailing])
     }
 }
 //
