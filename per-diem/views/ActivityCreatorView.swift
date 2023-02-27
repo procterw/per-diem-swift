@@ -5,7 +5,7 @@ struct ActivityCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     var day: DayItem
-    var activities: Array<Activity>
+    var activities: FetchedResults<Activity>
 
     
     @FetchRequest(
@@ -21,7 +21,7 @@ struct ActivityCreatorView: View {
     }
     
     var body: some View {
-        // TODO track by ID
+        
         WrappedHStack(filteredOptions) { activityOpt in
             Button(action: {
                 let x = Activity(context: viewContext)
@@ -52,9 +52,9 @@ struct ActivityCreatorView: View {
         .padding()
     }
 }
-
-struct ActivityCreatorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityCreatorView(day: DayItem(date: Date(), activities: []), activities: [])
-    }
-}
+//
+//struct ActivityCreatorView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActivityCreatorView(day: DayItem(date: Date(), activities: []), activities: [])
+//    }
+//}

@@ -2,9 +2,17 @@ import SwiftUI
 
 struct DayLabel: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest var activities: FetchedResults<Activity>
     
     var day: DayItem
-    var activities: FetchedResults<Activity>
+
+    init(day: DayItem) {
+        self.day = day;
+        _activities = FetchRequest<Activity>(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: false)],
+            predicate: NSPredicate(format: "dateId == %d", day.dateId)
+        )
+    }
     
     var body: some View {
         HStack(alignment: .top){
@@ -16,7 +24,7 @@ struct DayLabel: View {
                     .font(.footnote)
                 Spacer()
             }
-            .padding(.top, 10)
+            .padding(.top, 5)
             .frame(width: 50)
             VStack(alignment: .leading, spacing: 10) {
                 ForEach(activities.filter { $0.dateId == day.dateId }) { activity in
@@ -27,7 +35,8 @@ struct DayLabel: View {
                             Text(activity.type ?? "")
                                 .font(.headline)
                             Text(activity.notePreview ?? "")
-                                .font(.subheadline)                            .lineLimit(1)
+                                .font(.subheadline)
+                                .lineLimit(1)
                         }
                         Spacer()
                     }
@@ -48,23 +57,14 @@ struct DayLabel: View {
 }
 
 struct DayListView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    
-    private var dateList: DayList = DayList()
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateId, ascending: false)],
-        animation: .default)
-    private var activities: FetchedResults<Activity>
+    var dateList: DayList = DayList()
 
     var body: some View {
         NavigationStack {
             List(dateList.list) { day in
                 ZStack {
                     NavigationLink(destination:
-                        EntryView(
-                            day: day,
-                            activities: activities.filter { $0.dateId == day.dateId })
+                        EntryView(day: day)
                             .navigationTitle(day.getDate())
                     ) {
                         EmptyView()
@@ -73,7 +73,7 @@ struct DayListView: View {
                     .buttonStyle(PlainButtonStyle())
 
                     HStack {
-                        DayLabel(day: day, activities: activities)
+                        DayLabel(day: day)
                         Spacer()
                     }
                 }
@@ -87,9 +87,9 @@ struct DayListView: View {
         }
     }
 }
-
-struct DayListView_Previews: PreviewProvider {
-    static var previews: some View {
-        DayListView()
-    }
-}
+//
+//struct DayListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DayListView()
+//    }
+//}

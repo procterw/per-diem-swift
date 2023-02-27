@@ -24,6 +24,9 @@
 		715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9E229A1942200260B7C /* ActivityEditorView.swift */; };
 		715DB9EA29A3661800260B7C /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 715DB9E929A3661800260B7C /* WrappingHStack */; };
 		715DB9EC29A6078D00260B7C /* WrappedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9EB29A6078D00260B7C /* WrappedHStack.swift */; };
+		715DB9EE29A9C65700260B7C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9ED29A9C65700260B7C /* CalendarView.swift */; };
+		715DB9F029A9C66A00260B7C /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9EF29A9C66A00260B7C /* Calendar.swift */; };
+		715DB9F229A9DF5F00260B7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9F129A9DF5F00260B7C /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		715DB9E129A1942200260B7C /* EntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		715DB9E229A1942200260B7C /* ActivityEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityEditorView.swift; sourceTree = "<group>"; };
 		715DB9EB29A6078D00260B7C /* WrappedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedHStack.swift; sourceTree = "<group>"; };
+		715DB9ED29A9C65700260B7C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		715DB9EF29A9C66A00260B7C /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		715DB9F129A9DF5F00260B7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,8 @@
 				715DB9DF29A1942200260B7C /* ActivityOptionCreatorView.swift */,
 				715DB9E029A1942200260B7C /* DayListView.swift */,
 				715DB9E129A1942200260B7C /* EntryView.swift */,
+				715DB9ED29A9C65700260B7C /* CalendarView.swift */,
+				715DB9F129A9DF5F00260B7C /* MainView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 				71507343299EF05200100B88 /* DayList.swift */,
 				7150734929A18D0400100B88 /* Day.swift */,
 				715DB9EB29A6078D00260B7C /* WrappedHStack.swift */,
+				715DB9EF29A9C66A00260B7C /* Calendar.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -311,13 +320,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				715DB9E629A1942200260B7C /* EntryView.swift in Sources */,
+				715DB9F229A9DF5F00260B7C /* MainView.swift in Sources */,
 				7150734A29A18D0400100B88 /* Day.swift in Sources */,
+				715DB9EE29A9C65700260B7C /* CalendarView.swift in Sources */,
 				7150731B299EE61A00100B88 /* Persistence.swift in Sources */,
 				715DB9EC29A6078D00260B7C /* WrappedHStack.swift in Sources */,
 				715DB9E529A1942200260B7C /* DayListView.swift in Sources */,
 				715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */,
 				7150731E299EE61A00100B88 /* per_diem.xcdatamodeld in Sources */,
 				71507344299EF05200100B88 /* DayList.swift in Sources */,
+				715DB9F029A9C66A00260B7C /* Calendar.swift in Sources */,
 				715DB9E429A1942200260B7C /* ActivityOptionCreatorView.swift in Sources */,
 				715DB9E329A1942200260B7C /* ActivityCreatorView.swift in Sources */,
 				71507312299EE61900100B88 /* per_diemApp.swift in Sources */,

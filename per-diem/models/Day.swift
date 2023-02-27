@@ -21,10 +21,22 @@ class DayItem: Identifiable, Hashable {
         return dateFormatter.string(from: date)
     }
     
+    public func getDayOfMonth() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d"
+        return dateFormatter.string(from: date)
+    }
+    
     public func getDayOfWeek() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E"
         return dateFormatter.string(from: date)
+    }
+    
+    // How many days from Sunday is this day?
+    public func getDayOffset() -> Int {
+        let offset = Calendar.current.dateComponents([.weekday], from: date).weekday ?? 0
+        return offset - 1
     }
     
     init(date: Date, activities: Array<Activity>) {

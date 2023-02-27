@@ -3,9 +3,17 @@ import SwiftUI
 struct EntryView: View {
     @State private var showingSheet = false
     @Environment(\.managedObjectContext) private var viewContext
-
+    @FetchRequest var activities: FetchedResults<Activity>
+    
     var day: DayItem
-    var activities: Array<Activity>
+
+    init(day: DayItem) {
+        self.day = day;
+        _activities = FetchRequest<Activity>(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: false)],
+            predicate: NSPredicate(format: "dateId == %d", day.dateId)
+        )
+    }
     
     func delete(at offsets: IndexSet) {
         for index in offsets {
@@ -48,9 +56,9 @@ struct EntryView: View {
     }
 }
 
-
-struct EntryView_Previews: PreviewProvider {
-    static var previews: some View {
-        EntryView(day: DayItem(date: Date(), activities: []), activities: [])
-    }
-}
+//
+//struct EntryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EntryView(day: DayItem(date: Date(), activities: []), activities: [])
+//    }
+//}
