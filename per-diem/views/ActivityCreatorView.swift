@@ -6,7 +6,6 @@ struct ActivityCreatorView: View {
     
     var day: DayItem
     var activities: FetchedResults<Activity>
-
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ActivityOption.type, ascending: true)],
@@ -24,12 +23,14 @@ struct ActivityCreatorView: View {
         
         WrappedHStack(filteredOptions) { activityOpt in
             Button(action: {
-                let x = Activity(context: viewContext)
-                x.type = activityOpt.type
-                x.note = ""
-                x.notePreview = ""
-                x.dateId = day.dateId
-                x.option = activityOpt
+                let activity = Activity(context: viewContext)
+                activity.type = activityOpt.type
+                activity.note = ""
+                activity.notePreview = ""
+                activity.dateId = day.dateId
+                activity.option = activityOpt
+                activity.dateAdded = Date()
+                activity.dateModified = Date()
                 do {
                     try viewContext.save()
                 } catch {

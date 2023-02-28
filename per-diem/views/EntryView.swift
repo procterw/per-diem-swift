@@ -10,7 +10,7 @@ struct EntryView: View {
     init(day: DayItem) {
         self.day = day;
         _activities = FetchRequest<Activity>(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: false)],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
             predicate: NSPredicate(format: "dateId == %d", day.dateId)
         )
     }

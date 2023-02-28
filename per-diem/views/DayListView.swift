@@ -9,7 +9,7 @@ struct DayLabel: View {
     init(day: DayItem) {
         self.day = day;
         _activities = FetchRequest<Activity>(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: false)],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
             predicate: NSPredicate(format: "dateId == %d", day.dateId)
         )
     }
@@ -56,29 +56,37 @@ struct DayLabel: View {
     }
 }
 
+struct DayLink: View {
+    var day: DayItem
+
+    var body: some View {
+        ZStack {
+            NavigationLink(destination:
+                EntryView(day: day)
+                    .navigationTitle(day.getDate())
+            ) {
+                EmptyView()
+            }
+            .opacity(0.0)
+            .buttonStyle(PlainButtonStyle())
+
+            HStack {
+                DayLabel(day: day)
+                Spacer()
+            }
+        }
+        .listRowBackground(Color.clear)
+        .listRowSeparator(.hidden)
+    }
+}
+
 struct DayListView: View {
     var dateList: DayList = DayList()
 
     var body: some View {
         NavigationStack {
             List(dateList.list) { day in
-                ZStack {
-                    NavigationLink(destination:
-                        EntryView(day: day)
-                            .navigationTitle(day.getDate())
-                    ) {
-                        EmptyView()
-                    }
-                    .opacity(0.0)
-                    .buttonStyle(PlainButtonStyle())
-
-                    HStack {
-                        DayLabel(day: day)
-                        Spacer()
-                    }
-                }
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
+                DayLink(day: day)
             }
             .listStyle(PlainListStyle())
             .background(Color("AppBackground"))

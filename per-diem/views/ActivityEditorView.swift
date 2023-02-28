@@ -7,27 +7,36 @@
 
 import SwiftUI
 
-class ActivityEditorViewModel: ObservableObject {
-    @Published var note: String
-    
-    init(note: String) {
-        self.note = note
-    }
-}
+//class ActivityEditorViewModel: ObservableObject {
+//    @Published var note: String
+//
+//    init(note: String) {
+//        self.note = note
+//    }
+//}
 
 struct ActivityEditorView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var viewModel: ActivityEditorViewModel
-
-    var activity: Activity
+    @ObservedObject var activity: Activity
+    @State var note: String
     
     init(activity: Activity) {
         self.activity = activity
-        self.viewModel = ActivityEditorViewModel(note: activity.note ?? "")
+        self.note = activity.note ?? ""
     }
     
     func getTitle() -> String {
         return [activity.option?.icon ?? "", activity.option?.type ?? ""].joined(separator: "")
+    }
+    
+    func save() {
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch  {
+                print(error)
+            }
+        }
     }
     
     var body: some View {
@@ -36,38 +45,42 @@ struct ActivityEditorView: View {
                 Text(getTitle())
                     .fontWeight(.bold)
                     .font(.subheadline)
-                //                Spacer()
-                //                Button("🗑️", role: .destructive) {
-                //                    viewContext.delete(activity)
-                //                    do {
-                //                        try viewContext.save()
-                //                    } catch {
-                //                        // Handle error
-                //                    }
-                //                }
             }
             .padding([.top, .leading, .trailing])
             
             HStack {
-                TextField("Foo", text: $viewModel.note, axis: .vertical)
+                TextField("Fooooo", text: $note, axis: .vertical)
                     .scrollDisabled(true)
-                    .onReceive(
-                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
-                    ) { note in
-                        activity.note = note;
+                    .onChange(of: note) { _ in
+                        print("FOOO")
+                        activity.note = note
                         if (note.count < 50) {
                             activity.notePreview = note
                         } else {
                             activity.notePreview = String(note.prefix(upTo: note.index(note.startIndex, offsetBy: 50)))
                         }
-                        print(activity)
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            // Handle error
-                        }
+                        save()
                     }
                     .font(.subheadline)
+//                    .onReceive(
+//                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
+////                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
+//                    ) { note in
+////                        let activity = Activity(context: viewContext)
+//                        activity.note = note;
+//                        activity.dateModified = Date()
+//                        if (note.count < 50) {
+//                            activity.notePreview = note
+//                        } else {
+//                            activity.notePreview = String(note.prefix(upTo: note.index(note.startIndex, offsetBy: 50)))
+//                        }
+//                        do {
+//                            try viewContext.save()
+//                        } catch {
+//                            // Handle error
+//                        }
+//                    }
+
             }
             .padding([.leading, .bottom, .trailing])
         }
