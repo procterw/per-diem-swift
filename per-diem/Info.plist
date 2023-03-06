@@ -2,10 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIBackgroundModes</key>
+	<key>UIAppFonts</key>
 	<array>
-		<string>remote-notification</string>
+        <String>SourceSerifPro-Black.ttf</String>
+        <String>SourceSerifPro-BlackItalic.ttf</String>
+        <String>SourceSerifPro-Bold.ttf</String>
+        <String>SourceSerifPro-BoldItalic.ttf</String>
+        <String>SourceSerifPro-ExtraLight.ttf</String>
+        <String>SourceSerifPro-ExtraLightItalic.ttf</String>
+        <String>SourceSerifPro-Italic.ttf</String>
+        <String>SourceSerifPro-Light.ttf</String>
+        <String>SourceSerifPro-LightItalic.ttf</String>
+        <String>SourceSerifPro-Regular.ttf</String>
+        <String>SourceSerifPro-SemiBold.ttf</String>
+        <String>SourceSerifPro-SemiBoldItalic.ttf</String>
 	</array>
-    <key>UIApplicationSceneManifest</key> <dict> <key>UISceneConfigurations</key> <dict/> </dict>
 </dict>
 </plist>

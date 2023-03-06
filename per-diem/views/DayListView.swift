@@ -15,44 +15,33 @@ struct DayLabel: View {
     }
     
     var body: some View {
-        HStack(alignment: .top){
-            VStack {
-                Text(day.getDayOfWeek())
-                    .font(.title3)
-                    .fontWeight(.bold)
-                Text(day.getDate())
-                    .font(.footnote)
+        VStack(alignment: .leading, spacing: 10) {
+            HStack() {
+                Text(day.getFullDate())
+                    .font(.custom("Kohinoor Bangla", size: 18))
+                    .bold()
+                    .padding(.leading, 40.0)
                 Spacer()
             }
-            .padding(.top, 5)
-            .frame(width: 50)
-            VStack(alignment: .leading, spacing: 10) {
-                ForEach(activities.filter { $0.dateId == day.dateId }) { activity in
-                    HStack(alignment: .top, spacing: 3) {
-                        Text(activity.option?.icon ?? "")
-                            .font(.title)
-                        VStack(alignment: .leading) {
-                            Text(activity.type ?? "")
-                                .font(.headline)
-                            Text(activity.notePreview ?? "")
-                                .font(.subheadline)
-                                .lineLimit(1)
-                        }
-                        Spacer()
+            ForEach(activities.filter { $0.dateId == day.dateId }) { activity in
+                HStack(alignment: .top) {
+                    Text(activity.option?.icon ?? "")
+                        .font(.title)
+                        .frame(width: 33)
+                    VStack(alignment: .leading) {
+                        Text(activity.type ?? "")
+                            .bold()
+                        Text(activity.note ?? "")
+                            .lineLimit(3)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
+                    Spacer()
                 }
             }
-            .frame(maxWidth: .infinity, minHeight: 50)
-            .padding(.vertical, 8)
-            .padding(.horizontal, 12)
-            .background(Color("CardBackground"))
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color("CardBorder"), lineWidth: 1)
-            )
-            .cornerRadius(10)
         }
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, minHeight: 50)
+        .padding()
+        .background(Color("CardBackground"))
     }
 }
 
@@ -72,7 +61,7 @@ struct DayLink: View {
 
             HStack {
                 DayLabel(day: day)
-                Spacer()
+                    .padding(.top, 1)
             }
         }
         .listRowBackground(Color.clear)
@@ -85,19 +74,16 @@ struct DayListView: View {
 
     var body: some View {
         NavigationStack {
-            List(dateList.list) { day in
-                DayLink(day: day)
+            List {
+                ForEach(dateList.list) { day in
+                    DayLink(day: day)
+                        .listRowInsets(EdgeInsets())
+                
             }
-            .listStyle(PlainListStyle())
+            }
+            .listStyle(.plain)
             .background(Color("AppBackground"))
             .scrollContentBackground(.hidden)
-            .navigationTitle("Calendar")
         }
     }
 }
-//
-//struct DayListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DayListView()
-//    }
-//}

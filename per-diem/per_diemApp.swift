@@ -15,6 +15,7 @@ struct per_diemApp: App {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.font, .custom("Kohinoor Bangla", size: 15))
         }
     }
 }

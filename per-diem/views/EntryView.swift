@@ -51,6 +51,7 @@ struct EntryView: View {
             }
             Spacer()
         }
+        .toolbar(.hidden, for: .tabBar)
         .background(Color("AppBackground"))
         
     }

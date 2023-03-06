@@ -33,6 +33,12 @@ class DayItem: Identifiable, Hashable {
         return dateFormatter.string(from: date)
     }
     
+    public func getFullDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, MMM d"
+        return dateFormatter.string(from: date)
+    }
+    
     // How many days from Sunday is this day?
     public func getDayOffset() -> Int {
         let offset = Calendar.current.dateComponents([.weekday], from: date).weekday ?? 0
