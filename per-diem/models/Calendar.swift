@@ -55,6 +55,9 @@ class Month: Identifiable, Hashable {
                 currentWeek = []
             }
         }
+        if (!currentWeek.isEmpty) {
+            weeks.append(Week(days: currentWeek))
+        }
         return weeks
     }
     
@@ -94,53 +97,9 @@ class PDCalendar {
     
     init () {
         self.months = [
-            Month(month: .now)
+            Month(month: Calendar.current.date(byAdding: .month, value: -2, to: Date())!),
+            Month(month: Calendar.current.date(byAdding: .month, value: -1, to: Date())!),
+            Month(month: .now),
         ]
     }
 }
-
-
-//
-//
-//import Foundation
-//
-//class DayItem: Identifiable, Hashable {
-//    static func == (lhs: DayItem, rhs: DayItem) -> Bool {
-//        return lhs.id == rhs.id
-//    }
-//
-//    let id = UUID()
-//    var date: Date
-//    var dateString: String
-//    var dateId: Int64
-//    var activities: Array<Activity>
-//
-//    public func hash(into hasher: inout Hasher) {
-//        return hasher.combine(id)
-//    }
-//
-//    public func getDate() -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MMM d"
-//        return dateFormatter.string(from: date)
-//    }
-//
-//    public func getDayOfWeek() -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "E"
-//        return dateFormatter.string(from: date)
-//    }
-//
-//    init(date: Date, activities: Array<Activity>) {
-//        self.date = date;
-//
-//        let dateFormatter = DateFormatter();
-//        dateFormatter.dateFormat = "YYYY-MM-dd";
-//        let dateString = dateFormatter.string(from: date);
-//        let dateId = Int64(dateString.replacingOccurrences(of: "-", with: "")) ?? 0
-//
-//        self.dateString = dateString;
-//        self.dateId = dateId
-//        self.activities = activities.filter { $0.dateId == dateId }
-//    }
-//}

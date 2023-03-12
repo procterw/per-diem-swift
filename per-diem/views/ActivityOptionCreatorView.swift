@@ -35,9 +35,3 @@ struct ActivityOptionCreatorView: View {
         }
     }
 }
-
-struct ActivityOptionCreatorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityOptionCreatorView()
-    }
-}

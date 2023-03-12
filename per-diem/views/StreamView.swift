@@ -18,14 +18,31 @@ struct StreamItem: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(date.getFullDate())
-                .font(.subheadline)
-                .padding(.bottom, 5.0)
-            Text(activity.note ?? "")
-                .font(.body)
+        Group {
+            HStack {
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(spacing: 4) {
+                        Text(activity.option?.icon ?? "")
+                        Text(activity.type ?? "")
+//                            .font(.custom("SourceSerifPro-Semibold", size: 17))
+                            .fontWeight(.semibold)
+                    }
+                    Text(date.getFullDate())
+                        .font(.custom("SourceSerifPro-Regular", size: 18))
+                    Text(activity.note ?? "")
+                }
+                .frame(
+                      minWidth: 0,
+                      maxWidth: .infinity,
+                      minHeight: 0,
+                      maxHeight: .infinity,
+                      alignment: .topLeading
+                    )
+                .padding()
+                .background(Color("CardBackground"))
+            }
+            .padding(.top, 1)
         }
-        .padding(5)
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
     }
@@ -33,6 +50,7 @@ struct StreamItem: View {
 
 struct StreamView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject private var activityFilter: ActivityFilter
     
     @FetchRequest(
         sortDescriptors: [
@@ -44,14 +62,20 @@ struct StreamView: View {
     
     var body: some View {
         List() {
-            ForEach(activities) { activity in
+            ForEach(activities.filter {
+                if (activityFilter.selected.isEmpty) {
+                    return true
+                } else {
+                    return activityFilter.selected.contains($0.option?.type ?? "")
+                }
+            }) { activity in   
                 StreamItem(activity: activity)
+                    .listRowInsets(EdgeInsets())
             }
         }
-        .listStyle(PlainListStyle())
+        .listStyle(.plain)
         .background(Color("AppBackground"))
         .scrollContentBackground(.hidden)
-        .navigationTitle("Stream")
     }
 }
 //

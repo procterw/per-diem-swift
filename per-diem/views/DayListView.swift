@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DayLabel: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject private var activityFilter: ActivityFilter
     @FetchRequest var activities: FetchedResults<Activity>
     
     var day: DayItem
@@ -16,21 +17,30 @@ struct DayLabel: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack() {
-                Text(day.getFullDate())
-                    .font(.custom("Kohinoor Bangla", size: 18))
-                    .bold()
-                    .padding(.leading, 40.0)
+            HStack(alignment: .firstTextBaseline, spacing: 5) {
+                Text(day.getDayOfWeek())
+                    .font(.custom("SourceSerifPro-Black", size: 24))
+                Text(day.getDate())
+                    .font(.custom("SourceSerifPro-SemiBold", size: 18))
                 Spacer()
             }
-            ForEach(activities.filter { $0.dateId == day.dateId }) { activity in
+            .padding(.leading, 40.0)
+            ForEach(
+                activities.filter {
+                    if (activityFilter.selected.isEmpty) {
+                        return true
+                    } else {
+                        return activityFilter.selected.contains($0.option?.type ?? "")
+                    }
+                }
+            ) { activity in
                 HStack(alignment: .top) {
                     Text(activity.option?.icon ?? "")
                         .font(.title)
                         .frame(width: 33)
                     VStack(alignment: .leading) {
                         Text(activity.type ?? "")
-                            .bold()
+                            .font(.custom("SourceSerifPro-SemiBold", size: 17))
                         Text(activity.note ?? "")
                             .lineLimit(3)
                             .fixedSize(horizontal: false, vertical: true)
@@ -39,8 +49,8 @@ struct DayLabel: View {
                 }
             }
         }
-        .frame(maxWidth: .infinity, minHeight: 50)
-        .padding()
+        .padding(.horizontal)
+        .padding(.vertical, 15)
         .background(Color("CardBackground"))
     }
 }
@@ -59,10 +69,8 @@ struct DayLink: View {
             .opacity(0.0)
             .buttonStyle(PlainButtonStyle())
 
-            HStack {
-                DayLabel(day: day)
-                    .padding(.top, 1)
-            }
+            DayLabel(day: day)
+                .padding(.top, 5)
         }
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)

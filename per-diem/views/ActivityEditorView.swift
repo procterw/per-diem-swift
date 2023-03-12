@@ -41,10 +41,10 @@ struct ActivityEditorView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text(getTitle())
-                    .fontWeight(.bold)
-                    .font(.subheadline)
+            HStack(spacing: 3) {
+                Text(activity.option?.icon ?? "")
+                Text(activity.option?.type ?? "")
+                    .fontWeight(.semibold)
             }
             .padding([.top, .leading, .trailing])
             
@@ -52,7 +52,6 @@ struct ActivityEditorView: View {
                 TextField("Fooooo", text: $note, axis: .vertical)
                     .scrollDisabled(true)
                     .onChange(of: note) { _ in
-                        print("FOOO")
                         activity.note = note
                         if (note.count < 50) {
                             activity.notePreview = note
@@ -61,7 +60,7 @@ struct ActivityEditorView: View {
                         }
                         save()
                     }
-                    .font(.subheadline)
+//                    .font(.subheadline)
 //                    .onReceive(
 //                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
 ////                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)

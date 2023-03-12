@@ -49,6 +49,9 @@ struct ActivityCreatorView: View {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color("CardBorder"), lineWidth: 1)
             )
+            .onLongPressGesture(minimumDuration: 1) {
+                viewContext.delete(activityOpt)
+            }
         }
         .padding()
     }

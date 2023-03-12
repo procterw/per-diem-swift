@@ -16,6 +16,18 @@
         <String>SourceSerifPro-Regular.ttf</String>
         <String>SourceSerifPro-SemiBold.ttf</String>
         <String>SourceSerifPro-SemiBoldItalic.ttf</String>
+        <String>SourceSansPro-Black.ttf</String>
+        <String>SourceSansPro-BlackItalic.ttf</String>
+        <String>SourceSansPro-Bold.ttf</String>
+        <String>SourceSansPro-BoldItalic.ttf</String>
+        <String>SourceSansPro-ExtraLight.ttf</String>
+        <String>SourceSansPro-ExtraLightItalic.ttf</String>
+        <String>SourceSansPro-Italic.ttf</String>
+        <String>SourceSansPro-Light.ttf</String>
+        <String>SourceSansPro-LightItalic.ttf</String>
+        <String>SourceSansPro-Regular.ttf</String>
+        <String>SourceSansPro-SemiBold.ttf</String>
+        <String>SourceSansPro-SemiBoldItalic.ttf</String>
 	</array>
 </dict>
 </plist>

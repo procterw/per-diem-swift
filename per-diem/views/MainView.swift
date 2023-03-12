@@ -7,47 +7,34 @@
 
 import SwiftUI
 
-struct FilterView: View {
-    @FetchRequest(
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)
-        ],
-        animation: .default)
-    private var options: FetchedResults<ActivityOption>
-    
-    var selectedActivities: [String]
-    
-    var body: some View {
-        HStack() {
-            ForEach(options) { option in
-                Text(option.icon ?? "")
-                    .font(.title)
-                    .padding(.horizontal, 5)
-            }
-            Spacer()
-        }
-        .padding(.horizontal)
-//        .border(.red)
-    }
-}
-
 struct MainView: View {
+    @EnvironmentObject private var activeView: ActiveView
+
     var body: some View {
         VStack {
-            FilterView(selectedActivities: [])
-            TabView {
-                DayListView()
-                    .tabItem {
-                        Label("Daily", systemImage: "list.dash")
-                    }
-                CalendarView()
-                    .tabItem {
-                        Label("Monthly", systemImage: "calendar")
-                    }
-                StreamView()
-                    .tabItem {
-                        Label("Stream", systemImage: "scroll")
-                    }
+            HStack(spacing: 5) {
+                FilterView()
+                Spacer()
+                Divider()
+                ViewToggle()
+            }
+            .frame(height: 40)
+            .padding(.horizontal, 10)
+            .overlay(
+                VStack {
+                    Divider()
+                        .foregroundColor(.black)
+                        .background(.black)
+                        .offset(x: 0, y: 27.8)
+                }
+            )
+            switch activeView.active {
+                case "list":
+                    DayListView()
+                case "calendar":
+                    CalendarView()
+                default:
+                    Text("ERROR")
             }
         }
     }
