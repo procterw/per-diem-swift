@@ -44,12 +44,12 @@ struct ActivityEditorView: View {
             HStack(spacing: 3) {
                 Text(activity.option?.icon ?? "")
                 Text(activity.option?.type ?? "")
-                    .fontWeight(.semibold)
+                    .font(.custom("SourceSansPro-SemiBold", size: 17))
             }
             .padding([.top, .leading, .trailing])
             
             HStack {
-                TextField("Fooooo", text: $note, axis: .vertical)
+                TextField("...", text: $note, axis: .vertical)
                     .scrollDisabled(true)
                     .onChange(of: note) { _ in
                         activity.note = note
@@ -60,6 +60,7 @@ struct ActivityEditorView: View {
                         }
                         save()
                     }
+//                    .font(.custom("SourceSerifPro-Regular", size: 17))
 //                    .font(.subheadline)
 //                    .onReceive(
 //                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
@@ -83,11 +84,11 @@ struct ActivityEditorView: View {
             }
             .padding([.leading, .bottom, .trailing])
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color("CardBorder"), lineWidth: 1)
-        )
-        .cornerRadius(10)
+//        .overlay(
+//            RoundedRectangle(cornerRadius: 10)
+//                .stroke(Color("CardBorder"), lineWidth: 1)
+//        )
+//        .cornerRadius(10)
         .background(Color("CardBackground"))
 //        .padding([.top, .leading, .trailing])
     }

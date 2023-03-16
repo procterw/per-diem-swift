@@ -11,30 +11,17 @@ struct MainView: View {
     @EnvironmentObject private var activeView: ActiveView
 
     var body: some View {
-        VStack {
-            HStack(spacing: 5) {
-                FilterView()
-                Spacer()
-                Divider()
-                ViewToggle()
-            }
-            .frame(height: 40)
-            .padding(.horizontal, 10)
-            .overlay(
-                VStack {
-                    Divider()
-                        .foregroundColor(.black)
-                        .background(.black)
-                        .offset(x: 0, y: 27.8)
-                }
-            )
-            switch activeView.active {
+        ZStack {
+            Color("AppBackground")
+            VStack {
+                switch activeView.active {
                 case "list":
                     DayListView()
                 case "calendar":
                     CalendarView()
                 default:
                     Text("ERROR")
+                }
             }
         }
     }

@@ -62,7 +62,9 @@ struct DayLink: View {
         ZStack {
             NavigationLink(destination:
                 EntryView(day: day)
-                    .navigationTitle(day.getDate())
+//                    .navigationTitle(day.getFullDate())
+//                    .font(.custom("SourceSerifPro-Bold", size: 16))
+                    .toolbarBackground(Color("AppBackground"), for: .navigationBar)
             ) {
                 EmptyView()
             }
@@ -70,7 +72,7 @@ struct DayLink: View {
             .buttonStyle(PlainButtonStyle())
 
             DayLabel(day: day)
-                .padding(.top, 5)
+                .padding(.bottom, 5)
         }
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
@@ -81,17 +83,24 @@ struct DayListView: View {
     var dateList: DayList = DayList()
 
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(dateList.list) { day in
-                    DayLink(day: day)
-                        .listRowInsets(EdgeInsets())
-                
+        ZStack {
+            Color("AppBackground")
+            NavigationStack {
+                Navbar()
+                    // Why do I need to do this?
+                    .padding(.bottom, -8)
+                List {
+                    ForEach(dateList.list) { day in
+                        DayLink(day: day)
+                            .listRowInsets(EdgeInsets())
+                            .listRowBackground(Color("AppBackground"))
+                        
+                    }
+                }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
+                .background(Color("AppBackground"))
             }
-            }
-            .listStyle(.plain)
-            .background(Color("AppBackground"))
-            .scrollContentBackground(.hidden)
         }
     }
 }

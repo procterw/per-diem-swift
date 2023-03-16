@@ -97,9 +97,9 @@ class PDCalendar {
     
     init () {
         self.months = [
-            Month(month: Calendar.current.date(byAdding: .month, value: -2, to: Date())!),
-            Month(month: Calendar.current.date(byAdding: .month, value: -1, to: Date())!),
             Month(month: .now),
+            Month(month: Calendar.current.date(byAdding: .month, value: -1, to: Date())!),
+            Month(month: Calendar.current.date(byAdding: .month, value: -2, to: Date())!),
         ]
     }
 }

@@ -1,5 +1,4 @@
 import SwiftUI
-//import WrappingHStack
 
 struct ActivityCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -43,7 +42,7 @@ struct ActivityCreatorView: View {
             }
             .foregroundColor(Color("TextDark"))
             .background(Color("CardBackground"))
-            .font(.subheadline)
+            .font(.custom("SourceSansPro-SemiBold", size: 16))
             .cornerRadius(5)
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
@@ -56,9 +55,3 @@ struct ActivityCreatorView: View {
         .padding()
     }
 }
-//
-//struct ActivityCreatorView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ActivityCreatorView(day: DayItem(date: Date(), activities: []), activities: [])
-//    }
-//}

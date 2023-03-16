@@ -51,7 +51,7 @@ struct per_diemApp: App {
         WindowGroup {
             MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
-                .environment(\.font, .custom("SourceSerifPro-Regular", size: 16))
+                .environment(\.font, .custom("SourceSerifPro-Regular", size: 17))
                 .environmentObject(ActivityFilter(selected: []))
                 .environmentObject(ActiveView(active: "list"))
         }

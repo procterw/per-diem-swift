@@ -131,6 +131,7 @@ struct CalendarView: View {
 
     var body: some View {
         NavigationStack {
+            Navbar()
             ScrollView {
                 VStack {
                     ForEach(calendar.months) { month in
@@ -155,6 +156,7 @@ struct CalendarView: View {
                 .background(Color("AppBackground"))
                 .scrollContentBackground(.hidden)
             }
+            .border(.red, width: 2)
         }
     }
 }
