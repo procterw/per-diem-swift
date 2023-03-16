@@ -10,6 +10,7 @@ struct EntryView: View {
 
     init(day: DayItem) {
         self.day = day;
+        print(day)
         _activities = FetchRequest<Activity>(
             sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
             predicate: NSPredicate(format: "dateId == %d", day.dateId)
@@ -53,7 +54,6 @@ struct EntryView: View {
             .listStyle(.plain)
             Spacer()
         }
-        .navigationBarBackButtonHidden(true)
         .background(Color("AppBackground"))
     }
 }

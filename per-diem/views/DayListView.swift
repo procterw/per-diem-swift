@@ -62,8 +62,6 @@ struct DayLink: View {
         ZStack {
             NavigationLink(destination:
                 EntryView(day: day)
-//                    .navigationTitle(day.getFullDate())
-//                    .font(.custom("SourceSerifPro-Bold", size: 16))
                     .toolbarBackground(Color("AppBackground"), for: .navigationBar)
             ) {
                 EmptyView()
@@ -80,7 +78,7 @@ struct DayLink: View {
 }
 
 struct DayListView: View {
-    var dateList: DayList = DayList()
+    @ObservedObject var dateList: DayList = DayList()
 
     var body: some View {
         ZStack {
@@ -94,6 +92,9 @@ struct DayListView: View {
                         DayLink(day: day)
                             .listRowInsets(EdgeInsets())
                             .listRowBackground(Color("AppBackground"))
+                            .onAppear {
+                                dateList.loadMore()
+                            }
                         
                     }
                 }

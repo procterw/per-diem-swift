@@ -1,24 +1,27 @@
 import Foundation
 
-class DayList: Hashable {
+class DayList: ObservableObject {
     static func == (lhs: DayList, rhs: DayList) -> Bool {
         return lhs.id == rhs.id
     }
     
     let id = UUID()
-    var list: Array<DayItem>
+    @Published var list: Array<DayItem> = []
+    var index = 0;
     
-    public func hash(into hasher: inout Hasher) {
-        return hasher.combine(id)
+    public func loadMore() {
+        index = index + 1
+        let interval = -86400 * index;
+        self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(interval)), activities: []));
+//        for i in index...index + 15 {
+//            let interval = -86400 * i;
+//            self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(interval)), activities: []));
+//        }
+//        index = index + 16
     }
 
     init() {
-        var list: Array<DayItem> = [];
-        for i in 0...15 {
-            let interval = -86400 * i;
-            list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(interval)), activities: []));
-        }
-        self.list = list;
+        self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(0)), activities: []))
     }
 }
 

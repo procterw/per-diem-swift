@@ -92,8 +92,18 @@ class Month: Identifiable, Hashable {
     }
 }
 
-class PDCalendar {
-    var months: [Month]
+class PDCalendar: ObservableObject {
+    @Published var months: [Month]
+    
+    var index = -2;
+    
+    public func loadMore() {
+        self.months.append(
+            Month(month: Calendar.current.date(byAdding: .month, value: index - 1, to: Date())!)
+        )
+
+        index = index - 1
+    }
     
     init () {
         self.months = [
