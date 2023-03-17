@@ -93,7 +93,7 @@ struct DayListView: View {
                             .listRowInsets(EdgeInsets())
                             .listRowBackground(Color("AppBackground"))
                             .onAppear {
-                                dateList.loadMore()
+                                dateList.loadMore(date: day.date)
                             }
                         
                     }

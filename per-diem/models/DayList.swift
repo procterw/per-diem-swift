@@ -1,27 +1,20 @@
 import Foundation
 
 class DayList: ObservableObject {
-    static func == (lhs: DayList, rhs: DayList) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    let id = UUID()
     @Published var list: Array<DayItem> = []
-    var index = 0;
+    var earliestDate: Date = .now
     
-    public func loadMore() {
-        index = index + 1
-        let interval = -86400 * index;
+    public func loadMore(date: Date) {
+        if (date > earliestDate) {
+            return
+        }
+        self.earliestDate = date
+        let interval = -86400 * list.count;
         self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(interval)), activities: []));
-//        for i in index...index + 15 {
-//            let interval = -86400 * i;
-//            self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(interval)), activities: []));
-//        }
-//        index = index + 16
     }
 
     init() {
-        self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(0)), activities: []))
+        self.list.append(DayItem(date: .now, activities: []))
     }
 }
 

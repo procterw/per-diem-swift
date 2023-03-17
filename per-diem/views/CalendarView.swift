@@ -4,16 +4,27 @@
 //
 //  Created by William Leahy on 2/24/23.
 //
-
 import SwiftUI
-
-struct DayCellContent: View {
+//
+//List() {
+//    ForEach(activities.filter {
+//        if (activityFilter.selected.isEmpty) {
+//            return true
+//        } else {
+//            return activityFilter.selected.contains($0.option?.type ?? "")
+//        }
+//    }) { activity in
+//        StreamItem(activity: activity)
+//            .listRowInsets(EdgeInsets())
+//    }
+//}
+struct DayCell: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest var activities: FetchedResults<Activity>
-    var day: DayItem
     @EnvironmentObject private var activityFilter: ActivityFilter
     
-    
+    var day: DayItem
+
     init(day: DayItem) {
         self.day = day;
         _activities = FetchRequest<Activity>(
@@ -37,48 +48,46 @@ struct DayCellContent: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            Group {
-                VStack(spacing: 3) {
-                    HStack(spacing: 0) {
-                        Text(day.getDayOfMonth())
-                            .font(.custom("SourceSansPro-SemiBold", size: 15))
-                            .frame(maxWidth: .infinity)
-                        getActivity(index: 0)
+        NavigationLink(destination:
+            EntryView(day: day)
+                .navigationTitle(day.getDate())
+        ) {
+            VStack(spacing: 0) {
+                Group {
+                    VStack(spacing: 3) {
+                        HStack(spacing: 0) {
+                            Text(day.getDayOfMonth())
+                                .font(.custom("SourceSansPro-SemiBold", size: 15))
+                                .frame(maxWidth: .infinity)
+                            getActivity(index: 0)
+                        }
+                        HStack(spacing: 0) {
+                            getActivity(index: 1)
+                            getActivity(index: 2)
+                        }
                     }
-                    HStack(spacing: 0) {
-                        getActivity(index: 1)
-                        getActivity(index: 2)
-                    }
+                    .padding(4)
+                    .frame(height: 55)
+                    .cornerRadius(5)
                 }
-                .padding(4)
-                .frame(height: 55)
-                .cornerRadius(5)
+                .background(Color("CardBackground"))
+
+//                Group {
+//                    LazyVGrid(columns: columns, alignment: .leading) {
+//                        ForEach(activities) { activity in
+//                            Text(activity.option?.icon ?? "")
+//                        }
+//                    }
+//                }
+//                .frame(height: 60)
+//                .background(Color("CardBackground"))
             }
-            .background(Color("CardBackground"))
+//            .border(Color("AppBackgroundLight"))
+//            .padding(0.25)
         }
-    }
-}
-
-struct DayCell: View {
-    var day: DayItem
-
-    var body: some View {
-        ZStack {
-            NavigationLink(destination:
-                EntryView(day: day)
-                    .toolbarBackground(Color("AppBackground"), for: .navigationBar)
-            ) {
-                EmptyView()
-            }
-            .opacity(0.0)
-            .buttonStyle(PlainButtonStyle())
-
-            DayCellContent(day: day)
-                .padding(.bottom, 5)
-        }
-        .listRowBackground(Color.clear)
-        .listRowSeparator(.hidden)
+        .isDetailLink(false)
+        .buttonStyle(PlainButtonStyle())
+        .cornerRadius(3)
     }
 }
 
@@ -102,13 +111,13 @@ struct WeekRowView: View {
 struct DayOfWeekLabels: View {
     private let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 //    private let days: [String] = ["S", "M", "T", "W", "T", "F", "S"]
-
     var body: some View {
         HStack() {
             ForEach(days, id: \.self) { day in
                 Text(day)
                     .frame(maxWidth: .infinity)
                     .font(.custom("SourceSansPro-SemiBold", size: 13))
+//                    .italic()
             }
         }
     }
@@ -120,29 +129,33 @@ struct CalendarView: View {
     var body: some View {
         NavigationStack {
             Navbar()
-            List {
-                ForEach(calendar.months) { month in
-                    Grid(horizontalSpacing: 2, verticalSpacing: 2) {
-                        Text(month.getMonthName())
-                            .font(.custom("SourceSerifPro-Black", size: 24))
-                            .padding(.vertical, 5)
-                        DayOfWeekLabels()
-                            .padding(.vertical, 5)
-                        ForEach(month.weeks) { week in
-                            WeekRowView(week: week)
+            ScrollView {
+                LazyVStack {
+                    ForEach(calendar.months) { month in
+                        Grid(horizontalSpacing: 2, verticalSpacing: 2) {
+                            Text(month.getMonthName())
+                                .font(.custom("SourceSerifPro-Black", size: 24))
+                                .padding(.vertical, 5)
+//                                .foregroundColor(Color("AppBackgroundBold"))
+//                            Divider()
+                            DayOfWeekLabels()
+                                .padding(.vertical, 5)
+//                            Divider()
+                            ForEach(month.weeks) { week in
+                                WeekRowView(week: week)
+                            }
                         }
+                        .padding(6)
+                        .onAppear {
+                            calendar.loadMore(month: month)
+                        }
+                        //                    .padding()
                     }
-                    .padding(6)
-                    .background(Color("AppBackground"))
-                    .listRowInsets(EdgeInsets())
-                    .onAppear {
-                        calendar.loadMore()
-                    }
+                    Spacer()
                 }
+                .background(Color("AppBackground"))
+//                .scrollContentBackground(.hidden)
             }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
-            .background(Color("AppBackground"))
         }
     }
 }

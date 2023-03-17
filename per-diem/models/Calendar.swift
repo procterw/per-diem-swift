@@ -95,21 +95,22 @@ class Month: Identifiable, Hashable {
 class PDCalendar: ObservableObject {
     @Published var months: [Month]
     
-    var index = -2;
+    var earliestMonthDate: Date
     
-    public func loadMore() {
+    public func loadMore(month: Month) {
+        if (month.initDate >= earliestMonthDate) {
+            return
+        }
+        earliestMonthDate = month.initDate
         self.months.append(
-            Month(month: Calendar.current.date(byAdding: .month, value: index - 1, to: Date())!)
+            Month(month: Calendar.current.date(byAdding: .month, value: -1, to: earliestMonthDate)!)
         )
-
-        index = index - 1
     }
     
     init () {
         self.months = [
             Month(month: .now),
-            Month(month: Calendar.current.date(byAdding: .month, value: -1, to: Date())!),
-            Month(month: Calendar.current.date(byAdding: .month, value: -2, to: Date())!),
         ]
+        earliestMonthDate = .now;
     }
 }
