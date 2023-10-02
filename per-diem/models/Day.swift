@@ -39,6 +39,10 @@ class DayItem: Identifiable, Hashable {
         return dateFormatter.string(from: date)
     }
     
+    public func isInTheFuture() -> Bool {
+        return self.date < Date()
+    }
+    
     // How many days from Sunday is this day?
     public func getDayOffset() -> Int {
         let offset = Calendar.current.dateComponents([.weekday], from: date).weekday ?? 0

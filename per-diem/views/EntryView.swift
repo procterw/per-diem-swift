@@ -51,8 +51,7 @@ struct EntryView: View {
             }
             .background(Color("AppBackground"))
             .scrollContentBackground(.hidden)
-            .listStyle(.plain)
-            Spacer()
+            .listStyle(.plain) 
         }
         .background(Color("AppBackground"))
     }

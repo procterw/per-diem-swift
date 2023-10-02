@@ -5,19 +5,7 @@
 //  Created by William Leahy on 2/24/23.
 //
 import SwiftUI
-//
-//List() {
-//    ForEach(activities.filter {
-//        if (activityFilter.selected.isEmpty) {
-//            return true
-//        } else {
-//            return activityFilter.selected.contains($0.option?.type ?? "")
-//        }
-//    }) { activity in
-//        StreamItem(activity: activity)
-//            .listRowInsets(EdgeInsets())
-//    }
-//}
+
 struct DayCell: View {
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest var activities: FetchedResults<Activity>
@@ -55,20 +43,20 @@ struct DayCell: View {
             VStack(spacing: 0) {
                 Group {
                     VStack(spacing: 3) {
-                        HStack(spacing: 0) {
+                        HStack(alignment: .top, spacing: 0) {
                             Text(day.getDayOfMonth())
                                 .font(.custom("SourceSansPro-SemiBold", size: 15))
                                 .frame(maxWidth: .infinity)
                             getActivity(index: 0)
                         }
-                        HStack(spacing: 0) {
+                        HStack(alignment: .top, spacing: 0) {
                             getActivity(index: 1)
                             getActivity(index: 2)
                         }
                     }
                     .padding(4)
-                    .frame(height: 55)
                     .cornerRadius(5)
+                    .frame(height: 55, alignment: .top)
                 }
                 .background(Color("CardBackground"))
 
@@ -129,6 +117,7 @@ struct CalendarView: View {
     var body: some View {
         NavigationStack {
             Navbar()
+                .padding(.bottom, -8)
             ScrollView {
                 LazyVStack {
                     ForEach(calendar.months) { month in
@@ -136,26 +125,24 @@ struct CalendarView: View {
                             Text(month.getMonthName())
                                 .font(.custom("SourceSerifPro-Black", size: 24))
                                 .padding(.vertical, 5)
-//                                .foregroundColor(Color("AppBackgroundBold"))
-//                            Divider()
                             DayOfWeekLabels()
                                 .padding(.vertical, 5)
-//                            Divider()
                             ForEach(month.weeks) { week in
                                 WeekRowView(week: week)
                             }
                         }
-                        .padding(6)
+                        .padding(.horizontal, 6)
+                        .padding(.top, 12)
                         .onAppear {
                             calendar.loadMore(month: month)
                         }
-                        //                    .padding()
                     }
                     Spacer()
                 }
                 .background(Color("AppBackground"))
-//                .scrollContentBackground(.hidden)
             }
+            .background(Color("AppBackground"))
         }
+        .background(Color("AppBackground"))
     }
 }

@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-//class ActivityEditorViewModel: ObservableObject {
-//    @Published var note: String
-//
-//    init(note: String) {
-//        self.note = note
-//    }
-//}
-
 struct ActivityEditorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var activity: Activity
@@ -60,42 +52,10 @@ struct ActivityEditorView: View {
                         }
                         save()
                     }
-//                    .font(.custom("SourceSerifPro-Regular", size: 17))
-//                    .font(.subheadline)
-//                    .onReceive(
-//                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
-////                        viewModel.$note.throttle(for: 2, scheduler: RunLoop.main, latest: true)
-//                    ) { note in
-////                        let activity = Activity(context: viewContext)
-//                        activity.note = note;
-//                        activity.dateModified = Date()
-//                        if (note.count < 50) {
-//                            activity.notePreview = note
-//                        } else {
-//                            activity.notePreview = String(note.prefix(upTo: note.index(note.startIndex, offsetBy: 50)))
-//                        }
-//                        do {
-//                            try viewContext.save()
-//                        } catch {
-//                            // Handle error
-//                        }
-//                    }
 
             }
             .padding([.leading, .bottom, .trailing])
         }
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 10)
-//                .stroke(Color("CardBorder"), lineWidth: 1)
-//        )
-//        .cornerRadius(10)
         .background(Color("CardBackground"))
-//        .padding([.top, .leading, .trailing])
     }
 }
-//
-//struct ActivityEditorView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ActivityEditorView(activity: Activity())
-//    }
-//}

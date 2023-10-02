@@ -22,19 +22,20 @@ struct ActivityCreatorView: View {
         
         WrappedHStack(filteredOptions) { activityOpt in
             Button(action: {
-                let activity = Activity(context: viewContext)
-                activity.type = activityOpt.type
-                activity.note = ""
-                activity.notePreview = ""
-                activity.dateId = day.dateId
-                activity.option = activityOpt
-                activity.dateAdded = Date()
-                activity.dateModified = Date()
-                do {
-                    try viewContext.save()
-                } catch {
-                    // Handle error
-                }
+                print(activityOpt.type)
+//                let activity = Activity(context: viewContext)
+//                activity.type = activityOpt.type
+//                activity.note = ""
+//                activity.notePreview = ""
+//                activity.dateId = day.dateId
+//                activity.option = activityOpt
+//                activity.dateAdded = Date()
+//                activity.dateModified = Date()
+//                do {
+//                    try viewContext.save()
+//                } catch {
+//                    // Handle error
+//                }
             }) {
                 Text([activityOpt.icon ?? "", activityOpt.type ?? ""].joined(separator: " "))
                     .padding(.all, 10)
@@ -48,9 +49,9 @@ struct ActivityCreatorView: View {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color("CardBorder"), lineWidth: 1)
             )
-            .onLongPressGesture(minimumDuration: 1) {
-                viewContext.delete(activityOpt)
-            }
+//            .onLongPressGesture(minimumDuration: 1) {
+//                viewContext.delete(activityOpt)
+//            }
         }
         .padding()
     }
