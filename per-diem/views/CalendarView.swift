@@ -122,9 +122,14 @@ struct CalendarView: View {
                 LazyVStack {
                     ForEach(calendar.months) { month in
                         Grid(horizontalSpacing: 2, verticalSpacing: 2) {
-                            Text(month.getMonthName())
-                                .font(.custom("SourceSerifPro-Black", size: 24))
-                                .padding(.vertical, 5)
+                            HStack {
+                                Text(month.getMonthName())
+                                    .font(.custom("SourceSerifPro-Black", size: 24))
+                                    .padding(.vertical, 5)
+                                Text(month.getYear())
+                                    .font(.custom("SourceSerifPro-Regular", size: 18))
+                                    .padding(.vertical, 5)
+                            }
                             DayOfWeekLabels()
                                 .padding(.vertical, 5)
                             ForEach(month.weeks) { week in

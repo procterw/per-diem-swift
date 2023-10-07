@@ -8,8 +8,8 @@
 import SwiftUI
 
 class ActivityViewModel: ObservableObject {
-    @Published var icon: String = "⛵"
-    @Published var activity: String = "test"
+    @Published var icon: String = ""
+    @Published var activity: String = ""
 }
 
 struct ActivityOptionCreatorView: View {
@@ -18,20 +18,28 @@ struct ActivityOptionCreatorView: View {
     @ObservedObject var viewModel: ActivityViewModel = ActivityViewModel()
 
     var body: some View {
-        Form {
-            TextField("Bar", text: $viewModel.icon)
-            TextField("Foo", text: $viewModel.activity)
-        }
-        Button("Save it") {
-            let a = ActivityOption(context: viewContext)
-            a.type = viewModel.activity
-            a.icon = viewModel.icon
-            do {
-                try viewContext.save()
-                dismiss()
-            } catch {
-                // Handle error
+        HStack {
+            EmojiTextField(text: $viewModel.icon, placeholder: "🤹")
+                .frame(width: 40)
+            TextField("Add category", text: $viewModel.activity)
+                .fontWeight(.semibold)
+            Button(action: {
+                let a = ActivityOption(context: viewContext)
+                a.type = viewModel.activity
+                a.icon = viewModel.icon
+                do {
+                    try viewContext.save()
+                    viewModel.icon = "🤹"
+                    viewModel.activity = ""
+                } catch {
+                    // Handle error
+                }
+            }) {
+                Label("AddButton", systemImage: "plus.app")
+                    .labelStyle(.iconOnly)
+                    .foregroundColor(.black)
             }
+            .disabled(viewModel.icon.isEmpty || viewModel.activity.isEmpty)
         }
     }
 }

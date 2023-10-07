@@ -45,6 +45,12 @@ class Month: Identifiable, Hashable {
         return dateFormatter.string(from: initDate)
     }
     
+    public func getYear() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY"
+        return dateFormatter.string(from: initDate)
+    }
+    
     func splitDaysIntoWeeks(for days: [DayItem]) -> [Week] {
         var weeks: [Week] = []
         var currentWeek: [DayItem] = []

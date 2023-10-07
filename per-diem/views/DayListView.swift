@@ -70,7 +70,7 @@ struct DayLink: View {
             .buttonStyle(PlainButtonStyle())
 
             DayLabel(day: day)
-                .padding(.bottom, 5)
+                .padding(.bottom, day.getDayOfWeek() == "Sun" ? 12 : 1)
         }
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)

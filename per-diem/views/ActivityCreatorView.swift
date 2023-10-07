@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ActivityCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var showingDeleteAlert = false
     
     var day: DayItem
     var activities: FetchedResults<Activity>
@@ -19,27 +20,45 @@ struct ActivityCreatorView: View {
     }
     
     var body: some View {
-        
         WrappedHStack(filteredOptions) { activityOpt in
-            Button(action: {
-                print(activityOpt.type)
-//                let activity = Activity(context: viewContext)
-//                activity.type = activityOpt.type
-//                activity.note = ""
-//                activity.notePreview = ""
-//                activity.dateId = day.dateId
-//                activity.option = activityOpt
-//                activity.dateAdded = Date()
-//                activity.dateModified = Date()
-//                do {
-//                    try viewContext.save()
-//                } catch {
-//                    // Handle error
-//                }
-            }) {
+            Button(action: {}){
                 Text([activityOpt.icon ?? "", activityOpt.type ?? ""].joined(separator: " "))
                     .padding(.all, 10)
                     .cornerRadius(5)
+            }
+            //    https://stackoverflow.com/a/66539032/1676699
+            .simultaneousGesture(
+                LongPressGesture()
+                    .onEnded { _ in
+                        showingDeleteAlert = true
+                    }
+            )
+            .highPriorityGesture(
+                TapGesture()
+                    .onEnded { _ in
+                        let activity = Activity(context: viewContext)
+                        activity.type = activityOpt.type
+                        activity.note = ""
+                        activity.notePreview = ""
+                        activity.dateId = day.dateId
+                        activity.option = activityOpt
+                        activity.dateAdded = Date()
+                        activity.dateModified = Date()
+                        do {
+                            try viewContext.save()
+                        } catch {
+                            // Handle error
+                        }
+                    }
+            )
+            .confirmationDialog(
+                Text("Delete category " + (activityOpt.type ?? "") + "?"),
+                isPresented: $showingDeleteAlert,
+                titleVisibility: .visible
+            ) {
+                Button("Delete", role: .destructive) {
+                    viewContext.delete(activityOpt)
+                }
             }
             .foregroundColor(Color("TextDark"))
             .background(Color("CardBackground"))
@@ -49,9 +68,7 @@ struct ActivityCreatorView: View {
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(Color("CardBorder"), lineWidth: 1)
             )
-//            .onLongPressGesture(minimumDuration: 1) {
-//                viewContext.delete(activityOpt)
-//            }
+            .buttonStyle(BorderlessButtonStyle())
         }
         .padding()
     }
