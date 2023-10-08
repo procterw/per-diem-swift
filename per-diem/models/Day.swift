@@ -39,6 +39,10 @@ class DayItem: Identifiable, Hashable {
         return dateFormatter.string(from: date)
     }
     
+    public func isToday() -> Bool {
+        return Calendar.current.isDateInToday(self.date)
+    }
+    
     public func isInTheFuture() -> Bool {
         return self.date < Date()
     }

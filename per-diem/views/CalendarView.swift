@@ -58,7 +58,7 @@ struct DayCell: View {
                     .cornerRadius(5)
                     .frame(height: 55, alignment: .top)
                 }
-                .background(Color("CardBackground"))
+                .background(day.isToday() ? Color("TodayBackground") : Color("CardBackground"))
 
 //                Group {
 //                    LazyVGrid(columns: columns, alignment: .leading) {

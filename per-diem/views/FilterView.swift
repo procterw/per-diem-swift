@@ -20,7 +20,11 @@ struct FilterView: View {
         ScrollView(.horizontal) {
             HStack {
                 ForEach(options) { option in
-                    VStack {
+                    ZStack {
+                        Circle()
+                            .fill(Color("FilterSelectBackground"))
+                            .frame(width: activityFilter.selected.contains(option.type ?? "") ? 20 : 0)
+
                         Text(option.icon ?? "")
                             .font(.title)
                             .onTapGesture {
@@ -34,17 +38,6 @@ struct FilterView: View {
                                 }
                                 print(option.type ?? "")
                             }
-//                            .overlay(
-//                                Rectangle()
-//                                    .frame(width: 10, height: 10)
-//                                    .offset(x: 0, y: -20)
-//
-//
-//                            )
-                            .border(
-                                .black,
-                                width:  activityFilter.selected.contains(option.type ?? "") ? 3 : 0
-                            )
                     }
                 }
             }
