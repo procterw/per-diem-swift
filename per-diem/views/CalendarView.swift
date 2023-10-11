@@ -38,7 +38,6 @@ struct DayCell: View {
     var body: some View {
         NavigationLink(destination:
             EntryView(day: day)
-                .navigationTitle(day.getDate())
         ) {
             VStack(spacing: 0) {
                 Group {

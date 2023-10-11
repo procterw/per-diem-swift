@@ -23,7 +23,7 @@ struct FilterView: View {
                     ZStack {
                         Circle()
                             .fill(Color("FilterSelectBackground"))
-                            .frame(width: activityFilter.selected.contains(option.type ?? "") ? 20 : 0)
+                            .frame(width: activityFilter.selected.contains(option.type ?? "") ? 28 : 0)
 
                         Text(option.icon ?? "")
                             .font(.title)

@@ -16,30 +16,84 @@ struct ActivityOptionCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ActivityViewModel = ActivityViewModel()
+    
+    @State private var isCreatorVisible: Bool = false
 
     var body: some View {
-        HStack {
-            EmojiTextField(text: $viewModel.icon, placeholder: "🤹")
-                .frame(width: 40)
-            TextField("Add category", text: $viewModel.activity)
-                .fontWeight(.semibold)
+        if !isCreatorVisible {
             Button(action: {
-                let a = ActivityOption(context: viewContext)
-                a.type = viewModel.activity
-                a.icon = viewModel.icon
-                do {
-                    try viewContext.save()
-                    viewModel.icon = "🤹"
-                    viewModel.activity = ""
-                } catch {
-                    // Handle error
-                }
+                isCreatorVisible = true
             }) {
-                Label("AddButton", systemImage: "plus.app")
-                    .labelStyle(.iconOnly)
-                    .foregroundColor(.black)
+                Text("Add category")
+                    .padding(.all, 10)
+                    .frame(maxWidth: .infinity)
             }
-            .disabled(viewModel.icon.isEmpty || viewModel.activity.isEmpty)
+            .foregroundColor(Color("TextDark"))
+            .background(Color("CardBackground"))
+            .font(.custom("SourceSansPro-SemiBold", size: 16))
+            .cornerRadius(5)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color("CardBorder"), lineWidth: 1)
+            )
+        } else {
+            VStack {
+                Grid(alignment: .leading, horizontalSpacing: 10) {
+                    GridRow {
+                        Text("Icon")
+                            .fontWeight(.semibold)
+                        TextField("🏃‍♀️", text: $viewModel.icon)
+                    }
+                    GridRow {
+                        Text("Label")
+                            .fontWeight(.semibold)
+                        TextField("Running", text: $viewModel.activity)
+                    }
+                }
+                HStack {
+                    Button(action: {
+                        isCreatorVisible = false
+                    }) {
+                        Text("Nevermind")
+                            .padding(.all, 10)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .foregroundColor(Color("TextDark"))
+                    .background(Color("CardBackground"))
+                    .font(.custom("SourceSansPro-SemiBold", size: 16))
+                    .cornerRadius(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("CardBorder"), lineWidth: 1)
+                    )
+                    
+                    Button(action: {
+                        let a = ActivityOption(context: viewContext)
+                        a.type = viewModel.activity
+                        a.icon = viewModel.icon
+                        do {
+                            try viewContext.save()
+                            viewModel.icon = ""
+                            viewModel.activity = ""
+                        } catch {
+                            // Handle error
+                        }
+                    }) {
+                        Text("Add category")
+                            .padding(.all, 10)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .disabled(viewModel.icon.isEmpty || viewModel.activity.isEmpty)
+                    .foregroundColor(Color("TextDark"))
+                    .background(Color("CardBackground"))
+                    .font(.custom("SourceSansPro-SemiBold", size: 16))
+                    .cornerRadius(5)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("CardBorder"), lineWidth: 1)
+                    )
+                }
+            }
         }
     }
 }

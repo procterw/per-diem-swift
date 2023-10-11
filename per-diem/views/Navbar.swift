@@ -19,12 +19,6 @@ struct Navbar: View {
             Divider()
         }
         .background(Color("AppBackground"))
-//        .overlay(
-//            VStack {
-//                Divider()
-//                    .offset(x: 0, y: 0)
-//            }
-//        )
     }
 }
 
@@ -55,5 +49,6 @@ struct EntryNavbar: View {
                     .offset(x: 0, y: 27)
             }
         )
+        .navigationBarBackButtonHidden(true)
     }
 }

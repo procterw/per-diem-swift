@@ -50,12 +50,13 @@ struct EntryView: View {
                     .listRowInsets(EdgeInsets())
                 
                 ActivityOptionCreatorView()
+                    .listRowSeparator(.hidden)
+                    .scrollContentBackground(.hidden)
+                    .listRowBackground(Color("AppBackground"))
             }
             .background(Color("AppBackground"))
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
-            
-            
         }
         .background(Color("AppBackground"))
     }

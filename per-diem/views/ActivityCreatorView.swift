@@ -3,6 +3,7 @@ import SwiftUI
 struct ActivityCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showingDeleteAlert = false
+    @State private var optionToDelete = ""
     
     var day: DayItem
     var activities: FetchedResults<Activity>
@@ -30,6 +31,7 @@ struct ActivityCreatorView: View {
             .simultaneousGesture(
                 LongPressGesture()
                     .onEnded { _ in
+                        optionToDelete = activityOpt.type ?? ""
                         showingDeleteAlert = true
                     }
             )
@@ -52,12 +54,21 @@ struct ActivityCreatorView: View {
                     }
             )
             .confirmationDialog(
-                Text("Delete category " + (activityOpt.type ?? "") + "?"),
+                Text("Delete category " + optionToDelete + "?"),
                 isPresented: $showingDeleteAlert,
                 titleVisibility: .visible
             ) {
+                Text("FOOOOOOO")
                 Button("Delete", role: .destructive) {
-                    viewContext.delete(activityOpt)
+                    do {
+                        if let activityOpt = activityOptions.first(where: { $0.type == optionToDelete }) {
+                            print("YEAHHH", optionToDelete)
+                            viewContext.delete(activityOpt)
+                            try viewContext.save()
+                        }
+                    } catch {
+                        // Handle error
+                    }
                 }
             }
             .foregroundColor(Color("TextDark"))
@@ -69,7 +80,9 @@ struct ActivityCreatorView: View {
                     .stroke(Color("CardBorder"), lineWidth: 1)
             )
             .buttonStyle(BorderlessButtonStyle())
+            .scrollContentBackground(.hidden)
         }
         .padding()
+        .scrollContentBackground(.hidden)
     }
 }
