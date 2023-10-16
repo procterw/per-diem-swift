@@ -35,10 +35,8 @@ struct EntryView: View {
             List() {
                 ForEach(activities) { activity in
                     ActivityEditorView(activity: activity)
-                        .padding(.bottom, 5)
                 }
                 .onDelete(perform: delete)
-                .listRowSeparator(.hidden)
                 .scrollContentBackground(.hidden)
                 .listRowBackground(Color("AppBackground"))
                 .listRowInsets(EdgeInsets())

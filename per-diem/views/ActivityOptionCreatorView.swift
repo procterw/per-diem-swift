@@ -60,6 +60,7 @@ struct ActivityOptionCreatorView: View {
                     }
                     .foregroundColor(Color("TextDark"))
                     .background(Color("CardBackground"))
+                    .buttonStyle(PlainButtonStyle())
                     .font(.custom("SourceSansPro-SemiBold", size: 16))
                     .cornerRadius(5)
                     .overlay(
@@ -75,6 +76,7 @@ struct ActivityOptionCreatorView: View {
                             try viewContext.save()
                             viewModel.icon = ""
                             viewModel.activity = ""
+                            isCreatorVisible = false
                         } catch {
                             // Handle error
                         }
@@ -86,6 +88,7 @@ struct ActivityOptionCreatorView: View {
                     .disabled(viewModel.icon.isEmpty || viewModel.activity.isEmpty)
                     .foregroundColor(Color("TextDark"))
                     .background(Color("CardBackground"))
+                    .buttonStyle(PlainButtonStyle())
                     .font(.custom("SourceSansPro-SemiBold", size: 16))
                     .cornerRadius(5)
                     .overlay(

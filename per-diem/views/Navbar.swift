@@ -34,7 +34,7 @@ struct EntryNavbar: View {
             } label: {
                 Label("BackButton", systemImage: "arrowshape.backward.fill")
                     .labelStyle(.iconOnly)
-                    .foregroundColor(.black)
+                    .foregroundColor(Color("TextDark"))
             }
             Text(day.getFullDate())
                 .font(.custom("SourceSerifPro-SemiBold", size: 18))

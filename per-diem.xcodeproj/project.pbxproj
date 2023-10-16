@@ -53,6 +53,7 @@
 		71C05F9729B47E9500E33E99 /* SourceSerifPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */; };
 		71C05F9A29B47E9500E33E99 /* SourceSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */; };
 		71C05F9D29B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */; };
+		71DFC6AB2ADB567600192CFA /* ExportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFC6AA2ADB567600192CFA /* ExportButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Regular.ttf"; sourceTree = "<group>"; };
 		71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Bold.ttf"; sourceTree = "<group>"; };
 		71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-BlackItalic.ttf"; sourceTree = "<group>"; };
+		71DFC6AA2ADB567600192CFA /* ExportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				71010E3E29BDA58E0051FBA9 /* FilterView.swift */,
 				71010E4529BEA9C60051FBA9 /* Navbar.swift */,
 				71B55F322ACD2EC200999ADD /* EmojiTextField.swift */,
+				71DFC6AA2ADB567600192CFA /* ExportButton.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				715DB9E329A1942200260B7C /* ActivityCreatorView.swift in Sources */,
 				715DB9F429AF229800260B7C /* StreamView.swift in Sources */,
 				71507312299EE61900100B88 /* per_diemApp.swift in Sources */,
+				71DFC6AB2ADB567600192CFA /* ExportButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

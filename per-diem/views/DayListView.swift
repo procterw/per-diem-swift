@@ -90,6 +90,7 @@ struct DayListView: View {
                 Navbar()
                     // Why do I need to do this?
                     .padding(.bottom, -8)
+                ExportButton()
                 List {
                     ForEach(dateList.list) { day in
                         DayLink(day: day)
