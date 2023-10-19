@@ -53,7 +53,6 @@
 		71C05F9729B47E9500E33E99 /* SourceSerifPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */; };
 		71C05F9A29B47E9500E33E99 /* SourceSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */; };
 		71C05F9D29B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */; };
-		71DFC6AB2ADB567600192CFA /* ExportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DFC6AA2ADB567600192CFA /* ExportButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +71,7 @@
 		71010E3C29BDA5670051FBA9 /* ViewToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToggle.swift; sourceTree = "<group>"; };
 		71010E3E29BDA58E0051FBA9 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		71010E4529BEA9C60051FBA9 /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
+		71134F022ADF328000A41DE4 /* per-diem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "per-diem.entitlements"; sourceTree = "<group>"; };
 		7150730E299EE61900100B88 /* per-diem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "per-diem.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71507311299EE61900100B88 /* per_diemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = per_diemApp.swift; sourceTree = "<group>"; };
 		71507315299EE61A00100B88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 		71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Regular.ttf"; sourceTree = "<group>"; };
 		71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Bold.ttf"; sourceTree = "<group>"; };
 		71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-BlackItalic.ttf"; sourceTree = "<group>"; };
-		71DFC6AA2ADB567600192CFA /* ExportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +137,7 @@
 		71507310299EE61900100B88 /* per-diem */ = {
 			isa = PBXGroup;
 			children = (
+				71134F022ADF328000A41DE4 /* per-diem.entitlements */,
 				71C05F6B29B47E9500E33E99 /* Source_Serif_Pro */,
 				7150734829A18CD400100B88 /* models */,
 				7150734729A18CC000100B88 /* views */,
@@ -165,7 +165,6 @@
 				71010E3E29BDA58E0051FBA9 /* FilterView.swift */,
 				71010E4529BEA9C60051FBA9 /* Navbar.swift */,
 				71B55F322ACD2EC200999ADD /* EmojiTextField.swift */,
-				71DFC6AA2ADB567600192CFA /* ExportButton.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -244,7 +243,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					7150730D299EE61900100B88 = {
 						CreatedOnToolsVersion = 14.2;
@@ -332,7 +331,6 @@
 				715DB9E329A1942200260B7C /* ActivityCreatorView.swift in Sources */,
 				715DB9F429AF229800260B7C /* StreamView.swift in Sources */,
 				71507312299EE61900100B88 /* per_diemApp.swift in Sources */,
-				71DFC6AB2ADB567600192CFA /* ExportButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +373,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -435,6 +434,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -458,12 +458,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "per-diem/per-diem.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WLK83U3V7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "per-diem/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -488,12 +490,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "per-diem/per-diem.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = WLK83U3V7W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "per-diem/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

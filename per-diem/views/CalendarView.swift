@@ -136,17 +136,20 @@ struct CalendarView: View {
                             }
                         }
                         .padding(.horizontal, 6)
-                        .padding(.top, 12)
+                        .padding(.bottom, 12)
+                        .rotationEffect(Angle(degrees: 180))
+                        .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
                         .onAppear {
                             calendar.loadMore(month: month)
                         }
                     }
-                    Spacer()
+//                    Spacer()
                 }
                 .background(Color("AppBackground"))
             }
             .background(Color("AppBackground"))
+            .rotationEffect(Angle(degrees: 180))
+            .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
         }
-        .background(Color("AppBackground"))
     }
 }

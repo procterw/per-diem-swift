@@ -2,32 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
+	<key>UIBackgroundModes</key>
 	<array>
-        <String>SourceSerifPro-Black.ttf</String>
-        <String>SourceSerifPro-BlackItalic.ttf</String>
-        <String>SourceSerifPro-Bold.ttf</String>
-        <String>SourceSerifPro-BoldItalic.ttf</String>
-        <String>SourceSerifPro-ExtraLight.ttf</String>
-        <String>SourceSerifPro-ExtraLightItalic.ttf</String>
-        <String>SourceSerifPro-Italic.ttf</String>
-        <String>SourceSerifPro-Light.ttf</String>
-        <String>SourceSerifPro-LightItalic.ttf</String>
-        <String>SourceSerifPro-Regular.ttf</String>
-        <String>SourceSerifPro-SemiBold.ttf</String>
-        <String>SourceSerifPro-SemiBoldItalic.ttf</String>
-        <String>SourceSansPro-Black.ttf</String>
-        <String>SourceSansPro-BlackItalic.ttf</String>
-        <String>SourceSansPro-Bold.ttf</String>
-        <String>SourceSansPro-BoldItalic.ttf</String>
-        <String>SourceSansPro-ExtraLight.ttf</String>
-        <String>SourceSansPro-ExtraLightItalic.ttf</String>
-        <String>SourceSansPro-Italic.ttf</String>
-        <String>SourceSansPro-Light.ttf</String>
-        <String>SourceSansPro-LightItalic.ttf</String>
-        <String>SourceSansPro-Regular.ttf</String>
-        <String>SourceSansPro-SemiBold.ttf</String>
-        <String>SourceSansPro-SemiBoldItalic.ttf</String>
+		<string>remote-notification</string>
 	</array>
 </dict>
 </plist>
