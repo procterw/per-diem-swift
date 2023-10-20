@@ -23,8 +23,8 @@ class DayList: ObservableObject {
         // is it today? If it is, we're done!
         while (!date.isToday()) {
             // if not, make it yesterday then add it to front of the list
-            self.list.insert(date, at: 0)
             date = date.nextDay()
+            self.list.insert(date, at: 0)
         }
     }
 
