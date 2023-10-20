@@ -43,6 +43,20 @@ class DayItem: Identifiable, Hashable {
         return Calendar.current.isDateInToday(self.date)
     }
     
+    public func nextDay() -> DayItem {
+        return DayItem(
+            date: Calendar.current.date(byAdding: .day, value: 1, to: date)!,
+            activities: []
+        )
+    }
+    
+    public func previousDay() -> DayItem {
+        return DayItem(
+            date: Calendar.current.date(byAdding: .day, value: -1, to: date)!,
+            activities: []
+        )
+    }
+    
     public func isInTheFuture() -> Bool {
         return self.date < Date()
     }

@@ -82,6 +82,7 @@ struct DayLink: View {
 
 struct DayListView: View {
     @ObservedObject var dateList: DayList = DayList()
+    @Environment(\.scenePhase) var scenePhase
 
     var body: some View {
         ZStack {
@@ -104,6 +105,16 @@ struct DayListView: View {
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
                 .background(Color("AppBackground"))
+                // When app is reopened, refresh in case it's a new day
+                .onChange(of: scenePhase) { newPhase in
+                    if newPhase == .active {
+                        dateList.refresh()
+                    }
+                }
+            }
+            // Pull down to refresh
+            .refreshable {
+                dateList.refresh()
             }
         }
     }
