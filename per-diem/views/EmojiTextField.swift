@@ -35,12 +35,14 @@ class UIEmojiTextField: UITextField {
 struct EmojiTextField: UIViewRepresentable {
     @Binding var text: String
     var placeholder: String = ""
+    var font: UIFont?
     
     func makeUIView(context: Context) -> UIEmojiTextField {
         let emojiTextField = UIEmojiTextField()
         emojiTextField.placeholder = placeholder
         emojiTextField.text = text
         emojiTextField.delegate = context.coordinator
+        emojiTextField.font = font
         return emojiTextField
     }
     

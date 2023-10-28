@@ -1,4 +1,5 @@
 import SwiftUI
+import EmojiPicker
 
 struct ActivityCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext

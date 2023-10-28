@@ -15,12 +15,36 @@ class EstablishedViewModel: ObservableObject {
 struct IntroView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var viewModel: EstablishedViewModel = EstablishedViewModel()
+    
+    @FetchRequest(
+        sortDescriptors: [],
+        animation: .default)
+    private var activityOptions: FetchedResults<ActivityOption>
 
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            ActivityOptionCreatorView()
+            ZStack {
+                Circle()
+                    .fill(Color("FilterSelectBackground"))
+                    .frame(width: 30)
+                Text("pd")
+                    .font(.custom("SourceSerifPro-Bold", size: 25))
+                    .padding(.horizontal, 5)
+            }
+//            Text("Welcome to Per-diem! 👋")
+//                .font(.custom("SourceSerifPro-Bold", size: 20))
         }
+        VStack(alignment: .leading, spacing: 5) {
+            Text("Start by creating some categories of things you'd like to track. 🏃‍♀️")
+                .font(.custom("SourceSansPro-Regular", size: 16))
+            Text("This could be your workouts, meditation, morning pages, up to you. 🧘")
+                .font(.custom("SourceSansPro-Regular", size: 16))
+            Text("Per-diem does not collect or store any of your entries, personal data, or usage. 😶")
+                .font(.custom("SourceSansPro-Regular", size: 16))
+            ActivityOptionCreatorView()
+            
+        }
+        .padding()
         Button(action: {
             let a = Established(context: viewContext)
             a.isEstablished = true
@@ -33,5 +57,6 @@ struct IntroView: View {
         }) {
             Text("Give it a shot")
         }
+//        Spacer()
     }
 }
