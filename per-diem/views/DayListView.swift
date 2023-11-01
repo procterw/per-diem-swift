@@ -19,11 +19,11 @@ struct DayLabel: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline, spacing: 5) {
                 Text(day.getDayOfWeek())
-                    .font(.custom("SourceSerifPro-Black", size: 24))
+                    .font(.custom("SourceSerifPro-Black", size: 20))
                 Text(day.getDate())
-                    .font(.custom("SourceSerifPro-SemiBold", size: 18))
+                    .font(.custom("SourceSerifPro-SemiBold", size: 16))
                 Text(day.isToday() ? "Today" : "")
-                    .font(.custom("SourceSerifPro-SemiBold", size: 14))
+                    .font(.custom("SourceSerifPro-SemiBold", size: 13))
                     .background(Color("TodayBackground"))
                 Spacer()
             }
@@ -45,7 +45,7 @@ struct DayLabel: View {
                         Text(activity.type ?? "")
                             .font(.custom("SourceSerifPro-SemiBold", size: 17))
                         Text(activity.note ?? "")
-                            .lineLimit(3)
+                            .lineLimit(2)
                             .fixedSize(horizontal: false, vertical: true)
                     }
                     Spacer()

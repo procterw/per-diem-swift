@@ -3,9 +3,9 @@ import SwiftUI
 struct Logo: View {
     var body: some View {
         ZStack {
-            Circle()
-                .fill(Color("FilterSelectBackground"))
-                .frame(width: 30)
+//            Circle()
+//                .fill(Color("FilterSelectBackground"))
+//                .frame(width: 30)
             Text("pd")
                 .font(.custom("SourceSerifPro-Black", size: 20))
                 .padding(.horizontal, 5)
