@@ -16,7 +16,7 @@ struct MainView: View {
         ZStack {
             Color("AppBackground")
             VStack {
-                if (options.count > 50) {
+                if (options.count > 0) {
                     switch activeView.active {
                     case "list":
                         DayListView()

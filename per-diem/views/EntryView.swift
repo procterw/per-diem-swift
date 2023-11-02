@@ -46,9 +46,6 @@ struct EntryView: View {
                     .scrollContentBackground(.hidden)
                     .listRowBackground(Color("AppBackground"))
                     .listRowInsets(EdgeInsets())
-                
-                Text("Create a category")
-                    .font(.custom("SourceSansPro-SemiBold", size: 16))
 
                 ActivityOptionCreatorView()
                     .listRowSeparator(.hidden)
