@@ -36,7 +36,6 @@ struct FilterView: View {
                                     next.append(type)
                                     activityFilter.setSelected(next: next)
                                 }
-                                print(option.type ?? "")
                             }
                     }
                 }

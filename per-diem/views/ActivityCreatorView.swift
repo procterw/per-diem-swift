@@ -63,7 +63,6 @@ struct ActivityCreatorView: View {
                 Button("Delete", role: .destructive) {
                     do {
                         if let activityOpt = activityOptions.first(where: { $0.type == optionToDelete }) {
-                            print("YEAHHH", optionToDelete)
                             viewContext.delete(activityOpt)
                             try viewContext.save()
                         }
