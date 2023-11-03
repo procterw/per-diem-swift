@@ -43,7 +43,7 @@ struct DayLabel: View {
                         .frame(width: 33)
                     VStack(alignment: .leading) {
                         Text(activity.type ?? "")
-                            .font(.custom("SourceSerifPro-SemiBold", size: 17))
+                            .font(.custom("SourceSansPro-SemiBold", size: 17))
                         Text(activity.note ?? "")
                             .lineLimit(2)
                             .fixedSize(horizontal: false, vertical: true)

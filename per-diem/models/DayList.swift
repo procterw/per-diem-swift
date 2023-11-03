@@ -8,7 +8,6 @@ class DayList: ObservableObject {
     var earliestDate: Date = .now + 100
     
     public func loadMore(date: Date) {
-        print("load more")
         if (date > earliestDate) {
             return
         }
@@ -18,7 +17,6 @@ class DayList: ObservableObject {
     }
     
     public func refresh() {
-        print("refreshing")
         // start at first day in list
         let firstDate: DayItem = list[0]
         var date: DayItem = firstDate;
