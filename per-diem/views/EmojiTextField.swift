@@ -48,13 +48,6 @@ struct EmojiTextField: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIEmojiTextField, context: Context) {
         uiView.text = text
-        if (text.count == 0) {
-            uiView.text = text
-        } else {
-//            text.
-//            let x = text.reversed().first
-//            uiView.text = x
-        }
     }
     
     func makeCoordinator() -> Coordinator {
@@ -69,7 +62,6 @@ struct EmojiTextField: UIViewRepresentable {
         }
         
         func textFieldDidChangeSelection(_ textField: UITextField) {
-            print("anything?")
             DispatchQueue.main.async { [weak self] in
                 // Limits characters to 1 and replaces with most recent input
                 if (textField.text!.count == 0) {
