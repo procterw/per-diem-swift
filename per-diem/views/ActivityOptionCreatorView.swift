@@ -16,6 +16,8 @@ struct ActivityOptionCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ActivityViewModel = ActivityViewModel()
+    
+    private let activityCharLimit = 30
 
     var body: some View {
         HStack {
@@ -29,6 +31,11 @@ struct ActivityOptionCreatorView: View {
 
             TextField("Category name", text: $viewModel.activity)
                 .font(.custom("SourceSansPro-SemiBold", size: 16))
+                .onChange(of: viewModel.activity) { newValue in
+                    if viewModel.activity.count > activityCharLimit {
+                        viewModel.activity = String(viewModel.activity.prefix(activityCharLimit))
+                    }
+                }
             
             Button(action: {
                 let a = ActivityOption(context: viewContext)
