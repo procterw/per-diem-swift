@@ -42,6 +42,9 @@
 		715DB9F429AF229800260B7C /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9F329AF229800260B7C /* StreamView.swift */; };
 		71AAE3DE2AE4A60C006B2030 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AAE3DD2AE4A60C006B2030 /* IntroView.swift */; };
 		71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B55F322ACD2EC200999ADD /* EmojiTextField.swift */; };
+		71B62DE52AFD9BD200534418 /* PageOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B62DE42AFD9BD200534418 /* PageOneView.swift */; };
+		71B62DE72AFD9BD900534418 /* PageTwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B62DE62AFD9BD900534418 /* PageTwoView.swift */; };
+		71B62DE92AFD9BE000534418 /* PageThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B62DE82AFD9BE000534418 /* PageThreeView.swift */; };
 		71C05F7929B47E9500E33E99 /* SourceSerifPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F6C29B47E9500E33E99 /* SourceSerifPro-SemiBold.ttf */; };
 		71C05F7C29B47E9500E33E99 /* SourceSerifPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F6D29B47E9500E33E99 /* SourceSerifPro-ExtraLightItalic.ttf */; };
 		71C05F7F29B47E9500E33E99 /* SourceSerifPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F6E29B47E9500E33E99 /* SourceSerifPro-Light.ttf */; };
@@ -93,6 +96,9 @@
 		715DB9F329AF229800260B7C /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
 		71AAE3DD2AE4A60C006B2030 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		71B55F322ACD2EC200999ADD /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
+		71B62DE42AFD9BD200534418 /* PageOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneView.swift; sourceTree = "<group>"; };
+		71B62DE62AFD9BD900534418 /* PageTwoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTwoView.swift; sourceTree = "<group>"; };
+		71B62DE82AFD9BE000534418 /* PageThreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageThreeView.swift; sourceTree = "<group>"; };
 		71C05F6C29B47E9500E33E99 /* SourceSerifPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-SemiBold.ttf"; sourceTree = "<group>"; };
 		71C05F6D29B47E9500E33E99 /* SourceSerifPro-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		71C05F6E29B47E9500E33E99 /* SourceSerifPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Light.ttf"; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 		7150734729A18CC000100B88 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				71B62DE32AFD9BB800534418 /* intro */,
 				715DB9DE29A1942200260B7C /* ActivityCreatorView.swift */,
 				715DB9E229A1942200260B7C /* ActivityEditorView.swift */,
 				715DB9DF29A1942200260B7C /* ActivityOptionCreatorView.swift */,
@@ -167,7 +174,6 @@
 				71010E3E29BDA58E0051FBA9 /* FilterView.swift */,
 				71010E4529BEA9C60051FBA9 /* Navbar.swift */,
 				71B55F322ACD2EC200999ADD /* EmojiTextField.swift */,
-				71AAE3DD2AE4A60C006B2030 /* IntroView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -181,6 +187,17 @@
 				715DB9EF29A9C66A00260B7C /* Calendar.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		71B62DE32AFD9BB800534418 /* intro */ = {
+			isa = PBXGroup;
+			children = (
+				71AAE3DD2AE4A60C006B2030 /* IntroView.swift */,
+				71B62DE42AFD9BD200534418 /* PageOneView.swift */,
+				71B62DE62AFD9BD900534418 /* PageTwoView.swift */,
+				71B62DE82AFD9BE000534418 /* PageThreeView.swift */,
+			);
+			path = intro;
 			sourceTree = "<group>";
 		};
 		71C05F6B29B47E9500E33E99 /* Source_Serif_Pro */ = {
@@ -315,9 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B62DE72AFD9BD900534418 /* PageTwoView.swift in Sources */,
+				71B62DE52AFD9BD200534418 /* PageOneView.swift in Sources */,
 				715DB9E629A1942200260B7C /* EntryView.swift in Sources */,
 				715DB9F229A9DF5F00260B7C /* MainView.swift in Sources */,
 				71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */,
+				71B62DE92AFD9BE000534418 /* PageThreeView.swift in Sources */,
 				7150734A29A18D0400100B88 /* Day.swift in Sources */,
 				71010E4629BEA9C60051FBA9 /* Navbar.swift in Sources */,
 				715DB9EE29A9C65700260B7C /* CalendarView.swift in Sources */,

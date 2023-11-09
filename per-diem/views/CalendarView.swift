@@ -97,14 +97,12 @@ struct WeekRowView: View {
 
 struct DayOfWeekLabels: View {
     private let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-//    private let days: [String] = ["S", "M", "T", "W", "T", "F", "S"]
     var body: some View {
         HStack() {
             ForEach(days, id: \.self) { day in
                 Text(day)
                     .frame(maxWidth: .infinity)
                     .font(.custom("SourceSansPro-SemiBold", size: 13))
-//                    .italic()
             }
         }
     }

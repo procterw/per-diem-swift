@@ -1,5 +1,53 @@
 import SwiftUI
 
+struct EntryItemViewAnimated: View {
+    var icon: String
+    var type: String
+    var note: String
+    var delay: Double
+    
+    @State private var height: Int = 20
+    @State private var opacity: Double = 0.0
+
+    var body: some View {
+        EntryItemView(icon: icon, type: type, note: note)
+            .offset(CGSize(width: 0, height: height))
+            .opacity(opacity)
+            .onAppear {
+                withAnimation(.linear(duration: 0.25).delay(delay)) {
+                    height = 0
+                    opacity = 1.0
+                }
+            }
+            .onDisappear {
+                height = 20
+                opacity = 0.0
+            }
+    }
+}
+
+struct EntryItemView: View {
+    var icon: String
+    var type: String
+    var note: String
+    
+    var body: some View {
+        HStack(alignment: .top) {
+            Text(icon)
+                .font(.title)
+                .frame(width: 33)
+            VStack(alignment: .leading) {
+                Text(type)
+                    .font(.custom("SourceSansPro-SemiBold", size: 17))
+                Text(note)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer()
+        }
+    }
+}
+
 struct DayLabel: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject private var activityFilter: ActivityFilter
@@ -37,19 +85,11 @@ struct DayLabel: View {
                     }
                 }
             ) { activity in
-                HStack(alignment: .top) {
-                    Text(activity.option?.icon ?? "")
-                        .font(.title)
-                        .frame(width: 33)
-                    VStack(alignment: .leading) {
-                        Text(activity.type ?? "")
-                            .font(.custom("SourceSansPro-SemiBold", size: 17))
-                        Text(activity.note ?? "")
-                            .lineLimit(2)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    Spacer()
-                }
+                EntryItemView(
+                    icon: activity.option?.icon ?? "",
+                    type: activity.option?.type ?? "",
+                    note: activity.note ?? ""
+                )
             }
         }
         .padding(.horizontal)
@@ -111,10 +151,6 @@ struct DayListView: View {
                         dateList.refresh()
                     }
                 }
-            }
-            // Pull down to refresh
-            .refreshable {
-                dateList.refresh()
             }
         }
     }
