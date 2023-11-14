@@ -12,12 +12,26 @@ struct DayCell: View {
     @EnvironmentObject private var activityFilter: ActivityFilter
     
     var day: DayItem
+    var searchTerm: String
 
-    init(day: DayItem) {
+    init(day: DayItem, searchTerm: String) {
         self.day = day;
+        self.searchTerm = searchTerm;
+
+        var subpredicates: Array<NSPredicate> = [
+            NSPredicate(format: "dateId == %d", day.dateId)
+        ]
+        
+        if (searchTerm.count > 0) {
+            subpredicates.append(NSPredicate(format: "note CONTAINS[c] %@", searchTerm))
+        }
+        
         _activities = FetchRequest<Activity>(
             sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
-            predicate: NSPredicate(format: "dateId == %d", day.dateId)
+            predicate: NSCompoundPredicate(
+                type: .and,
+                subpredicates: subpredicates
+            )
         )
     }
     
@@ -58,19 +72,7 @@ struct DayCell: View {
                     .frame(height: 55, alignment: .top)
                 }
                 .background(day.isToday() ? Color("TodayBackground") : Color("CardBackground"))
-
-//                Group {
-//                    LazyVGrid(columns: columns, alignment: .leading) {
-//                        ForEach(activities) { activity in
-//                            Text(activity.option?.icon ?? "")
-//                        }
-//                    }
-//                }
-//                .frame(height: 60)
-//                .background(Color("CardBackground"))
             }
-//            .border(Color("AppBackgroundLight"))
-//            .padding(0.25)
         }
         .isDetailLink(false)
         .buttonStyle(PlainButtonStyle())
@@ -79,6 +81,8 @@ struct DayCell: View {
 }
 
 struct WeekRowView: View {
+    @EnvironmentObject private var searchTerm: SearchTerm
+
     var week: Week
     
     var body: some View {
@@ -89,7 +93,7 @@ struct WeekRowView: View {
                     .gridCellColumns(week.offset)
             }
             ForEach(week.days) { day in
-                DayCell(day: day)
+                DayCell(day: day, searchTerm: searchTerm.term)
             }
         }
     }

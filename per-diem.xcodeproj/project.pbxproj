@@ -57,6 +57,7 @@
 		71C05F9729B47E9500E33E99 /* SourceSerifPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */; };
 		71C05F9A29B47E9500E33E99 /* SourceSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */; };
 		71C05F9D29B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */; };
+		71F939DE2B019A8100C19B50 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F939DD2B019A8100C19B50 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Regular.ttf"; sourceTree = "<group>"; };
 		71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Bold.ttf"; sourceTree = "<group>"; };
 		71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-BlackItalic.ttf"; sourceTree = "<group>"; };
+		71F939DD2B019A8100C19B50 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				715DB9F329AF229800260B7C /* StreamView.swift */,
 				71010E3C29BDA5670051FBA9 /* ViewToggle.swift */,
 				71010E3E29BDA58E0051FBA9 /* FilterView.swift */,
+				71F939DD2B019A8100C19B50 /* SearchView.swift */,
 				71010E4529BEA9C60051FBA9 /* Navbar.swift */,
 				71B55F322ACD2EC200999ADD /* EmojiTextField.swift */,
 			);
@@ -336,6 +339,7 @@
 				71B62DE52AFD9BD200534418 /* PageOneView.swift in Sources */,
 				715DB9E629A1942200260B7C /* EntryView.swift in Sources */,
 				715DB9F229A9DF5F00260B7C /* MainView.swift in Sources */,
+				71F939DE2B019A8100C19B50 /* SearchView.swift in Sources */,
 				71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */,
 				71B62DE92AFD9BE000534418 /* PageThreeView.swift in Sources */,
 				7150734A29A18D0400100B88 /* Day.swift in Sources */,

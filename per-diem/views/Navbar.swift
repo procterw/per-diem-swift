@@ -3,9 +3,6 @@ import SwiftUI
 struct Logo: View {
     var body: some View {
         ZStack {
-//            Circle()
-//                .fill(Color("FilterSelectBackground"))
-//                .frame(width: 30)
             Text("pd")
                 .font(.custom("SourceSerifPro-Black", size: 20))
                 .padding(.horizontal, 5)
@@ -14,6 +11,8 @@ struct Logo: View {
 }
 
 struct Navbar: View {
+    @EnvironmentObject private var searchTerm: SearchTerm
+
     var body: some View {
         VStack {
             HStack(spacing: 10) {
@@ -22,10 +21,22 @@ struct Navbar: View {
                 FilterView()
                 Spacer()
                 Divider()
+                Button(action: {
+                    searchTerm.toggle()
+                }) {
+                    Label("ToggleSearch", systemImage: "magnifyingglass")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(Color("TextDark"))
+                }
+                Divider()
                 ViewToggle()
             }
             .frame(height: 40)
             .padding(.horizontal, 10)
+            
+            if (searchTerm.isOpen) {
+                SearchView()
+            }
             
             Divider()
         }

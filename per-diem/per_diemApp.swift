@@ -19,6 +19,26 @@ class ActivityFilter: ObservableObject {
     }
 }
 
+class SearchTerm: ObservableObject {
+    @Published var term: String = ""
+    @Published var isOpen: Bool = false
+    
+    func set(nextTerm: String) {
+        self.term = nextTerm
+    }
+    
+    func clear() {
+        self.term = ""
+    }
+    
+    func toggle() {
+        if (self.isOpen) {
+            self.clear()
+        }
+        self.isOpen = !self.isOpen
+    }
+}
+
 class ActiveView: ObservableObject {
     @Published var active: String
     
@@ -54,6 +74,7 @@ struct per_diemApp: App {
                 .environment(\.font, .custom("SourceSerifPro-Regular", size: 17))
                 .environmentObject(ActivityFilter(selected: []))
                 .environmentObject(ActiveView(active: "list"))
+                .environmentObject(SearchTerm())
         }
     }
 }

@@ -54,12 +54,26 @@ struct DayLabel: View {
     @FetchRequest var activities: FetchedResults<Activity>
     
     var day: DayItem
+    var searchTerm: String
 
-    init(day: DayItem) {
+    init(day: DayItem, searchTerm: String) {
         self.day = day;
+        self.searchTerm = searchTerm;
+
+        var subpredicates: Array<NSPredicate> = [
+            NSPredicate(format: "dateId == %d", day.dateId)
+        ]
+        
+        if (searchTerm.count > 0) {
+            subpredicates.append(NSPredicate(format: "note CONTAINS[c] %@", searchTerm))
+        }
+        
         _activities = FetchRequest<Activity>(
             sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
-            predicate: NSPredicate(format: "dateId == %d", day.dateId)
+            predicate: NSCompoundPredicate(
+                type: .and,
+                subpredicates: subpredicates
+            )
         )
     }
     
@@ -99,6 +113,8 @@ struct DayLabel: View {
 }
 
 struct DayLink: View {
+    @EnvironmentObject private var searchTerm: SearchTerm
+
     var day: DayItem
 
     var body: some View {
@@ -112,7 +128,7 @@ struct DayLink: View {
             .opacity(0.0)
             .buttonStyle(PlainButtonStyle())
 
-            DayLabel(day: day)
+            DayLabel(day: day, searchTerm: searchTerm.term)
                 .padding(.bottom, day.getDayOfWeek() == "Sun" ? 12 : 1)
         }
         .listRowBackground(Color.clear)
