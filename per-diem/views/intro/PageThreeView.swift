@@ -12,6 +12,21 @@ class EstablishedViewModel: ObservableObject {
     @Published var isEstablished: Bool = false
 }
 
+struct ActivityList: View {
+    @FetchRequest(
+        sortDescriptors: [],
+        animation: .default)
+    private var activityOptions: FetchedResults<ActivityOption>
+    
+    var body: some View {
+        HStack {
+            ForEach(activityOptions) { activityOpt in
+                Text(activityOpt.icon ?? "")
+            }
+        }
+    }
+}
+
 struct PageThreeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var viewModel: EstablishedViewModel = EstablishedViewModel()
@@ -31,12 +46,7 @@ struct PageThreeView: View {
 
             ActivityOptionCreatorView()
             
-            WrappedHStack(activityOptions) { activityOpt in
-                Text([activityOpt.icon ?? "", activityOpt.type ?? ""].joined(separator: " "))
-                    .padding(.all, 5)
-                    .foregroundColor(Color("TextDark"))
-                    .font(.custom("SourceSansPro-SemiBold", size: 16))
-            }
+            ActivityList()
             
             Button(action: {
                 let a = Established(context: viewContext)
@@ -51,6 +61,7 @@ struct PageThreeView: View {
                 Text("Get started")
             }
             .disabled(activityOptions.count < 1)
+            .opacity(activityOptions.count > 0 ? 1 : 0.5)
             .padding()
             .foregroundColor(Color("TextDark"))
             .background(Color("CardBackground"))

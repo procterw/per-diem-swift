@@ -63,13 +63,7 @@ struct EmojiTextField: UIViewRepresentable {
         
         func textFieldDidChangeSelection(_ textField: UITextField) {
             DispatchQueue.main.async { [weak self] in
-                // Limits characters to 1 and replaces with most recent input
-                if (textField.text!.count == 0) {
-                    self?.parent.text = textField.text ?? ""
-                } else {
-                    let lastChar = textField.text?.last
-                    self?.parent.text = String(lastChar ?? Character(""))
-                }
+                self?.parent.text = textField.text ?? ""
             }
         }
     }

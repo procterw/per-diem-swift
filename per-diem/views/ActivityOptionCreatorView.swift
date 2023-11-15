@@ -10,6 +10,11 @@ import SwiftUI
 class ActivityViewModel: ObservableObject {
     @Published var icon: String = ""
     @Published var activity: String = ""
+    
+    func reset() {
+        self.icon = ""
+        self.activity = ""
+    }
 }
 
 struct ActivityOptionCreatorView: View {
@@ -21,13 +26,20 @@ struct ActivityOptionCreatorView: View {
 
     var body: some View {
         HStack {
-
             EmojiTextField(
                 text: $viewModel.icon,
                 placeholder: "Icon",
                 font: UIFont(name: "SourceSansPro-SemiBold", size: 16)
             )
             .frame(width: 50)
+            .onChange(of: viewModel.icon) { newValue in
+                print(newValue)
+                // Limits characters to 1 and replaces with most recent input
+                if (newValue.count > 0) {
+                    let lastChar = newValue.last
+                    viewModel.icon = String(lastChar ?? Character(""))
+                }
+            }
 
             TextField("Category name", text: $viewModel.activity)
                 .font(.custom("SourceSansPro-SemiBold", size: 16))
@@ -43,8 +55,7 @@ struct ActivityOptionCreatorView: View {
                 a.icon = viewModel.icon
                 do {
                     try viewContext.save()
-                    viewModel.icon = ""
-                    viewModel.activity = ""
+                    viewModel.reset()
                 } catch {
                     // Handle error
                 }
