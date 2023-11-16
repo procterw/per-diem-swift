@@ -11,7 +11,8 @@ struct FilterView: View {
     @EnvironmentObject private var activityFilter: ActivityFilter
     @FetchRequest(
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)
+            NSSortDescriptor(keyPath: \ActivityOption.count, ascending: false),
+            NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true),
         ],
         animation: .default)
     private var options: FetchedResults<ActivityOption>

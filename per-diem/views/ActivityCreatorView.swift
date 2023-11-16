@@ -10,7 +10,10 @@ struct ActivityCreatorView: View {
     var activities: FetchedResults<Activity>
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ActivityOption.type, ascending: true)],
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \ActivityOption.count, ascending: false),
+            NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true),
+        ],
         animation: .default)
     private var activityOptions: FetchedResults<ActivityOption>
     
@@ -47,6 +50,8 @@ struct ActivityCreatorView: View {
                         activity.option = activityOpt
                         activity.dateAdded = Date()
                         activity.dateModified = Date()
+                        
+                        activityOpt.count = activityOpt.count + 1
                         do {
                             try viewContext.save()
                         } catch {

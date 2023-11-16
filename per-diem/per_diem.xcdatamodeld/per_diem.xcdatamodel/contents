@@ -10,6 +10,7 @@
         <relationship name="option" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityOption" inverseName="activities" inverseEntity="ActivityOption"/>
     </entity>
     <entity name="ActivityOption" representedClassName="ActivityOption" syncable="YES" codeGenerationType="class">
+        <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateModified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="icon" attributeType="String" defaultValueString=""/>
