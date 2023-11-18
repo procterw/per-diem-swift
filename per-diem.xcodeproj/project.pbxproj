@@ -58,7 +58,36 @@
 		71C05F9A29B47E9500E33E99 /* SourceSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */; };
 		71C05F9D29B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */; };
 		71F939DE2B019A8100C19B50 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F939DD2B019A8100C19B50 /* SearchView.swift */; };
+		71FA173B2B097E0D0093F9E1 /* pd_watchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA173A2B097E0D0093F9E1 /* pd_watchApp.swift */; };
+		71FA173D2B097E0D0093F9E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FA173C2B097E0D0093F9E1 /* ContentView.swift */; };
+		71FA173F2B097E0E0093F9E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71FA173E2B097E0E0093F9E1 /* Assets.xcassets */; };
+		71FA17422B097E0E0093F9E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71FA17412B097E0E0093F9E1 /* Preview Assets.xcassets */; };
+		71FA17452B097E0E0093F9E1 /* pd-watch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 71FA17382B097E0D0093F9E1 /* pd-watch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71FA17432B097E0E0093F9E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71507306299EE61900100B88 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71FA17372B097E0D0093F9E1;
+			remoteInfo = "pd-watch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		71FA17462B097E0E0093F9E1 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				71FA17452B097E0E0093F9E1 /* pd-watch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		71010E2429BD90440051FBA9 /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
@@ -113,6 +142,11 @@
 		71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Bold.ttf"; sourceTree = "<group>"; };
 		71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-BlackItalic.ttf"; sourceTree = "<group>"; };
 		71F939DD2B019A8100C19B50 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		71FA17382B097E0D0093F9E1 /* pd-watch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pd-watch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FA173A2B097E0D0093F9E1 /* pd_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pd_watchApp.swift; sourceTree = "<group>"; };
+		71FA173C2B097E0D0093F9E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		71FA173E2B097E0E0093F9E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71FA17412B097E0E0093F9E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +159,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71FA17352B097E0D0093F9E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -132,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				71507310299EE61900100B88 /* per-diem */,
+				71FA17392B097E0D0093F9E1 /* pd-watch Watch App */,
 				7150730F299EE61900100B88 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -140,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				7150730E299EE61900100B88 /* per-diem.app */,
+				71FA17382B097E0D0093F9E1 /* pd-watch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,6 +277,25 @@
 			path = Source_Serif_Pro;
 			sourceTree = "<group>";
 		};
+		71FA17392B097E0D0093F9E1 /* pd-watch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				71FA173A2B097E0D0093F9E1 /* pd_watchApp.swift */,
+				71FA173C2B097E0D0093F9E1 /* ContentView.swift */,
+				71FA173E2B097E0E0093F9E1 /* Assets.xcassets */,
+				71FA17402B097E0E0093F9E1 /* Preview Content */,
+			);
+			path = "pd-watch Watch App";
+			sourceTree = "<group>";
+		};
+		71FA17402B097E0E0093F9E1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				71FA17412B097E0E0093F9E1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,10 +306,12 @@
 				7150730A299EE61900100B88 /* Sources */,
 				7150730B299EE61900100B88 /* Frameworks */,
 				7150730C299EE61900100B88 /* Resources */,
+				71FA17462B097E0E0093F9E1 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				71FA17442B097E0E0093F9E1 /* PBXTargetDependency */,
 			);
 			name = "per-diem";
 			packageProductDependencies = (
@@ -258,6 +322,23 @@
 			productReference = 7150730E299EE61900100B88 /* per-diem.app */;
 			productType = "com.apple.product-type.application";
 		};
+		71FA17372B097E0D0093F9E1 /* pd-watch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71FA17492B097E0E0093F9E1 /* Build configuration list for PBXNativeTarget "pd-watch Watch App" */;
+			buildPhases = (
+				71FA17342B097E0D0093F9E1 /* Sources */,
+				71FA17352B097E0D0093F9E1 /* Frameworks */,
+				71FA17362B097E0D0093F9E1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "pd-watch Watch App";
+			productName = "pd-watch Watch App";
+			productReference = 71FA17382B097E0D0093F9E1 /* pd-watch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -265,11 +346,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					7150730D299EE61900100B88 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					71FA17372B097E0D0093F9E1 = {
+						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
@@ -291,6 +375,7 @@
 			projectRoot = "";
 			targets = (
 				7150730D299EE61900100B88 /* per-diem */,
+				71FA17372B097E0D0093F9E1 /* pd-watch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -328,6 +413,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71FA17362B097E0D0093F9E1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FA17422B097E0E0093F9E1 /* Preview Assets.xcassets in Resources */,
+				71FA173F2B097E0E0093F9E1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -362,7 +456,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71FA17342B097E0D0093F9E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FA173D2B097E0D0093F9E1 /* ContentView.swift in Sources */,
+				71FA173B2B097E0D0093F9E1 /* pd_watchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71FA17442B097E0E0093F9E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71FA17372B097E0D0093F9E1 /* pd-watch Watch App */;
+			targetProxy = 71FA17432B097E0E0093F9E1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		71507336299EE61A00100B88 /* Debug */ = {
@@ -484,6 +595,7 @@
 		71507339299EE61A00100B88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "per-diem/per-diem.entitlements";
@@ -516,6 +628,7 @@
 		7150733A299EE61A00100B88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "per-diem/per-diem.entitlements";
@@ -545,6 +658,75 @@
 			};
 			name = Release;
 		};
+		71FA17472B097E0E0093F9E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"pd-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = WLK83U3V7W;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "pd-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.pdapp.per-diem";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pdapp.per-diem.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		71FA17482B097E0E0093F9E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"pd-watch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = WLK83U3V7W;
+				ENABLE_PREVIEWS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "pd-watch";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.pdapp.per-diem";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pdapp.per-diem.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -562,6 +744,15 @@
 			buildConfigurations = (
 				71507339299EE61A00100B88 /* Debug */,
 				7150733A299EE61A00100B88 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71FA17492B097E0E0093F9E1 /* Build configuration list for PBXNativeTarget "pd-watch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71FA17472B097E0E0093F9E1 /* Debug */,
+				71FA17482B097E0E0093F9E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
