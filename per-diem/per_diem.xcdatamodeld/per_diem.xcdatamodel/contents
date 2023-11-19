@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Activity" representedClassName=".Activity" syncable="YES" codeGenerationType="class">
+    <entity name="Activity" representedClassName=".Activity" syncable="YES">
         <attribute name="dateAdded" attributeType="Date" defaultDateTimeInterval="699344880" usesScalarValueType="NO"/>
         <attribute name="dateId" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="dateModified" attributeType="Date" defaultDateTimeInterval="699344880" usesScalarValueType="NO"/>
@@ -9,7 +9,7 @@
         <attribute name="type" attributeType="String" defaultValueString=""/>
         <relationship name="option" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityOption" inverseName="activities" inverseEntity="ActivityOption"/>
     </entity>
-    <entity name="ActivityOption" representedClassName="ActivityOption" syncable="YES" codeGenerationType="class">
+    <entity name="ActivityOption" representedClassName="ActivityOption" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateModified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

@@ -2,7 +2,7 @@
 //  Activity+CoreDataProperties.swift
 //  per-diem
 //
-//  Created by William Leahy on 10/16/23.
+//  Created by William Leahy on 11/19/23.
 //
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension Activity where Self: Codable {
+extension Activity {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Activity> {
         return NSFetchRequest<Activity>(entityName: "Activity")
@@ -26,6 +26,6 @@ extension Activity where Self: Codable {
 
 }
 
-extension Activity where Self: Identifiable {
+extension Activity : Identifiable {
 
 }

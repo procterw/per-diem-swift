@@ -40,6 +40,10 @@
 		715DB9F029A9C66A00260B7C /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9EF29A9C66A00260B7C /* Calendar.swift */; };
 		715DB9F229A9DF5F00260B7C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9F129A9DF5F00260B7C /* MainView.swift */; };
 		715DB9F429AF229800260B7C /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB9F329AF229800260B7C /* StreamView.swift */; };
+		719A6C112B0ACCB7004B5E9F /* ActivityOption+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C0D2B0ACCB7004B5E9F /* ActivityOption+CoreDataProperties.swift */; };
+		719A6C122B0ACCB7004B5E9F /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C0E2B0ACCB7004B5E9F /* Activity+CoreDataClass.swift */; };
+		719A6C132B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C0F2B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift */; };
+		719A6C142B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C102B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift */; };
 		71AAE3DE2AE4A60C006B2030 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AAE3DD2AE4A60C006B2030 /* IntroView.swift */; };
 		71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B55F322ACD2EC200999ADD /* EmojiTextField.swift */; };
 		71B62DE52AFD9BD200534418 /* PageOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B62DE42AFD9BD200534418 /* PageOneView.swift */; };
@@ -124,6 +128,10 @@
 		715DB9EF29A9C66A00260B7C /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		715DB9F129A9DF5F00260B7C /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		715DB9F329AF229800260B7C /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		719A6C0D2B0ACCB7004B5E9F /* ActivityOption+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityOption+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		719A6C0E2B0ACCB7004B5E9F /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		719A6C0F2B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		719A6C102B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityOption+CoreDataClass.swift"; sourceTree = "<group>"; };
 		71AAE3DD2AE4A60C006B2030 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		71B55F322ACD2EC200999ADD /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		71B62DE42AFD9BD200534418 /* PageOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneView.swift; sourceTree = "<group>"; };
@@ -172,6 +180,10 @@
 		71507305299EE61900100B88 = {
 			isa = PBXGroup;
 			children = (
+				719A6C0E2B0ACCB7004B5E9F /* Activity+CoreDataClass.swift */,
+				719A6C0F2B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift */,
+				719A6C102B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift */,
+				719A6C0D2B0ACCB7004B5E9F /* ActivityOption+CoreDataProperties.swift */,
 				71507310299EE61900100B88 /* per-diem */,
 				71FA17392B097E0D0093F9E1 /* pd-watch Watch App */,
 				7150730F299EE61900100B88 /* Products */,
@@ -443,6 +455,8 @@
 				715DB9EC29A6078D00260B7C /* WrappedHStack.swift in Sources */,
 				715DB9E529A1942200260B7C /* DayListView.swift in Sources */,
 				715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */,
+				719A6C122B0ACCB7004B5E9F /* Activity+CoreDataClass.swift in Sources */,
+				719A6C142B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift in Sources */,
 				71010E3D29BDA5670051FBA9 /* ViewToggle.swift in Sources */,
 				7150731E299EE61A00100B88 /* per_diem.xcdatamodeld in Sources */,
 				71010E3F29BDA58E0051FBA9 /* FilterView.swift in Sources */,
@@ -451,8 +465,10 @@
 				715DB9E429A1942200260B7C /* ActivityOptionCreatorView.swift in Sources */,
 				715DB9E329A1942200260B7C /* ActivityCreatorView.swift in Sources */,
 				71AAE3DE2AE4A60C006B2030 /* IntroView.swift in Sources */,
+				719A6C112B0ACCB7004B5E9F /* ActivityOption+CoreDataProperties.swift in Sources */,
 				715DB9F429AF229800260B7C /* StreamView.swift in Sources */,
 				71507312299EE61900100B88 /* per_diemApp.swift in Sources */,
+				719A6C132B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
