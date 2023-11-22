@@ -27,5 +27,39 @@ extension Activity {
 }
 
 extension Activity : Identifiable {
-
+    func toJSON() -> [String : String?] {
+        let dict = [
+            "type": self.type,
+            "note": self.note,
+            "option": self.option?.type,
+            "notePreview": self.notePreview,
+            "dateId": String(self.dateId),
+        ] as [String : String?]
+//        
+//        do {
+//            let jsonData = try JSONSerialization
+//                .data(withJSONObject: dict, options: .prettyPrinted)
+//            let jsonStr = String(data: jsonData, encoding: .utf8)
+//            return jsonStr
+//        }
+//        catch {}
+        
+        return dict
+        
+    }
 }
+//
+//extension NSManagedObject {
+//  func toJSON() -> String? {
+//    let keys = Array(self.entity.attributesByName.keys)
+//    let dict = self.dictionaryWithValues(forKeys: keys)
+//    do {
+//        let jsonData = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+//        let reqJSONStr = String(data: jsonData, encoding: .utf8)
+//        return reqJSONStr
+//    }
+//    catch{}
+//    return nil
+//  }
+//}
+//

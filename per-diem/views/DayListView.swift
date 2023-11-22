@@ -109,6 +109,11 @@ struct DayLabel: View {
         .padding(.horizontal)
         .padding(.vertical, 15)
         .background(Color("CardBackground"))
+        .onAppear {
+            activities.forEach { activity in
+                print(activity.toJSON())
+            }
+        }
     }
 }
 

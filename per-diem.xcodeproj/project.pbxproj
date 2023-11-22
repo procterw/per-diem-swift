@@ -44,6 +44,8 @@
 		719A6C122B0ACCB7004B5E9F /* Activity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C0E2B0ACCB7004B5E9F /* Activity+CoreDataClass.swift */; };
 		719A6C132B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C0F2B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift */; };
 		719A6C142B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C102B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift */; };
+		719A6C162B0AD7A2004B5E9F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C152B0AD7A2004B5E9F /* SettingsView.swift */; };
+		719A6C192B0BFA92004B5E9F /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C182B0BFA92004B5E9F /* ExportView.swift */; };
 		71AAE3DE2AE4A60C006B2030 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AAE3DD2AE4A60C006B2030 /* IntroView.swift */; };
 		71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B55F322ACD2EC200999ADD /* EmojiTextField.swift */; };
 		71B62DE52AFD9BD200534418 /* PageOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B62DE42AFD9BD200534418 /* PageOneView.swift */; };
@@ -132,6 +134,8 @@
 		719A6C0E2B0ACCB7004B5E9F /* Activity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		719A6C0F2B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Activity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		719A6C102B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ActivityOption+CoreDataClass.swift"; sourceTree = "<group>"; };
+		719A6C152B0AD7A2004B5E9F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		719A6C182B0BFA92004B5E9F /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		71AAE3DD2AE4A60C006B2030 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		71B55F322ACD2EC200999ADD /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		71B62DE42AFD9BD200534418 /* PageOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneView.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 		7150734729A18CC000100B88 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				719A6C172B0BFA73004B5E9F /* settings */,
 				71B62DE32AFD9BB800534418 /* intro */,
 				715DB9DE29A1942200260B7C /* ActivityCreatorView.swift */,
 				715DB9E229A1942200260B7C /* ActivityEditorView.swift */,
@@ -245,6 +250,15 @@
 				715DB9EF29A9C66A00260B7C /* Calendar.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		719A6C172B0BFA73004B5E9F /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				719A6C152B0AD7A2004B5E9F /* SettingsView.swift */,
+				719A6C182B0BFA92004B5E9F /* ExportView.swift */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 		71B62DE32AFD9BB800534418 /* intro */ = {
@@ -449,6 +463,7 @@
 				71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */,
 				71B62DE92AFD9BE000534418 /* PageThreeView.swift in Sources */,
 				7150734A29A18D0400100B88 /* Day.swift in Sources */,
+				719A6C192B0BFA92004B5E9F /* ExportView.swift in Sources */,
 				71010E4629BEA9C60051FBA9 /* Navbar.swift in Sources */,
 				715DB9EE29A9C65700260B7C /* CalendarView.swift in Sources */,
 				7150731B299EE61A00100B88 /* Persistence.swift in Sources */,
@@ -459,6 +474,7 @@
 				719A6C142B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift in Sources */,
 				71010E3D29BDA5670051FBA9 /* ViewToggle.swift in Sources */,
 				7150731E299EE61A00100B88 /* per_diem.xcdatamodeld in Sources */,
+				719A6C162B0AD7A2004B5E9F /* SettingsView.swift in Sources */,
 				71010E3F29BDA58E0051FBA9 /* FilterView.swift in Sources */,
 				71507344299EF05200100B88 /* DayList.swift in Sources */,
 				715DB9F029A9C66A00260B7C /* Calendar.swift in Sources */,

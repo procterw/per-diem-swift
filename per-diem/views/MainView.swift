@@ -17,13 +17,14 @@ struct MainView: View {
             Color("AppBackground")
             VStack {
                 if (options.count > 0) {
-                    switch activeView.active {
-                    case "list":
-                        DayListView()
-                    case "calendar":
-                        CalendarView()
-                    default:
-                        Text("ERROR")
+                    if (activeView.settings) {
+                        SettingsView()
+                    } else {
+                        if (activeView.active == "list") {
+                            DayListView()
+                        } else if (activeView.active == "calendar") {
+                            CalendarView()
+                        }
                     }
                 } else {
                     IntroView()

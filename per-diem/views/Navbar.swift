@@ -1,22 +1,12 @@
 import SwiftUI
 
-struct Logo: View {
-    var body: some View {
-        ZStack {
-            Text("pd")
-                .font(.custom("SourceSerifPro-Black", size: 20))
-                .padding(.horizontal, 5)
-        }
-    }
-}
-
 struct Navbar: View {
     @EnvironmentObject private var searchTerm: SearchTerm
 
     var body: some View {
         VStack {
             HStack(spacing: 10) {
-                Logo()
+                SettingsToggle()
                 Divider()
                 FilterView()
                 Spacer()
@@ -37,6 +27,23 @@ struct Navbar: View {
             if (searchTerm.isOpen) {
                 SearchView()
             }
+            
+            Divider()
+        }
+        .background(Color("AppBackground"))
+    }
+}
+
+struct SettingsNavbar: View {
+
+    var body: some View {
+        VStack {
+            HStack {
+                SettingsToggle()
+                Spacer()
+            }
+            .frame(height: 40)
+            .padding(.horizontal, 10)
             
             Divider()
         }

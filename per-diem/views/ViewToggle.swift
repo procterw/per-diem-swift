@@ -42,3 +42,24 @@ struct ViewToggle: View {
             }
     }
 }
+
+struct Logo: View {
+    var body: some View {
+        ZStack {
+            Text("pd")
+                .font(.custom("SourceSerifPro-Black", size: 20))
+                .padding(.horizontal, 5)
+        }
+    }
+}
+
+struct SettingsToggle: View {
+    @EnvironmentObject private var activeView: ActiveView
+    
+    var body: some View {
+        Logo()
+            .onTapGesture {
+                activeView.toggleSettings()
+            }
+    }
+}

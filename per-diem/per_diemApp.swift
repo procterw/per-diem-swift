@@ -41,6 +41,7 @@ class SearchTerm: ObservableObject {
 
 class ActiveView: ObservableObject {
     @Published var active: String
+    @Published var settings: Bool = false
     
     init(active: String) {
         self.active = active
@@ -48,6 +49,10 @@ class ActiveView: ObservableObject {
     
     func setActive(next: String) {
         active = next
+    }
+    
+    func toggleSettings() {
+        settings = !settings
     }
 }
 
