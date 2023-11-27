@@ -14,6 +14,7 @@ struct SettingsView: View {
                 // Why do I need to do this?
                 .padding(.bottom, -8)
             ExportView()
+            ImportView()
             Spacer()
         }
     }

@@ -27,24 +27,17 @@ extension Activity {
 }
 
 extension Activity : Identifiable {
-    func toJSON() -> [String : String?] {
-        let dict = [
-            "type": self.type,
-            "note": self.note,
-            "option": self.option?.type,
-            "notePreview": self.notePreview,
-            "dateId": String(self.dateId),
-        ] as [String : String?]
-//        
-//        do {
-//            let jsonData = try JSONSerialization
-//                .data(withJSONObject: dict, options: .prettyPrinted)
-//            let jsonStr = String(data: jsonData, encoding: .utf8)
-//            return jsonStr
-//        }
-//        catch {}
+    func toJSON() -> ExportedActivity {
+        let activities = ExportedActivity(
+            note: self.note ?? "",
+            dateId: self.dateId,
+            notePreview: self.notePreview ?? "",
+            optionType: self.option?.type ?? "",
+            optionIcon: self.option?.icon ?? "",
+            optionCount: self.option?.count ?? 0
+        )
         
-        return dict
+        return activities
         
     }
 }
