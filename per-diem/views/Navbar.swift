@@ -1,32 +1,23 @@
 import SwiftUI
 
 struct Navbar: View {
-    @EnvironmentObject private var searchTerm: SearchTerm
 
     var body: some View {
         VStack {
             HStack(spacing: 10) {
                 SettingsToggle()
                 Divider()
-                FilterView()
-                Spacer()
-                Divider()
-                Button(action: {
-                    searchTerm.toggle()
-                }) {
-                    Label("ToggleSearch", systemImage: "magnifyingglass")
-                        .labelStyle(.iconOnly)
-                        .foregroundColor(Color("TextDark"))
-                }
+                SearchView()
                 Divider()
                 ViewToggle()
             }
             .frame(height: 40)
             .padding(.horizontal, 10)
             
-            if (searchTerm.isOpen) {
-                SearchView()
-            }
+            Divider()
+
+            FilterView()
+                .padding(.horizontal, 10)
             
             Divider()
         }

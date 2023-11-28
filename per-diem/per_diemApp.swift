@@ -21,7 +21,6 @@ class ActivityFilter: ObservableObject {
 
 class SearchTerm: ObservableObject {
     @Published var term: String = ""
-    @Published var isOpen: Bool = false
     
     func set(nextTerm: String) {
         self.term = nextTerm
@@ -29,13 +28,6 @@ class SearchTerm: ObservableObject {
     
     func clear() {
         self.term = ""
-    }
-    
-    func toggle() {
-        if (self.isOpen) {
-            self.clear()
-        }
-        self.isOpen = !self.isOpen
     }
 }
 

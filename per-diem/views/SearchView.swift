@@ -13,16 +13,17 @@ struct SearchView: View {
     var body: some View {
         HStack {
             TextField("Search notes", text: $searchTerm.term, axis: .vertical)
-//            Button(action: {
-//                searchTerm.clear()
-//            }) {
-//                Label("ClearSearch", systemImage: "x.circle.fill")
-//                    .labelStyle(.iconOnly)
-//                    .foregroundColor(Color("TextDark"))
-//                    .opacity(0.7)
-//            }
-//            .disabled(searchTerm.term.count < 1)
+                .padding(.horizontal, 5)
+            if (searchTerm.term.count > 0) {
+                Button(action: {
+                    searchTerm.clear()
+                }) {
+                    Label("ClearSearch", systemImage: "x.circle.fill")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(Color("TextDark"))
+                        .opacity(0.5)
+                }
+            }
         }
-        .padding()
     }
 }
