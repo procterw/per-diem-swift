@@ -9,10 +9,11 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             SettingsNavbar()
                 // Why do I need to do this?
                 .padding(.bottom, -8)
+            NotificationsView()
             ExportView()
             ImportView()
             Spacer()

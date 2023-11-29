@@ -17,6 +17,11 @@
         <attribute name="type" attributeType="String" defaultValueString=""/>
         <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Activity" inverseName="option" inverseEntity="Activity"/>
     </entity>
+    <entity name="Configuration" representedClassName="Configuration" syncable="YES">
+        <attribute name="isEstablished" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="notificationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notificationsEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Established" representedClassName="Established" syncable="YES" codeGenerationType="class">
         <attribute name="isEstablished" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>

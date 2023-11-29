@@ -48,6 +48,9 @@
 		719A6C192B0BFA92004B5E9F /* ExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C182B0BFA92004B5E9F /* ExportView.swift */; };
 		719A6C1D2B0D81B7004B5E9F /* ImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C1C2B0D81B7004B5E9F /* ImportView.swift */; };
 		719A6C1F2B154A6A004B5E9F /* ExportedActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C1E2B154A6A004B5E9F /* ExportedActivity.swift */; };
+		719A6C212B164EC7004B5E9F /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C202B164EC7004B5E9F /* NotificationsView.swift */; };
+		719A6C242B16989B004B5E9F /* Configuration+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C222B16989B004B5E9F /* Configuration+CoreDataClass.swift */; };
+		719A6C252B16989B004B5E9F /* Configuration+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A6C232B16989B004B5E9F /* Configuration+CoreDataProperties.swift */; };
 		71AAE3DE2AE4A60C006B2030 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AAE3DD2AE4A60C006B2030 /* IntroView.swift */; };
 		71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B55F322ACD2EC200999ADD /* EmojiTextField.swift */; };
 		71B62DE52AFD9BD200534418 /* PageOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B62DE42AFD9BD200534418 /* PageOneView.swift */; };
@@ -140,6 +143,9 @@
 		719A6C182B0BFA92004B5E9F /* ExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportView.swift; sourceTree = "<group>"; };
 		719A6C1C2B0D81B7004B5E9F /* ImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportView.swift; sourceTree = "<group>"; };
 		719A6C1E2B154A6A004B5E9F /* ExportedActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportedActivity.swift; sourceTree = "<group>"; };
+		719A6C202B164EC7004B5E9F /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		719A6C222B16989B004B5E9F /* Configuration+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+CoreDataClass.swift"; sourceTree = "<group>"; };
+		719A6C232B16989B004B5E9F /* Configuration+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Configuration+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		71AAE3DD2AE4A60C006B2030 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		71B55F322ACD2EC200999ADD /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTextField.swift; sourceTree = "<group>"; };
 		71B62DE42AFD9BD200534418 /* PageOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOneView.swift; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 		71507305299EE61900100B88 = {
 			isa = PBXGroup;
 			children = (
+				719A6C222B16989B004B5E9F /* Configuration+CoreDataClass.swift */,
+				719A6C232B16989B004B5E9F /* Configuration+CoreDataProperties.swift */,
 				719A6C0E2B0ACCB7004B5E9F /* Activity+CoreDataClass.swift */,
 				719A6C0F2B0ACCB7004B5E9F /* Activity+CoreDataProperties.swift */,
 				719A6C102B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift */,
@@ -263,6 +271,7 @@
 				719A6C152B0AD7A2004B5E9F /* SettingsView.swift */,
 				719A6C182B0BFA92004B5E9F /* ExportView.swift */,
 				719A6C1C2B0D81B7004B5E9F /* ImportView.swift */,
+				719A6C202B164EC7004B5E9F /* NotificationsView.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -465,6 +474,7 @@
 				71B62DE72AFD9BD900534418 /* PageTwoView.swift in Sources */,
 				71B62DE52AFD9BD200534418 /* PageOneView.swift in Sources */,
 				715DB9E629A1942200260B7C /* EntryView.swift in Sources */,
+				719A6C242B16989B004B5E9F /* Configuration+CoreDataClass.swift in Sources */,
 				715DB9F229A9DF5F00260B7C /* MainView.swift in Sources */,
 				71F939DE2B019A8100C19B50 /* SearchView.swift in Sources */,
 				71B55F332ACD2EC200999ADD /* EmojiTextField.swift in Sources */,
@@ -475,6 +485,8 @@
 				71010E4629BEA9C60051FBA9 /* Navbar.swift in Sources */,
 				715DB9EE29A9C65700260B7C /* CalendarView.swift in Sources */,
 				7150731B299EE61A00100B88 /* Persistence.swift in Sources */,
+				719A6C252B16989B004B5E9F /* Configuration+CoreDataProperties.swift in Sources */,
+				719A6C212B164EC7004B5E9F /* NotificationsView.swift in Sources */,
 				715DB9EC29A6078D00260B7C /* WrappedHStack.swift in Sources */,
 				715DB9E529A1942200260B7C /* DayListView.swift in Sources */,
 				715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */,
