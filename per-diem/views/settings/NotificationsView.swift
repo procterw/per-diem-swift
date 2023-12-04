@@ -97,14 +97,15 @@ struct NotificationsView: View {
         )
 
         VStack {
+            Toggle("", isOn: enabledBinding)
+
             DatePicker(
-                "Start Date",
+                "",
                 selection: timeBinding,
                 displayedComponents: [.hourAndMinute]
             )
             .datePickerStyle(WheelDatePickerStyle())
-            
-            Toggle("", isOn: enabledBinding)
         }
     }
 }
+    

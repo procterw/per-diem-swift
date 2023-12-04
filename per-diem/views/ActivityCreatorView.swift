@@ -17,15 +17,8 @@ struct ActivityCreatorView: View {
         animation: .default)
     private var activityOptions: FetchedResults<ActivityOption>
     
-    var filteredOptions: [ActivityOption] {
-        let types = activities.map { $0.type }
-        return activityOptions.filter { option in
-            return !types.contains(option.type)
-        }
-    }
-    
     var body: some View {
-        WrappedHStack(filteredOptions) { activityOpt in
+        WrappedHStack(activityOptions) { activityOpt in
             Button(action: {}){
                 Text([activityOpt.icon ?? "", activityOpt.type ?? ""].joined(separator: " "))
                     .padding(.all, 10)
@@ -64,7 +57,6 @@ struct ActivityCreatorView: View {
                 isPresented: $showingDeleteAlert,
                 titleVisibility: .visible
             ) {
-                Text("FOOOOOOO")
                 Button("Delete", role: .destructive) {
                     do {
                         if let activityOpt = activityOptions.first(where: { $0.type == optionToDelete }) {

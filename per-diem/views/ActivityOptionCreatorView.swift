@@ -31,7 +31,7 @@ struct ActivityOptionCreatorView: View {
                 placeholder: "Icon",
                 font: UIFont(name: "SourceSansPro-SemiBold", size: 16)
             )
-            .frame(width: 50)
+            .frame(width: 30)
             .onChange(of: viewModel.icon) { newValue in
                 print(newValue)
                 // Limits characters to 1 and replaces with most recent input
@@ -77,6 +77,6 @@ struct ActivityOptionCreatorView: View {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color("CardBorder"), lineWidth: 1)
         )
-        .frame(height: 60)
+        .frame(height: 45)
     }
 }
