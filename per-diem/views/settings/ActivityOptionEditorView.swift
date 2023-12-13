@@ -81,7 +81,7 @@ struct OptionEditorItem: View {
                         .labelStyle(.iconOnly)
                 }
                 .foregroundColor(Color("TextDark"))
-
+                
                 Button(action: {
                     saveUpdate()
                 }) {
@@ -89,26 +89,26 @@ struct OptionEditorItem: View {
                         .labelStyle(.iconOnly)
                 }
                 .foregroundColor(Color("TextDark"))
-            } else {
-                Button(action: {
-                    isConfirmingDelete = true
-                }) {
-                    Label("Delete", systemImage: "trash")
-                        .labelStyle(.iconOnly)
+            }
+
+            Button(action: {
+                isConfirmingDelete = true
+            }) {
+                Label("Delete", systemImage: "trash")
+                    .labelStyle(.iconOnly)
+            }
+            .foregroundColor(Color("TextDark"))
+            .confirmationDialog(
+                "Are you sure you want to remove this category and all entries?",
+                isPresented: $isConfirmingDelete, presenting: "Delete"
+            ) { detail in
+                Button(role: .destructive) {
+                    delete()
+                } label: {
+                    Text("Delete category, including all entries?")
                 }
-                .foregroundColor(Color("TextDark"))
-                .confirmationDialog(
-                    "Are you sure you want to remove this category and all entries?",
-                    isPresented: $isConfirmingDelete, presenting: "Delete"
-                ) { detail in
-                    Button(role: .destructive) {
-                        delete()
-                    } label: {
-                        Text("Delete category, including all entries?")
-                    }
-                    Button("Cancel", role: .cancel) {
-                        print("it's over")
-                    }
+                Button("Cancel", role: .cancel) {
+                    print("it's over")
                 }
             }
         }

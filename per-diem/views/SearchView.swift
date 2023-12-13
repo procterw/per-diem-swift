@@ -7,23 +7,40 @@
 
 import SwiftUI
 
+struct SearchToggle: View {
+    @EnvironmentObject private var searchTerm: SearchTerm
+    
+    var body: some View {
+        Button(action: {
+            searchTerm.toggle()
+        }) {
+            Label("ToggleSearch", systemImage: "magnifyingglass")
+                .labelStyle(.iconOnly)
+                .foregroundColor(Color("TextDark"))
+        }
+    }
+}
+
 struct SearchView: View {
     @EnvironmentObject private var searchTerm: SearchTerm
 
     var body: some View {
-        HStack {
-            TextField("Search notes", text: $searchTerm.term, axis: .vertical)
-                .padding(.horizontal, 5)
-            if (searchTerm.term.count > 0) {
-                Button(action: {
-                    searchTerm.clear()
-                }) {
-                    Label("ClearSearch", systemImage: "x.circle.fill")
-                        .labelStyle(.iconOnly)
-                        .foregroundColor(Color("TextDark"))
-                        .opacity(0.5)
+        if (searchTerm.open) {
+            HStack {
+                TextField("Search notes", text: $searchTerm.term, axis: .vertical)
+                if (searchTerm.term.count > 0) {
+                    Button(action: {
+                        searchTerm.clear()
+                    }) {
+                        Label("ClearSearch", systemImage: "x.circle.fill")
+                            .labelStyle(.iconOnly)
+                            .foregroundColor(Color("TextDark"))
+                            .opacity(0.5)
+                    }
                 }
             }
+            .padding(.horizontal, 15)
+            .padding(.vertical, 5)
         }
     }
 }

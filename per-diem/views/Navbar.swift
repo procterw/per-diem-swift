@@ -1,27 +1,24 @@
 import SwiftUI
 
-struct Navbar: View {
-
+struct TopNavbar: View {
+ 
     var body: some View {
         VStack {
             HStack(spacing: 10) {
-                SettingsToggle()
+                Logo()
                 Divider()
-                SearchView()
+                FilterView()
                 Divider()
-                ViewToggle()
+                SearchToggle()
+                //            SettingsToggle()
             }
             .frame(height: 40)
             .padding(.horizontal, 10)
-            
-            Divider()
-
-            FilterView()
-                .padding(.horizontal, 10)
-            
-            Divider()
+            SearchView()
+            PdDivider()
         }
-        .background(Color("AppBackground"))
+        .background(Color("ToolbarBackground"))
+        
     }
 }
 
@@ -30,15 +27,15 @@ struct SettingsNavbar: View {
     var body: some View {
         VStack {
             HStack {
-                SettingsToggle()
+                Logo()
                 Spacer()
             }
             .frame(height: 40)
             .padding(.horizontal, 10)
             
-            Divider()
+            PdDivider()
         }
-        .background(Color("AppBackground"))
+        .background(Color("ToolbarBackground"))
     }
 }
 
@@ -60,12 +57,12 @@ struct EntryNavbar: View {
                 .font(.custom("SourceSerifPro-SemiBold", size: 18))
             Spacer()
         }
-        .background(Color("AppBackground"))
+        .background(Color("ToolbarBackground"))
         .frame(height: 40)
         .padding(.horizontal, 10)
         .overlay(
             VStack {
-                Divider()
+                PdDivider()
                     .offset(x: 0, y: 27)
             }
         )

@@ -7,39 +7,49 @@
 
 import SwiftUI
 
-struct ViewToggle: View {
+struct ViewNav: View {
     @EnvironmentObject private var activeView: ActiveView
-    
-    func getImage() -> String {
-        switch activeView.active {
-            case "list":
-                return "calendar"
-            case "calendar":
-                return "list.dash"
-            default:
-                return ""
-        }
-    }
-    
-    func getNext() -> String {
-        switch activeView.active {
-            case "list":
-                return "calendar"
-            case "calendar":
-                return "list"
-            default:
-                return ""
-        }
-    }
-    
+
     var body: some View {
-        Label("ViewToggle", systemImage: getImage())
-            .labelStyle(.iconOnly)
-            .font(.title3)
-            .padding(.horizontal, 5)
-            .onTapGesture {
-                activeView.setActive(next: getNext())
+        VStack {
+            PdDivider()
+            
+            HStack(spacing: 40) {
+                Spacer()
+                Label("SettingsView", systemImage: "gearshape.fill")
+                    .labelStyle(.iconOnly)
+                    .font(.title3)
+//                    .opacity(activeView.active == "settings" ? 1 : 0.4)
+                    .onTapGesture {
+                        activeView.setActive(next: "settings")
+                    }
+                
+                ZStack {
+                    Circle()
+                        .fill(Color("FilterSelectBackground"))
+                        .frame(width: 35)
+                    Label("ListView", systemImage: "calendar.day.timeline.left")
+                        .labelStyle(.iconOnly)
+                        .font(.title3)
+                    //                    .opacity(activeView.active == "list" ? 1 : 0.4)
+                        .onTapGesture {
+                            activeView.setActive(next: "list")
+                        }
+                }
+                
+                Label("CalendarView", systemImage: "calendar")
+                    .labelStyle(.iconOnly)
+                    .font(.title3)
+//                    .opacity(activeView.active == "calendar" ? 1 : 0.4)
+                    .onTapGesture {
+                        activeView.setActive(next: "calendar")
+                    }
+                Spacer()
             }
+            .padding(.horizontal, 15)
+            .frame(height: 40)
+        }
+        .background(Color("ToolbarBackground"))
     }
 }
 
@@ -50,16 +60,5 @@ struct Logo: View {
                 .font(.custom("SourceSerifPro-Black", size: 20))
                 .padding(.horizontal, 5)
         }
-    }
-}
-
-struct SettingsToggle: View {
-    @EnvironmentObject private var activeView: ActiveView
-    
-    var body: some View {
-        Logo()
-            .onTapGesture {
-                activeView.toggleSettings()
-            }
     }
 }

@@ -149,14 +149,13 @@ struct DayListView: View {
         ZStack {
             Color("AppBackground")
             NavigationStack {
-                Navbar()
-                    // Why do I need to do this?
+                TopNavbar()
                     .padding(.bottom, -8)
+
                 List {
                     ForEach(dateList.list) { day in
                         DayLink(day: day)
                             .listRowInsets(EdgeInsets())
-                            .listRowBackground(Color("AppBackground"))
                             .onAppear {
                                 dateList.loadMore(date: day.date)
                             }
@@ -165,13 +164,16 @@ struct DayListView: View {
                 }
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
-                .background(Color("AppBackground"))
+                .background(Color("ViewBackground"))
                 // When app is reopened, refresh in case it's a new day
                 .onChange(of: scenePhase) { newPhase in
                     if newPhase == .active {
                         dateList.refresh()
                     }
                 }
+
+                ViewNav()
+                    .padding(.top, -8)
             }
         }
     }

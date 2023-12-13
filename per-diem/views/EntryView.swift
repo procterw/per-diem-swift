@@ -1,5 +1,11 @@
 import SwiftUI
 
+enum Focusable: Hashable {
+  case none
+  case row(id: String)
+}
+
+
 struct EntryView: View {
     @State private var showingSheet = false
     @Environment(\.managedObjectContext) private var viewContext
@@ -40,7 +46,10 @@ struct EntryView: View {
                 .listRowBackground(Color("AppBackground"))
                 .listRowInsets(EdgeInsets())
 
-                ActivityCreatorView(day: day, activities: activities)
+                ActivityCreatorView(
+                    day: day,
+                    activities: activities  
+                )
                     .listRowSeparator(.hidden)
                     .scrollContentBackground(.hidden)
                     .listRowBackground(Color("AppBackground"))
