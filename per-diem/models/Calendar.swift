@@ -84,7 +84,7 @@ class Month: Identifiable, Hashable {
         //loop thru the days of the month
         for _ in monthRange {
             //add to our output array...
-            dates.append(DayItem(date: date, activities: []))
+            dates.append(DayItem(date: date))
             //and increment the day
             date = cal.date(byAdding: .day, value: 1, to: date)!
         }

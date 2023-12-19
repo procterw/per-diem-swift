@@ -65,15 +65,25 @@ struct ExportView: View {
         }
     }
     
-    var body: some View {
-        VStack {
-            Text("Export your stuff!")
-            if (pending) {
-                Text("Exporting...")
-            }
-            Button("Export") {
-                exportData()
-            }
+    func getTitle() -> String{
+        if (pending) {
+            return "Exporting entries..."
         }
+        return "Export entries as JSON"
+    }
+    
+    var body: some View {
+        Button(getTitle()) {
+            exportData()
+        }
+        .padding(.vertical, 10)
+        .padding(.horizontal, 20)
+        .background(Color("CardBackground"))
+        .cornerRadius(2)
+        .overlay(
+            RoundedRectangle(cornerRadius: 5)
+                .stroke(Color("CardBorder"), lineWidth: 1)
+        )
+        .frame(height: 45)
     }
 }

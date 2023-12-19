@@ -40,7 +40,7 @@ struct NotificationsView: View {
 
         // choose a random identifier
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-
+        
         // add our notification request
         UNUserNotificationCenter.current().add(request)
         
@@ -96,15 +96,18 @@ struct NotificationsView: View {
             }
         )
 
-        VStack {
+        HStack {
             Toggle("", isOn: enabledBinding)
-
+                .frame(width: 50)
             DatePicker(
                 "",
                 selection: timeBinding,
                 displayedComponents: [.hourAndMinute]
             )
-            .datePickerStyle(WheelDatePickerStyle())
+            .datePickerStyle(.compact)
+            .frame(width: 100)
+                
+            Spacer()
         }
     }
 }

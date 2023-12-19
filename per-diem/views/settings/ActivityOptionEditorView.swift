@@ -142,6 +142,5 @@ struct ActivityOptionEditorView: View {
             }
             ActivityOptionCreatorView()
         }
-        .padding()
     }
 }

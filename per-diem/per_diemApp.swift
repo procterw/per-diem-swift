@@ -55,7 +55,8 @@ class ActiveView: ObservableObject {
 
 @main
 struct per_diemApp: App {
-    let persistenceController = PersistenceController.shared
+    private let persistenceController = PersistenceController.shared
+    private let notificationManager = NotificationManager()
     
     // https://stackoverflow.com/questions/75640865/unable-to-add-custom-fonts-to-xcode-14-2/75648998#75648998
     private func registerCustomFonts() {
@@ -67,6 +68,7 @@ struct per_diemApp: App {
     
     init() {
         registerCustomFonts()
+        UNUserNotificationCenter.current().delegate = notificationManager
     }
 
     var body: some Scene {
@@ -76,7 +78,9 @@ struct per_diemApp: App {
                 .environment(\.font, .custom("SourceSerifPro-Regular", size: 17))
                 .environmentObject(ActivityFilter(selected: []))
                 .environmentObject(ActiveView(active: "list"))
+                .environmentObject(ViewManager())
                 .environmentObject(SearchTerm())
+                .environmentObject(notificationManager)
         }
     }
 }

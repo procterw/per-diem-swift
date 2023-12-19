@@ -13,7 +13,7 @@ class DayList: ObservableObject {
         }
         self.earliestDate = date
         let interval = -86400 * list.count;
-        self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(interval)), activities: []));
+        self.list.append(DayItem(date: Date(timeIntervalSinceNow: TimeInterval(interval))));
     }
     
     public func refresh() {
@@ -30,7 +30,7 @@ class DayList: ObservableObject {
     }
 
     init() {
-        self.list.append(DayItem(date: .now, activities: []))
+        self.list.append(DayItem(date: .now))
         self.calendar.locale = Locale.autoupdatingCurrent
     }
 }

@@ -17,6 +17,7 @@ struct SearchToggle: View {
             Label("ToggleSearch", systemImage: "magnifyingglass")
                 .labelStyle(.iconOnly)
                 .foregroundColor(Color("TextDark"))
+                .frame(width: 28)
         }
     }
 }
@@ -40,7 +41,7 @@ struct SearchView: View {
                 }
             }
             .padding(.horizontal, 15)
-            .padding(.vertical, 5)
+            .padding(.vertical, 8)
         }
     }
 }

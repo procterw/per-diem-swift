@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject private var activeView: ActiveView
+    @EnvironmentObject private var viewManager: ViewManager
+    @EnvironmentObject private var notificationManager: NotificationManager
     @FetchRequest(sortDescriptors: [])
     private var options: FetchedResults<Established>
 
@@ -17,17 +18,19 @@ struct MainView: View {
             Color("AppBackground")
             VStack {
                 if (options.count > 0) {
-                    if (activeView.active == "list") {
+                    if (viewManager.currentViewId == CoreViews.listView) {
                         DayListView()
-                    } else if (activeView.active == "calendar") {
+                    } else if (viewManager.currentViewId == CoreViews.calendarView) {
                         CalendarView()
-                    } else if (activeView.active == "settings") {
+                    } else if (viewManager.currentViewId == CoreViews.settingsView) {
                         SettingsView()
                     }
                 } else {
                     IntroView()
                 }
             }
-        }
+        }.onAppear(perform: {
+            notificationManager.setViewMananger(nextViewMananger: viewManager)
+        })
     }
 }

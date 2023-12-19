@@ -14,7 +14,7 @@ struct StreamItem: View {
     
     init(activity: Activity) {
         self.activity = activity
-        self.date = DayItem(date: activity.dateAdded ?? Date(), activities: [])
+        self.date = DayItem(date: activity.dateAdded ?? Date())
     }
     
     var body: some View {

@@ -19,15 +19,15 @@ struct FilterView: View {
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack {
+            HStack(spacing: 3) {
                 ForEach(options) { option in
                     ZStack {
                         Circle()
-                            .fill(Color("FilterSelectBackground"))
-                            .frame(width: activityFilter.selected.contains(option.type ?? "") ? 28 : 0)
+                            .fill(Color("TodayBackground"))
+                            .frame(width: activityFilter.selected.contains(option.type ?? "") ? 33 : 0)
 
                         Text(option.icon ?? "")
-                            .font(.title)
+                            .font(.title2)
                             .onTapGesture {
                                 let type = option.type ?? ""
                                 if (activityFilter.selected.contains(type)) {
@@ -39,6 +39,7 @@ struct FilterView: View {
                                 }
                             }
                     }
+                    .frame(width: 33)
                 }
             }
         }

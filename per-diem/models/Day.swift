@@ -9,7 +9,6 @@ class DayItem: Identifiable, Hashable {
     var date: Date
     var dateString: String
     var dateId: Int64
-    var activities: Array<Activity>
     
     public func hash(into hasher: inout Hasher) {
         return hasher.combine(id)
@@ -45,15 +44,13 @@ class DayItem: Identifiable, Hashable {
     
     public func nextDay() -> DayItem {
         return DayItem(
-            date: Calendar.current.date(byAdding: .day, value: 1, to: date)!,
-            activities: []
+            date: Calendar.current.date(byAdding: .day, value: 1, to: date)!
         )
     }
     
     public func previousDay() -> DayItem {
         return DayItem(
-            date: Calendar.current.date(byAdding: .day, value: -1, to: date)!,
-            activities: []
+            date: Calendar.current.date(byAdding: .day, value: -1, to: date)!
         )
     }
     
@@ -67,7 +64,7 @@ class DayItem: Identifiable, Hashable {
         return offset - 1
     }
     
-    init(date: Date, activities: Array<Activity>) {
+    init(date: Date) {
         self.date = date;
         
         let dateFormatter = DateFormatter();
@@ -77,6 +74,5 @@ class DayItem: Identifiable, Hashable {
 
         self.dateString = dateString;
         self.dateId = dateId
-        self.activities = activities.filter { $0.dateId == dateId }
     }
 }

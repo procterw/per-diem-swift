@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+struct ViewNavItem: View {
+    @EnvironmentObject private var viewManager: ViewManager
+    let label: String
+    let icon: String
+    let viewKey: CoreViews
+    
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(Color("TodayBackground"))
+                .frame(width: viewManager.currentViewId == viewKey ? 40 : 0)
+            Label(label, systemImage: icon)
+                .labelStyle(.iconOnly)
+                .font(.title3)
+                .onTapGesture {
+                    viewManager.setView(nextViewId: viewKey)
+                }
+        }
+        .frame(width: 40)
+    }
+}
+
 struct ViewNav: View {
     @EnvironmentObject private var activeView: ActiveView
 
@@ -16,37 +38,11 @@ struct ViewNav: View {
             
             HStack(spacing: 40) {
                 Spacer()
-                Label("SettingsView", systemImage: "gearshape.fill")
-                    .labelStyle(.iconOnly)
-                    .font(.title3)
-//                    .opacity(activeView.active == "settings" ? 1 : 0.4)
-                    .onTapGesture {
-                        activeView.setActive(next: "settings")
-                    }
-                
-                ZStack {
-                    Circle()
-                        .fill(Color("FilterSelectBackground"))
-                        .frame(width: 35)
-                    Label("ListView", systemImage: "calendar.day.timeline.left")
-                        .labelStyle(.iconOnly)
-                        .font(.title3)
-                    //                    .opacity(activeView.active == "list" ? 1 : 0.4)
-                        .onTapGesture {
-                            activeView.setActive(next: "list")
-                        }
-                }
-                
-                Label("CalendarView", systemImage: "calendar")
-                    .labelStyle(.iconOnly)
-                    .font(.title3)
-//                    .opacity(activeView.active == "calendar" ? 1 : 0.4)
-                    .onTapGesture {
-                        activeView.setActive(next: "calendar")
-                    }
+                ViewNavItem(label: "SettingsView", icon: "gearshape.fill", viewKey: CoreViews.settingsView)
+                ViewNavItem(label: "ListView", icon: "calendar.day.timeline.left", viewKey: CoreViews.listView)
+                ViewNavItem(label: "CalendarView", icon: "calendar", viewKey: CoreViews.calendarView)
                 Spacer()
             }
-            .padding(.horizontal, 15)
             .frame(height: 40)
         }
         .background(Color("ToolbarBackground"))

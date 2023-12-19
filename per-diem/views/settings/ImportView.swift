@@ -68,8 +68,7 @@ struct ImportView: View {
 
     var body: some View {
         VStack {
-            Text("Import time!")
-            Button("Import the file") {
+            Button("Import entries from JSON") {
                 presentImporter = true
             }.fileImporter(isPresented: $presentImporter, allowedContentTypes: [.json]) { result in
                 switch result {
