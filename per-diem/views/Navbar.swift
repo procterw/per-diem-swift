@@ -45,27 +45,25 @@ struct EntryNavbar: View {
     var day: DayItem
 
     var body: some View {
-        HStack {
-            Button {
-                dismiss()
-            } label: {
-                Label("BackButton", systemImage: "arrowshape.backward.fill")
-                    .labelStyle(.iconOnly)
-                    .foregroundColor(Color("TextDark"))
+        VStack {
+            HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Label("BackButton", systemImage: "arrowshape.backward.fill")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(Color("TextDark"))
+                }
+                Text(day.getFullDate())
+                    .font(.custom("SourceSerifPro-SemiBold", size: 18))
+                Spacer()
             }
-            Text(day.getFullDate())
-                .font(.custom("SourceSerifPro-SemiBold", size: 18))
-            Spacer()
+            .frame(height: 40)
+            .padding(.horizontal, 10)
+            .navigationBarBackButtonHidden(true)
+            
+            PdDivider()
         }
         .background(Color("ToolbarBackground"))
-        .frame(height: 40)
-        .padding(.horizontal, 10)
-        .overlay(
-            VStack {
-                PdDivider()
-                    .offset(x: 0, y: 27)
-            }
-        )
-        .navigationBarBackButtonHidden(true)
     }
 }

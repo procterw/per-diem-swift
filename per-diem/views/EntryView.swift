@@ -40,10 +40,12 @@ struct EntryView: View {
             List() {
                 ForEach(activities) { activity in
                     ActivityEditorView(activity: activity)
+                        .padding(.bottom, 1)
+                        .listRowSeparator(.hidden)
                 }
                 .onDelete(perform: delete)
                 .scrollContentBackground(.hidden)
-                .listRowBackground(Color("AppBackground"))
+                .listRowBackground(Color("ViewBackground"))
                 .listRowInsets(EdgeInsets())
 
                 ActivityCreatorView(
@@ -52,18 +54,18 @@ struct EntryView: View {
                 )
                     .listRowSeparator(.hidden)
                     .scrollContentBackground(.hidden)
-                    .listRowBackground(Color("AppBackground"))
+                    .listRowBackground(Color("ViewBackground"))
                     .listRowInsets(EdgeInsets())
 
                 ActivityOptionCreatorView()
                     .listRowSeparator(.hidden)
                     .scrollContentBackground(.hidden)
-                    .listRowBackground(Color("AppBackground"))
+                    .listRowBackground(Color("ViewBackground"))
             }
-            .background(Color("AppBackground"))
+            .background(Color("ViewBackground"))
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
         }
-        .background(Color("AppBackground"))
+        .background(Color("ViewBackground"))
     }
 }

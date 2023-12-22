@@ -24,6 +24,8 @@ struct MainView: View {
                         CalendarView()
                     } else if (viewManager.currentViewId == CoreViews.settingsView) {
                         SettingsView()
+                    } else if (viewManager.currentViewId == CoreViews.streamView) {
+                        StreamView()
                     }
                 } else {
                     IntroView()

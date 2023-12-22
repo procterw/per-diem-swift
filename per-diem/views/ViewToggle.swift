@@ -41,6 +41,7 @@ struct ViewNav: View {
                 ViewNavItem(label: "SettingsView", icon: "gearshape.fill", viewKey: CoreViews.settingsView)
                 ViewNavItem(label: "ListView", icon: "calendar.day.timeline.left", viewKey: CoreViews.listView)
                 ViewNavItem(label: "CalendarView", icon: "calendar", viewKey: CoreViews.calendarView)
+                ViewNavItem(label: "StreamView", icon: "list.dash", viewKey: CoreViews.streamView)
                 Spacer()
             }
             .frame(height: 40)

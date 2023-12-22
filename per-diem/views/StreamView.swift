@@ -8,27 +8,36 @@
 import SwiftUI
 
 struct StreamItem: View {
-    
     var activity: Activity
     var date: DayItem
     
     init(activity: Activity) {
         self.activity = activity
-        self.date = DayItem(date: activity.dateAdded ?? Date())
+        self.date = dayItemFromId(dateId: activity.dateId)
     }
     
     var body: some View {
-        Group {
+        ZStack {
+            NavigationLink(destination:
+                EntryView(day: date)
+                    .toolbarBackground(Color("View  Background"), for: .navigationBar)
+            ) {
+                EmptyView()
+            }
+            .opacity(0.0)
+            .buttonStyle(PlainButtonStyle())
+
             HStack {
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 7) {
                     HStack(spacing: 4) {
                         Text(activity.option?.icon ?? "")
+                            .font(.title2)
                         Text(activity.type ?? "")
-//                            .font(.custom("SourceSerifPro-Semibold", size: 17))
+                            .font(.custom("SourceSansPro-Semibold", size: 16))
                             .fontWeight(.semibold)
                     }
                     Text(date.getFullDate())
-                        .font(.custom("SourceSerifPro-Regular", size: 18))
+                        .font(.custom("SourceSerifPro-Semibold", size: 15))
                     Text(activity.note ?? "")
                 }
                 .frame(
@@ -48,39 +57,90 @@ struct StreamItem: View {
     }
 }
 
-struct StreamView: View {
+struct ActivityStreamList: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest var activities: FetchedResults<Activity>
     @EnvironmentObject private var activityFilter: ActivityFilter
     
-    @FetchRequest(
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Activity.dateId, ascending: false),
-            NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)
-        ],
-        animation: .default)
-    private var activities: FetchedResults<Activity>
+    var searchTerm: String
+    
+    init(searchTerm: String) {
+        self.searchTerm = searchTerm
+        
+        var subpredicates: Array<NSPredicate> = []
+        
+        if (searchTerm.count > 0) {
+            subpredicates.append(NSPredicate(format: "note CONTAINS[c] %@", searchTerm))
+        }
+        
+        _activities = FetchRequest<Activity>(
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
+            predicate: NSCompoundPredicate(
+                type: .and,
+                subpredicates: subpredicates
+            )
+        )
+        
+        print(_activities)
+    }
+    
+    func delete(activity: Activity) {
+        do {
+            viewContext.delete(activity)
+            try viewContext.save()
+        } catch {
+            // Handle error
+        }
+    }
     
     var body: some View {
-        List() {
-            ForEach(activities.filter {
-                if (activityFilter.selected.isEmpty) {
-                    return true
-                } else {
-                    return activityFilter.selected.contains($0.option?.type ?? "")
+        VStack {
+            List() {
+                ForEach(activities.filter {
+                    if (activityFilter.selected.isEmpty) {
+                        return true
+                    } else {
+                        return activityFilter.selected.contains($0.option?.type ?? "")
+                    }
+                }) { activity in
+                    StreamItem(activity: activity)
+                        .listRowInsets(EdgeInsets())
+                        .swipeActions {
+                            Button("Delete") {
+                                delete(activity: activity)
+                            }
+                            .tint(.red)
+                            Button("Order") {
+                                print("Awesome!")
+                            }
+                            .tint(.green)
+                        }
                 }
-            }) { activity in   
-                StreamItem(activity: activity)
-                    .listRowInsets(EdgeInsets())
             }
+            .listStyle(.plain)
+            .background(Color("ViewBackground"))
+            .scrollContentBackground(.hidden)
         }
-        .listStyle(.plain)
-        .background(Color("AppBackground"))
-        .scrollContentBackground(.hidden)
     }
 }
-//
-//struct LogView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LogView()
-//    }
-//}
+
+struct StreamView: View {
+    @EnvironmentObject private var searchTerm: SearchTerm
+    
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                Color("AppBackground")
+                VStack {
+                    TopNavbar()
+                        .padding(.bottom, -8)
+                    
+                    ActivityStreamList(searchTerm: searchTerm.term)
+                    
+                    ViewNav()
+                        .padding(.top, -8)
+                }
+            }
+        }
+    }
+}

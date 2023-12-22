@@ -11,6 +11,7 @@ enum CoreViews {
     case settingsView
     case listView
     case calendarView
+    case streamView
 }
 
 class ViewManager: ObservableObject {
@@ -33,6 +34,8 @@ class ViewManager: ObservableObject {
                 DayListView()
             case .calendarView:
                 CalendarView()
+            case .streamView:
+                StreamView()
         }
     }
 }
