@@ -73,8 +73,10 @@ struct ExportView: View {
     }
     
     var body: some View {
-        Button(getTitle()) {
-            exportData()
+        Button(action: exportData) {
+            Text(getTitle())
+                .font(.custom("SourceSansPro-SemiBold", size: 16))
+                .foregroundStyle(Color("TextDark"))
         }
         .padding(.vertical, 10)
         .padding(.horizontal, 20)

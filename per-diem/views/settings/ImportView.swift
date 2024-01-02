@@ -68,9 +68,23 @@ struct ImportView: View {
 
     var body: some View {
         VStack {
-            Button("Import entries from JSON") {
+            Button(action: {
                 presentImporter = true
-            }.fileImporter(isPresented: $presentImporter, allowedContentTypes: [.json]) { result in
+            }) {
+                Text("Import entries from JSON")
+                    .font(.custom("SourceSansPro-SemiBold", size: 16))
+                    .foregroundStyle(Color("TextDark"))
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .background(Color("CardBackground"))
+            .cornerRadius(2)
+            .overlay(
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(Color("CardBorder"), lineWidth: 1)
+            )
+            .frame(height: 45)
+            .fileImporter(isPresented: $presentImporter, allowedContentTypes: [.json]) { result in
                 switch result {
                 case .success(let url):
                     print(url)

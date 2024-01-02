@@ -19,7 +19,7 @@
 		71010E3929BD90440051FBA9 /* SourceSansPro-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71010E2D29BD90440051FBA9 /* SourceSansPro-SemiBold.ttf */; };
 		71010E3A29BD90440051FBA9 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71010E2E29BD90440051FBA9 /* SourceSansPro-Bold.ttf */; };
 		71010E3B29BD90440051FBA9 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71010E2F29BD90440051FBA9 /* SourceSansPro-Italic.ttf */; };
-		71010E3D29BDA5670051FBA9 /* ViewToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71010E3C29BDA5670051FBA9 /* ViewToggle.swift */; };
+		71010E3D29BDA5670051FBA9 /* ViewNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71010E3C29BDA5670051FBA9 /* ViewNav.swift */; };
 		71010E3F29BDA58E0051FBA9 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71010E3E29BDA58E0051FBA9 /* FilterView.swift */; };
 		71010E4429BE9CB40051FBA9 /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 71010E4329BE9CB40051FBA9 /* EmojiPicker */; };
 		71010E4629BEA9C60051FBA9 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71010E4529BEA9C60051FBA9 /* Navbar.swift */; };
@@ -117,7 +117,7 @@
 		71010E2D29BD90440051FBA9 /* SourceSansPro-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiBold.ttf"; sourceTree = "<group>"; };
 		71010E2E29BD90440051FBA9 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
 		71010E2F29BD90440051FBA9 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
-		71010E3C29BDA5670051FBA9 /* ViewToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToggle.swift; sourceTree = "<group>"; };
+		71010E3C29BDA5670051FBA9 /* ViewNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewNav.swift; sourceTree = "<group>"; };
 		71010E3E29BDA58E0051FBA9 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		71010E4529BEA9C60051FBA9 /* Navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navbar.swift; sourceTree = "<group>"; };
 		71134F022ADF328000A41DE4 /* per-diem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "per-diem.entitlements"; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 				715DB9ED29A9C65700260B7C /* CalendarView.swift */,
 				715DB9F129A9DF5F00260B7C /* MainView.swift */,
 				715DB9F329AF229800260B7C /* StreamView.swift */,
-				71010E3C29BDA5670051FBA9 /* ViewToggle.swift */,
+				71010E3C29BDA5670051FBA9 /* ViewNav.swift */,
 				71010E3E29BDA58E0051FBA9 /* FilterView.swift */,
 				71F939DD2B019A8100C19B50 /* SearchView.swift */,
 				71010E4529BEA9C60051FBA9 /* Navbar.swift */,
@@ -504,7 +504,7 @@
 				715DB9E729A1942200260B7C /* ActivityEditorView.swift in Sources */,
 				719A6C122B0ACCB7004B5E9F /* Activity+CoreDataClass.swift in Sources */,
 				719A6C142B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift in Sources */,
-				71010E3D29BDA5670051FBA9 /* ViewToggle.swift in Sources */,
+				71010E3D29BDA5670051FBA9 /* ViewNav.swift in Sources */,
 				7150731E299EE61A00100B88 /* per_diem.xcdatamodeld in Sources */,
 				719A6C162B0AD7A2004B5E9F /* SettingsView.swift in Sources */,
 				719A6C272B17F4ED004B5E9F /* ActivityOptionEditorView.swift in Sources */,

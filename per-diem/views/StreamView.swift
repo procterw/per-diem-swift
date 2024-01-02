@@ -20,7 +20,7 @@ struct StreamItem: View {
         ZStack {
             NavigationLink(destination:
                 EntryView(day: date)
-                    .toolbarBackground(Color("View  Background"), for: .navigationBar)
+                    .toolbarBackground(Color("ViewBackground"), for: .navigationBar)
             ) {
                 EmptyView()
             }
@@ -74,7 +74,7 @@ struct ActivityStreamList: View {
         }
         
         _activities = FetchRequest<Activity>(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: false)],
             predicate: NSCompoundPredicate(
                 type: .and,
                 subpredicates: subpredicates

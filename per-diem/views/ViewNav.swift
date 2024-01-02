@@ -13,19 +13,27 @@ struct ViewNavItem: View {
     let icon: String
     let viewKey: CoreViews
     
+    func getColor () -> Color {
+        if (viewManager.currentViewId == viewKey) {
+            return Color("SelectedContrast")
+        }
+        return Color("TextDark")
+    }
+    
     var body: some View {
-        ZStack {
-            Circle()
-                .fill(Color("TodayBackground"))
-                .frame(width: viewManager.currentViewId == viewKey ? 40 : 0)
+        VStack(spacing: 5) {
             Label(label, systemImage: icon)
+                .foregroundColor(getColor())
                 .labelStyle(.iconOnly)
                 .font(.title3)
                 .onTapGesture {
                     viewManager.setView(nextViewId: viewKey)
                 }
+            
+            Text(label)
+                .font(.custom("SourceSansPro-SemiBold", size: 13))
+                .foregroundStyle(getColor())
         }
-        .frame(width: 40)
     }
 }
 
@@ -38,10 +46,10 @@ struct ViewNav: View {
             
             HStack(spacing: 40) {
                 Spacer()
-                ViewNavItem(label: "SettingsView", icon: "gearshape.fill", viewKey: CoreViews.settingsView)
-                ViewNavItem(label: "ListView", icon: "calendar.day.timeline.left", viewKey: CoreViews.listView)
-                ViewNavItem(label: "CalendarView", icon: "calendar", viewKey: CoreViews.calendarView)
-                ViewNavItem(label: "StreamView", icon: "list.dash", viewKey: CoreViews.streamView)
+                ViewNavItem(label: "Settings", icon: "gearshape.fill", viewKey: CoreViews.settingsView)
+                ViewNavItem(label: "Daily", icon: "calendar.day.timeline.left", viewKey: CoreViews.listView)
+                ViewNavItem(label: "Calendar", icon: "calendar", viewKey: CoreViews.calendarView)
+                ViewNavItem(label: "List", icon: "list.dash", viewKey: CoreViews.streamView)
                 Spacer()
             }
             .frame(height: 40)
