@@ -37,6 +37,7 @@ struct EntryView: View {
     var body: some View {
         VStack {
             EntryNavbar(day: day)
+                .padding(.bottom, -8)
             List() {
                 ForEach(activities) { activity in
                     ActivityEditorView(activity: activity)
@@ -56,6 +57,11 @@ struct EntryView: View {
                     .scrollContentBackground(.hidden)
                     .listRowBackground(Color("ViewBackground"))
                     .listRowInsets(EdgeInsets())
+                
+                // I'm not sure if this is necessary
+                Divider()
+                    .background(Color("ViewBackground"))
+                    .listRowBackground(Color("ViewBackground"))
 
                 ActivityOptionCreatorView()
                     .listRowSeparator(.hidden)

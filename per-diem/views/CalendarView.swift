@@ -58,7 +58,7 @@ struct DayCell: View {
                     VStack(spacing: 3) {
                         HStack(alignment: .top, spacing: 0) {
                             Text(day.getDayOfMonth())
-                                .font(.custom("SourceSansPro-SemiBold", size: 15))
+                                .font(.custom("SourceSansPro-SemiBold", size: 14))
                                 .frame(maxWidth: .infinity)
                             getActivity(index: 0)
                         }

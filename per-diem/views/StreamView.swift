@@ -32,7 +32,7 @@ struct StreamItem: View {
                     HStack(spacing: 4) {
                         Text(activity.option?.icon ?? "")
                             .font(.title2)
-                        Text(activity.type ?? "")
+                        Text(activity.option?.type ?? "")
                             .font(.custom("SourceSansPro-Semibold", size: 16))
                             .fontWeight(.semibold)
                     }

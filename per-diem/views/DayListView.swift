@@ -108,7 +108,10 @@ struct DayLabel: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 15)
-        .background(Color("CardBackground"))
+        .background(
+            Color("CardBackground")
+                .opacity(day.getDayOfWeek() == "Sun" || day.getDayOfWeek() == "Sat" ? 0.6 : 1)
+        )
         .onAppear {
             activities.forEach { activity in
                 print(activity.toJSON())
@@ -134,7 +137,7 @@ struct DayLink: View {
             .buttonStyle(PlainButtonStyle())
 
             DayLabel(day: day, searchTerm: searchTerm.term)
-                .padding(.bottom, day.getDayOfWeek() == "Sun" ? 12 : 1)
+                .padding(.bottom, 1)
         }
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
