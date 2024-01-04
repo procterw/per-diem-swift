@@ -126,7 +126,7 @@ struct DayLink: View {
         ZStack {
             NavigationLink(destination:
                 EntryView(day: day)
-                    .toolbarBackground(Color("AppBackground"), for: .navigationBar)
+                    .toolbarBackground(Color("ViewBackground"), for: .navigationBar)
             ) {
                 EmptyView()
             }
@@ -147,7 +147,7 @@ struct DayListView: View {
 
     var body: some View {
         ZStack {
-            Color("AppBackground")
+            Color("ViewBackground")
             NavigationStack {
                 TopNavbar()
                     .padding(.bottom, -8)

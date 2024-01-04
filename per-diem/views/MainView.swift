@@ -15,7 +15,7 @@ struct MainView: View {
 
     var body: some View {
         ZStack {
-            Color("AppBackground")
+            Color("ViewBackground")
             VStack {
                 if (options.count > 0) {
                     if (viewManager.currentViewId == CoreViews.listView) {

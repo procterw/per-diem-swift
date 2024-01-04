@@ -22,6 +22,7 @@ struct ActivityList: View {
         HStack {
             ForEach(activityOptions) { activityOpt in
                 Text(activityOpt.icon ?? "")
+                    .font(.title)
             }
         }
     }

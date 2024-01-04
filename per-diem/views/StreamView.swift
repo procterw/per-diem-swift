@@ -130,7 +130,7 @@ struct StreamView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("AppBackground")
+                Color("ViewBackground")
                 VStack {
                     TopNavbar()
                         .padding(.bottom, -8)

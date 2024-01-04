@@ -32,14 +32,14 @@ struct IntroView: View {
 
     var body: some View {
         ZStack {
-            Color("AppBackground")
+            Color("ViewBackground")
             NavigationStack {
                 TabView {
                     PageOneView()
                     PageTwoView()
                     PageThreeView()
                 }
-                .background(Color("AppBackground"))
+                .background(Color("ViewBackground"))
                 .tabViewStyle(.page)
                 .onAppear {
                     setupAppearance()
