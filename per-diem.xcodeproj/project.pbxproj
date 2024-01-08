@@ -72,6 +72,7 @@
 		71C05F9729B47E9500E33E99 /* SourceSerifPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */; };
 		71C05F9A29B47E9500E33E99 /* SourceSerifPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */; };
 		71C05F9D29B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */; };
+		71DC68302B4B7CDA0076765A /* TodayBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC682F2B4B7CDA0076765A /* TodayBadge.swift */; };
 		71F939DE2B019A8100C19B50 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F939DD2B019A8100C19B50 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,7 @@
 		71C05F7629B47E9500E33E99 /* SourceSerifPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Regular.ttf"; sourceTree = "<group>"; };
 		71C05F7729B47E9500E33E99 /* SourceSerifPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-Bold.ttf"; sourceTree = "<group>"; };
 		71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-BlackItalic.ttf"; sourceTree = "<group>"; };
+		71DC682F2B4B7CDA0076765A /* TodayBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBadge.swift; sourceTree = "<group>"; };
 		71F939DD2B019A8100C19B50 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		71FA173A2B097E0D0093F9E1 /* pd_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pd_watchApp.swift; sourceTree = "<group>"; };
 		71FA173C2B097E0D0093F9E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				71010E4529BEA9C60051FBA9 /* Navbar.swift */,
 				71B55F322ACD2EC200999ADD /* EmojiTextField.swift */,
 				715B715A2B2A6BC0007301D3 /* Components.swift */,
+				71DC682F2B4B7CDA0076765A /* TodayBadge.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				719A6C122B0ACCB7004B5E9F /* Activity+CoreDataClass.swift in Sources */,
 				719A6C142B0ACCB7004B5E9F /* ActivityOption+CoreDataClass.swift in Sources */,
 				71010E3D29BDA5670051FBA9 /* ViewNav.swift in Sources */,
+				71DC68302B4B7CDA0076765A /* TodayBadge.swift in Sources */,
 				7150731E299EE61A00100B88 /* per_diem.xcdatamodeld in Sources */,
 				719A6C162B0AD7A2004B5E9F /* SettingsView.swift in Sources */,
 				719A6C272B17F4ED004B5E9F /* ActivityOptionEditorView.swift in Sources */,

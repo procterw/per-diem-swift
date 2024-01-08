@@ -84,9 +84,7 @@ struct DayLabel: View {
                     .font(.custom("SourceSerifPro-Black", size: 20))
                 Text(day.getDate())
                     .font(.custom("SourceSerifPro-SemiBold", size: 16))
-                Text(day.isToday() ? "Today" : "")
-                    .font(.custom("SourceSerifPro-SemiBold", size: 13))
-                    .background(Color("TodayBackground"))
+                TodayBadge(day: day)
                 Spacer()
             }
             .padding(.leading, 40.0)

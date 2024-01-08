@@ -29,7 +29,7 @@ struct StreamItem: View {
 
             HStack {
                 VStack(alignment: .leading, spacing: 7) {
-                    HStack(spacing: 4) {
+                        HStack(spacing: 4) {
                         Text(activity.option?.icon ?? "")
                             .font(.title2)
                         Text(activity.option?.type ?? "")
@@ -74,7 +74,7 @@ struct ActivityStreamList: View {
         }
         
         _activities = FetchRequest<Activity>(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: false)],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateId, ascending: false)],
             predicate: NSCompoundPredicate(
                 type: .and,
                 subpredicates: subpredicates
