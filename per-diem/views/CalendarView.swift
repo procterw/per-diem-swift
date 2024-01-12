@@ -123,13 +123,13 @@ struct CalendarView: View {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(calendar.months) { month in
-                        Grid(horizontalSpacing: 2, verticalSpacing: 2) {
-                            HStack {
+                        Grid(horizontalSpacing: 1, verticalSpacing: 1) {
+                            HStack(alignment: .firstTextBaseline) {
                                 Text(month.getMonthName())
-                                    .font(.custom("SourceSerifPro-Black", size: 24))
+                                    .font(.custom("SourceSerifPro-Black", size: 22))
                                     .padding(.vertical, 5)
                                 Text(month.getYear())
-                                    .font(.custom("SourceSerifPro-Regular", size: 18))
+                                    .font(.custom("SourceSerifPro-Regular", size: 16))
                                     .padding(.vertical, 5)
                             }
                             DayOfWeekLabels()

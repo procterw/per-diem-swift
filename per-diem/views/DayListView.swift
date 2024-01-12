@@ -84,7 +84,6 @@ struct DayLabel: View {
                     .font(.custom("SourceSerifPro-Black", size: 20))
                 Text(day.getDate())
                     .font(.custom("SourceSerifPro-SemiBold", size: 16))
-                TodayBadge(day: day)
                 Spacer()
             }
             .padding(.leading, 40.0)
@@ -106,10 +105,7 @@ struct DayLabel: View {
         }
         .padding(.horizontal)
         .padding(.vertical, 15)
-        .background(
-            Color("CardBackground")
-                .opacity(day.getDayOfWeek() == "Sun" || day.getDayOfWeek() == "Sat" ? 0.6 : 1)
-        )
+        .background(cardBackground(day: day))
         .onAppear {
             activities.forEach { activity in
                 print(activity.toJSON())

@@ -60,6 +60,10 @@ class DayItem: Identifiable, Hashable {
         return dateFormatter.string(from: date)
     }
     
+    public func isWeekend() -> Bool {
+        return getDayOfWeek() == "Sat" || getDayOfWeek() == "Sun"
+    }
+    
     public func getFullDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E, MMM d, YYYY"

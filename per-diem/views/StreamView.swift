@@ -9,17 +9,17 @@ import SwiftUI
 
 struct StreamItem: View {
     var activity: Activity
-    var date: DayItem
+    var day: DayItem
     
     init(activity: Activity) {
         self.activity = activity
-        self.date = dayItemFromId(dateId: activity.dateId)
+        self.day = dayItemFromId(dateId: activity.dateId)
     }
     
     var body: some View {
         ZStack {
             NavigationLink(destination:
-                EntryView(day: date)
+                EntryView(day: day)
                     .toolbarBackground(Color("ViewBackground"), for: .navigationBar)
             ) {
                 EmptyView()
@@ -36,7 +36,7 @@ struct StreamItem: View {
                             .font(.custom("SourceSansPro-Semibold", size: 16))
                             .fontWeight(.semibold)
                     }
-                    Text(date.getFullDate())
+                    Text(day.getFullDate())
                         .font(.custom("SourceSerifPro-Semibold", size: 15))
                     Text(activity.note ?? "")
                 }
@@ -48,7 +48,7 @@ struct StreamItem: View {
                       alignment: .topLeading
                     )
                 .padding()
-                .background(Color("CardBackground"))
+                .background(cardBackground(day: day))
             }
             .padding(.top, 1)
         }
@@ -80,8 +80,6 @@ struct ActivityStreamList: View {
                 subpredicates: subpredicates
             )
         )
-        
-        print(_activities)
     }
     
     func delete(activity: Activity) {
