@@ -29,9 +29,9 @@ struct ActivityOptionCreatorView: View {
             EmojiTextField(
                 text: $viewModel.icon,
                 placeholder: "Icon",
-                font: UIFont(name: "SourceSansPro-SemiBold", size: 16)
+                font: UIFont(name: "SourceSansPro-SemiBold", size: 15)
             )
-            .frame(width: 30)
+            .frame(width: 33)
             .onChange(of: viewModel.icon) { newValue in
                 print(newValue)
                 // Limits characters to 1 and replaces with most recent input
@@ -40,9 +40,12 @@ struct ActivityOptionCreatorView: View {
                     viewModel.icon = String(lastChar ?? Character(""))
                 }
             }
+            
+            Divider()
+                .padding(.trailing, 5)
 
-            TextField("Category name", text: $viewModel.activity)
-                .font(.custom("SourceSansPro-SemiBold", size: 16))
+            TextField("Your category name", text: $viewModel.activity)
+                .font(.custom("SourceSansPro-SemiBold", size: 15))
                 .onChange(of: viewModel.activity) { newValue in
                     if viewModel.activity.count > activityCharLimit {
                         viewModel.activity = String(viewModel.activity.prefix(activityCharLimit))
@@ -60,23 +63,21 @@ struct ActivityOptionCreatorView: View {
                     // Handle error
                 }
             }) {
-                Label("Submit", systemImage: "plus.app.fill")
-                    .labelStyle(.iconOnly)
-                    .foregroundColor(Color("FilterSelectBackground"))
+                if (!viewModel.icon.isEmpty && !viewModel.activity.isEmpty) {
+                    Label("Submit", systemImage: "checkmark.square")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(Color(.textDark))
+                        .frame(height: 24)
+                }
             }
-            .disabled(viewModel.icon.isEmpty || viewModel.activity.isEmpty)
-            .foregroundColor(Color("TextDark"))
-            .background(Color("CardBackground"))
+            .foregroundColor(Color(.textDark))
+            .background(Color(.cardBackground))
             .buttonStyle(PlainButtonStyle())
         }
-        .padding(.vertical, 10)
-        .padding(.horizontal, 20)
-        .background(Color("CardBackground"))
-        .cornerRadius(2)
-        .overlay(
-            RoundedRectangle(cornerRadius: 5)
-                .stroke(Color("CardBorder"), lineWidth: 1)
-        )
-        .frame(height: 45)
+        .padding(.vertical, 8)
+        .padding(.horizontal, 16)
+        .background(Color(.cardBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+        .frame(height: 50)
     }
 }

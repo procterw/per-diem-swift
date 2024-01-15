@@ -81,7 +81,7 @@ struct DayLabel: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline, spacing: 5) {
                 Text(day.getDayOfWeek())
-                    .font(.custom("SourceSerifPro-Black", size: 20))
+                    .font(.custom("SourceSerifPro-Bold", size: 20))
                 Text(day.getDate())
                     .font(.custom("SourceSerifPro-SemiBold", size: 16))
                 Spacer()

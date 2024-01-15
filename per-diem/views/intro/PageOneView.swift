@@ -70,6 +70,7 @@ struct PageOneView: View {
             IntroIcon()
             
             Text("Per-diem is a feature-light daily tracker for logging activities, journaling, and tracking progress.")
+                .background(Color(.todayBackground))
 
             VStack(spacing: 5) {
                 ForEach(activities) { activity in
@@ -80,7 +81,7 @@ struct PageOneView: View {
                         delay: activity.time
                     )
                 }
-            }
+            }.background(Color(.cardBackground))
             
             Spacer()
         }

@@ -71,7 +71,7 @@ struct DayCell: View {
                     .cornerRadius(5)
                     .frame(height: 55, alignment: .top)
                 }
-                .background(day.isToday() ? Color("TodayBackground") : Color("CardBackground"))
+                .background(cardBackground(day: day))
             }
         }
         .isDetailLink(false)
