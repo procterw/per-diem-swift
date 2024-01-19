@@ -133,12 +133,9 @@ struct ActivityOptionEditorView: View {
                         .padding(.horizontal, 20)
                         .background(Color("CardBackground"))
                         .cornerRadius(2)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color("CardBorder"), lineWidth: 1)
-                        )
-                        .frame(height: 45)
+                        .frame(height: 50)
                 }
+                .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
             }
             ActivityOptionCreatorView()
         }

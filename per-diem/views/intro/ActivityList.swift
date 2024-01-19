@@ -1,16 +1,11 @@
 //
-//  IntroView.swift
+//  OptionSuggestions.swift
 //  per-diem
 //
-//  Created by William Leahy on 10/21/23.
+//  Created by William Leahy on 1/15/24.
 //
 
 import SwiftUI
-
-
-class EstablishedViewModel: ObservableObject {
-    @Published var isEstablished: Bool = false
-}
 
 struct ActivityList: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -99,56 +94,8 @@ struct ActivityList: View {
                 : Color(.cardBackground)
             )
             .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+            .transition(.slide)
         }
         .padding(.leading, -3)
-    }
-}
-
-struct PageThreeView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    @ObservedObject var viewModel: EstablishedViewModel = EstablishedViewModel()
-    
-    @FetchRequest(
-        sortDescriptors: [],
-        animation: .default)
-    private var activityOptions: FetchedResults<ActivityOption>
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
-            Text(
-                "Per-diem is a lightweight daily tracker for logging activities, tracking habits, and journaling.\n\nTo get started, add some categories you'd like to track; for example:")
-                .font(.custom("SourceSerifPro-Regular", size: 16))
-                .lineLimit(50)
-                .padding(.top)
-
-            ActivityList()
-            
-            ActivityOptionCreatorView()
-            
-            Divider()
-                .padding(.vertical, 12)
-            
-            Button(action: {
-                let a = Established(context: viewContext)
-                a.isEstablished = true
-                
-                do {
-                    try viewContext.save()
-                } catch {
-                    // Handle error
-                }
-            }) {
-                Text("Get started")
-            }
-            .disabled(activityOptions.count < 1)
-            .opacity(activityOptions.count > 0 ? 1 : 0.5)
-            .padding(.vertical, 30)
-            .frame(maxWidth: .infinity)
-            .foregroundColor(Color(.textDark))
-            .background(Color(.cardBackground))
-            .font(.custom("SourceSansPro-SemiBold", size: 16))
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-        }
-        .padding()
     }
 }

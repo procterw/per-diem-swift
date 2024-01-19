@@ -19,63 +19,35 @@ struct ActivityCreatorView: View {
     
     var body: some View {
         WrappedHStack(activityOptions) { activityOpt in
-            Button(action: {}){
-                Text([activityOpt.icon ?? "", activityOpt.type ?? ""].joined(separator: " "))
-                    .padding(.all, 10)
-                    .cornerRadius(5)
-            }
-            //    https://stackoverflow.com/a/66539032/1676699
-            .simultaneousGesture(
-                LongPressGesture()
-                    .onEnded { _ in
-                        optionToDelete = activityOpt.type ?? ""
-                        showingDeleteAlert = true
-                    }
-            )
-            .highPriorityGesture(
-                TapGesture()
-                    .onEnded { _ in
-                        let activity = Activity(context: viewContext)
-                        activity.type = activityOpt.type
-                        activity.note = ""
-                        activity.notePreview = ""
-                        activity.dateId = day.dateId
-                        activity.option = activityOpt
-                        activity.dateAdded = Date()
-                        activity.dateModified = Date()
-                        
-                        activityOpt.count = activityOpt.count + 1
-                        do {
-                            try viewContext.save()
-                        } catch {
-                            // Handle error
-                        }
-                    }
-            )
-            .confirmationDialog(
-                Text("Delete category " + optionToDelete + "?"),
-                isPresented: $showingDeleteAlert,
-                titleVisibility: .visible
-            ) {
-                Button("Delete", role: .destructive) {
-                    do {
-                        if let activityOpt = activityOptions.first(where: { $0.type == optionToDelete }) {
-                            viewContext.delete(activityOpt)
-                            try viewContext.save()
-                        }
-                    } catch {
-                        // Handle error
-                    }
+            Button(action: {
+                let activity = Activity(context: viewContext)
+                activity.type = activityOpt.type
+                activity.note = ""
+                activity.notePreview = ""
+                activity.dateId = day.dateId
+                activity.option = activityOpt
+                activity.dateAdded = Date()
+                activity.dateModified = Date()
+                
+                activityOpt.count = activityOpt.count + 1
+                do {
+                    try viewContext.save()
+                } catch {
+                    // Handle error
                 }
+            }){
+                HStack(spacing: 6) {
+                    Text(activityOpt.icon ?? "")
+                        .font(.custom("SourceSansPro-SemiBold", size: 18))
+                    Text(activityOpt.type ?? "")
+                        .font(.custom("SourceSansPro-SemiBold", size: 15))
+                        .foregroundColor(Color(.textDark))
+                }
+                .padding(.horizontal, 11)
+                .padding(.vertical, 8)
             }
-            .foregroundColor(Color("TextDark"))
-            .background(Color("CardBackground"))
-            .font(.custom("SourceSansPro-SemiBold", size: 16))
-            .cornerRadius(5)
-            .overlay(
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color("CardBorder"), lineWidth: 1)
-            )
+            .background(Color(.cardBackground))
+            .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
             .buttonStyle(BorderlessButtonStyle())
             .scrollContentBackground(.hidden)
         }

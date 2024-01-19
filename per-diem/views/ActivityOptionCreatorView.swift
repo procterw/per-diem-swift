@@ -21,49 +21,54 @@ struct ActivityOptionCreatorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: ActivityViewModel = ActivityViewModel()
+    @State var icon: String = ""
+    @State var activity: String = ""
     
     private let activityCharLimit = 30
 
     var body: some View {
         HStack {
             EmojiTextField(
-                text: $viewModel.icon,
+                text: $icon,
                 placeholder: "Icon",
                 font: UIFont(name: "SourceSansPro-SemiBold", size: 15)
             )
             .frame(width: 33)
-            .onChange(of: viewModel.icon) { newValue in
+            .onChange(of: icon) { newValue in
                 print(newValue)
                 // Limits characters to 1 and replaces with most recent input
                 if (newValue.count > 0) {
                     let lastChar = newValue.last
-                    viewModel.icon = String(lastChar ?? Character(""))
+                    icon = String(lastChar ?? Character(""))
+                    print(viewModel )
                 }
             }
             
             Divider()
                 .padding(.trailing, 5)
 
-            TextField("Your category name", text: $viewModel.activity)
+            TextField("Your category name", text: $activity)
                 .font(.custom("SourceSansPro-SemiBold", size: 15))
-                .onChange(of: viewModel.activity) { newValue in
-                    if viewModel.activity.count > activityCharLimit {
-                        viewModel.activity = String(viewModel.activity.prefix(activityCharLimit))
+                .onChange(of: activity) { newValue in
+                    if activity.count > activityCharLimit {
+                        activity = String(activity.prefix(activityCharLimit))
                     }
                 }
             
             Button(action: {
                 let a = ActivityOption(context: viewContext)
-                a.type = viewModel.activity
-                a.icon = viewModel.icon
+                a.type = activity
+                a.icon = icon
                 do {
                     try viewContext.save()
-                    viewModel.reset()
+                    icon = ""
+                    activity = ""
+//                    viewModel.reset()
                 } catch {
                     // Handle error
                 }
             }) {
-                if (!viewModel.icon.isEmpty && !viewModel.activity.isEmpty) {
+                if (!icon.isEmpty && !activity.isEmpty) {
                     Label("Submit", systemImage: "checkmark.square")
                         .labelStyle(.iconOnly)
                         .foregroundColor(Color(.textDark))

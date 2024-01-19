@@ -7,23 +7,6 @@
 
 import SwiftUI
 
-struct ActivityExampleScroll: View {
-    var activities = [
-        "🧳🍜🎾🏀🎽🛼🏋️🏌️‍♀️🤹‍♀️🥦😎🐔🌞🐟👜🚶🏻‍♀️👣🧑‍🍳🪕🧗🎻🚲1️⃣2️⃣3️⃣4️⃣5️⃣🩼📖🔨🧘🛹🍼🧁"
-    ]
-
-    var body: some View {
-        HStack {
-            
-        }
-//
-//        .font(.custom("SourceSerifPro-Regular", size: 34))
-//        .frame(width: 3000)
-//        .tracking(15)
-//        .foregroundColor(Color(.filterSelectBackground))
-    }
-}
-
 struct IntroIcon: View {
     var body: some View {
         ZStack {
@@ -49,7 +32,7 @@ struct IntroView: View {
     }
 
     var body: some View {
-        ScrollView {
+        VStack {
             ZStack {
                 Color(.todayBackground)
                 IntroIcon()
@@ -58,8 +41,10 @@ struct IntroView: View {
             
             ZStack {
                 Color(.viewBackground)
-                PageThreeView()
+                IntroForm()
             }
+            
+            Spacer()
         }
         .edgesIgnoringSafeArea(.all)
         .background(Color(.viewBackground))
