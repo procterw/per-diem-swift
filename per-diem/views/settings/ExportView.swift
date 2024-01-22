@@ -21,7 +21,8 @@ struct ExportView: View {
     }
     
     func writeFile(contents: String) -> Void{
-        let file = "test1234.json"
+        let timeNow: Date = .now
+        let file = "pd-export_" + timeNow.ISO8601Format().split(separator: "T")[0] + ".json"
         let dir = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(file)
         do {
             try contents.write(to: dir!, atomically: true, encoding: .utf8)

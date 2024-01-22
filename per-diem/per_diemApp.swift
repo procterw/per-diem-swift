@@ -79,7 +79,7 @@ struct per_diemApp: App {
                 .environmentObject(ActivityFilter(selected: []))
                 .environmentObject(ActiveView(active: "list"))
                 .environmentObject(ViewManager())
-                .environmentObject(SearchTerm())    
+                .environmentObject(SearchTerm())
                 .environmentObject(notificationManager)
         }
     }
