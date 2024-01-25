@@ -108,10 +108,6 @@ struct ActivityStreamList: View {
                                 delete(activity: activity)
                             }
                             .tint(.red)
-                            Button("Order") {
-                                print("Awesome!")
-                            }
-                            .tint(.green)
                         }
                 }
             }

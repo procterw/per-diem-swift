@@ -141,7 +141,7 @@ struct DayLink: View {
 struct DayListView: View {
     @ObservedObject var dateList: DayList = DayList()
     @Environment(\.scenePhase) var scenePhase
-
+    
     var body: some View {
         ZStack {
             Color("ViewBackground")

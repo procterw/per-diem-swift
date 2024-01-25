@@ -66,7 +66,7 @@ class DayItem: Identifiable, Hashable {
     
     public func getFullDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "E, MMM d, YYYY"
+        dateFormatter.dateFormat = "E, MMM d, yyyy"
         return dateFormatter.string(from: date)
     }
     
@@ -100,8 +100,9 @@ class DayItem: Identifiable, Hashable {
         self.date = date;
         
         let dateFormatter = DateFormatter();
-        dateFormatter.dateFormat = "YYYY-MM-dd";
+        dateFormatter.dateFormat = "yyyy-MM-dd";
         let dateString = dateFormatter.string(from: date);
+        
         let dateId = Int64(dateString.replacingOccurrences(of: "-", with: "")) ?? 0
 
         self.dateString = dateString;
@@ -111,9 +112,10 @@ class DayItem: Identifiable, Hashable {
 
 func dayItemFromId (dateId: Int64) -> DayItem {
     let dateFormatter = DateFormatter();
-    dateFormatter.dateFormat = "YYYY-MM-dd"
-    
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+
     let dateIdString = String(dateId)
+    
     let dateString = [
         dateIdString[0 ..< 4],
         dateIdString[4 ..< 6],
@@ -122,14 +124,3 @@ func dayItemFromId (dateId: Int64) -> DayItem {
     
     return DayItem(date: dateFormatter.date(from: dateString) ?? .now)
 }
-
-//var function dayItemFromId (id: Int64) {
-//
-//}
-//
-//class DayFromString: DayItem {
-//    init(dateString: String) {
-//        let dateFormatter = DateFormatter();
-//        dateFormatter.dateFormat = "YYYY-MM-dd";
-//    }
-//}
