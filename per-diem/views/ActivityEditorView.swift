@@ -11,12 +11,7 @@ struct ActivityEditorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var activity: Activity
     @State var note: String
-    
-    init(activity: Activity) {
-        self.activity = activity
-        self.note = activity.note ?? ""
-    }
-    
+
     func getTitle() -> String {
         return [activity.option?.icon ?? "", activity.option?.type ?? ""].joined(separator: "")
     }
@@ -52,7 +47,6 @@ struct ActivityEditorView: View {
                         }
                         save()
                     }
-
             }
             .padding([.leading, .bottom, .trailing])
         }

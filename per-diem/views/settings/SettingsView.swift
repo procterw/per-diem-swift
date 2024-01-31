@@ -29,6 +29,7 @@ struct SettingsView: View {
                 }
                 .padding()
             }
+            .scrollDismissesKeyboard(.immediately)
             
             ViewNav()
                 .padding(.top, -8)

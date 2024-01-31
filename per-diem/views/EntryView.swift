@@ -40,7 +40,7 @@ struct EntryView: View {
                 .padding(.bottom, -8)
             List() {
                 ForEach(activities) { activity in
-                    ActivityEditorView(activity: activity)
+                    ActivityEditorView(activity: activity, note: activity.note ?? "")
                         .padding(.bottom, 1)
                         .listRowSeparator(.hidden)
                 }
@@ -71,6 +71,7 @@ struct EntryView: View {
             .background(Color("ViewBackground"))
             .scrollContentBackground(.hidden)
             .listStyle(.plain)
+            .scrollDismissesKeyboard(.immediately)
         }
         .background(Color("ViewBackground"))
     }
