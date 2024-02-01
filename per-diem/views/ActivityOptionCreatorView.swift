@@ -35,12 +35,10 @@ struct ActivityOptionCreatorView: View {
             )
             .frame(width: 33)
             .onChange(of: icon) { newValue in
-                print(newValue)
                 // Limits characters to 1 and replaces with most recent input
                 if (newValue.count > 0) {
                     let lastChar = newValue.last
                     icon = String(lastChar ?? Character(""))
-                    print(viewModel )
                 }
             }
             

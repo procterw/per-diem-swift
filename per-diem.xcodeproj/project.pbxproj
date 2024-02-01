@@ -25,6 +25,7 @@
 		71010E4629BEA9C60051FBA9 /* Navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71010E4529BEA9C60051FBA9 /* Navbar.swift */; };
 		7115E0682B30FFF400A75D5B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115E0672B30FFF400A75D5B /* NotificationManager.swift */; };
 		7115E06A2B31022C00A75D5B /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115E0692B31022C00A75D5B /* ViewManager.swift */; };
+		7135227F2B61E4AC000BECA8 /* UndoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7135227E2B61E4AC000BECA8 /* UndoModule.swift */; };
 		71507312299EE61900100B88 /* per_diemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71507311299EE61900100B88 /* per_diemApp.swift */; };
 		71507316299EE61A00100B88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71507315299EE61A00100B88 /* Assets.xcassets */; };
 		7150731B299EE61A00100B88 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7150731A299EE61A00100B88 /* Persistence.swift */; };
@@ -107,6 +108,7 @@
 		71134F022ADF328000A41DE4 /* per-diem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "per-diem.entitlements"; sourceTree = "<group>"; };
 		7115E0672B30FFF400A75D5B /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		7115E0692B31022C00A75D5B /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
+		7135227E2B61E4AC000BECA8 /* UndoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoModule.swift; sourceTree = "<group>"; };
 		7150730E299EE61900100B88 /* per-diem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "per-diem.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71507311299EE61900100B88 /* per_diemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = per_diemApp.swift; sourceTree = "<group>"; };
 		71507315299EE61A00100B88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				719A6C1E2B154A6A004B5E9F /* ExportedActivity.swift */,
 				7115E0672B30FFF400A75D5B /* NotificationManager.swift */,
 				7115E0692B31022C00A75D5B /* ViewManager.swift */,
+				7135227E2B61E4AC000BECA8 /* UndoModule.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				71010E4629BEA9C60051FBA9 /* Navbar.swift in Sources */,
 				715DB9EE29A9C65700260B7C /* CalendarView.swift in Sources */,
 				7150731B299EE61A00100B88 /* Persistence.swift in Sources */,
+				7135227F2B61E4AC000BECA8 /* UndoModule.swift in Sources */,
 				719A6C252B16989B004B5E9F /* Configuration+CoreDataProperties.swift in Sources */,
 				719A6C212B164EC7004B5E9F /* NotificationsView.swift in Sources */,
 				715DB9EC29A6078D00260B7C /* WrappedHStack.swift in Sources */,

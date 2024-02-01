@@ -40,7 +40,7 @@ struct EntryView: View {
                 .padding(.bottom, -8)
             List() {
                 ForEach(activities) { activity in
-                    ActivityEditorView(activity: activity, note: activity.note ?? "")
+                    ActivityEditorView(activity: activity)
                         .padding(.bottom, 1)
                         .listRowSeparator(.hidden)
                 }
