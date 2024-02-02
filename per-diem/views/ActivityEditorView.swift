@@ -44,35 +44,37 @@ struct ActivityEditorView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: 3) {
+            HStack(spacing: 5) {
                 Text(activity.option?.icon ?? "")
                 Text(activity.option?.type ?? "")
                     .font(.custom("SourceSansPro-SemiBold", size: 17))
+                
+                Spacer()
+                
+                Button(action: {
+                    save(note: undo.undo())
+                }) {
+                    Label("Undo", systemImage: "arrow.uturn.backward")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(Color("TextDark"))
+                }
+                .scrollContentBackground(.hidden)
+                .disabled(!undo.isUndoAvailable())
+                .opacity(!undo.isUndoAvailable() ? 0 : 1)
+
+                Button(action: {
+                    save(note: undo.redo())
+                }) {
+                    Label("Redo", systemImage: "arrow.uturn.forward")
+                        .labelStyle(.iconOnly)
+                        .foregroundColor(Color("TextDark"))
+                }
+                .scrollContentBackground(.hidden)
+                .disabled(!undo.isRedoAvailable())
+                .opacity(!undo.isRedoAvailable() ? 0 : 1)
             }
             .padding([.top, .leading, .trailing])
-            
-            HStack {
-                
-                Button("Undo") {
-                    save(note: undo.undo())
-                }
-                .scrollContentBackground(.hidden)
-                .buttonStyle(BorderlessButtonStyle())
-                .disabled(!undo.isUndoAvailable())
-
-                Button("Redo") {
-                    save(note: undo.redo())
-                }
-                .scrollContentBackground(.hidden)
-                .buttonStyle(BorderlessButtonStyle())
-                .disabled(!undo.isRedoAvailable())
-
-            }.scrollContentBackground(.hidden)
-            
-            Divider()
-            Text(String(undo.undoStack.count))
-            Text(undo.undoStack.joined(separator: ", "))
-            Divider()
+        
 
             HStack {
                 TextField("...", text: $note, axis: .vertical)
