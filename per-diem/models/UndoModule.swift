@@ -23,8 +23,10 @@ class UndoModule: ObservableObject {
         return redoStack.count > 0
     }
     
+    // Including the tempstack allows the first undo to be smaller
+    // and to start at the first character
     public func isUndoAvailable() -> Bool {
-        return undoStack.count > 1
+        return undoStack.count > 1 || tempStack.count > 0
     }
     
     public func initialize(entry: String) {
@@ -50,11 +52,15 @@ class UndoModule: ObservableObject {
             return
         }
 
+        // Get the last two changes
         let last = tempStack.last ?? "";
         let secondLast = tempStack[tempStack.count - 2];
-
-        let totalDiff = tempStack.count
+        
+        // Character size difference of latest change
         let lastDiff = abs(last.count - secondLast.count)
+
+        // Number of changes in queue
+        let totalDiff = tempStack.count
         
         if (lastDiff > 3) {
             // If several characters are changed at once like replacing text or
@@ -64,7 +70,7 @@ class UndoModule: ObservableObject {
             // Catchall for longer queue that hasn't been emptied yet
             processQueue()
         } else if (totalDiff > 8) {
-            // If there is a space or punctuation clear the queue
+            // If there is a space or punctuation etc clear the queue
             if (
                 (last.last ?? Character("")).isPunctuation ||
                 (last.last ?? Character("")).isWhitespace ||
@@ -123,6 +129,18 @@ class UndoModule: ObservableObject {
         undoStack = []
         tempStack = []
         redoStack = []
+    }
+    
+    public func _log(action: String) {
+        print("-----")
+        print(action)
+        print("UNDO STACK:")
+        print(undoStack)
+        print("TEMP STACK:")
+        print(tempStack)
+        print("REDO STACK:")
+        print(redoStack)
+        print("-----")
     }
 }
 

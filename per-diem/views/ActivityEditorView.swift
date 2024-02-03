@@ -11,6 +11,7 @@ struct ActivityEditorView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var activity: Activity
     @State var note: String
+    @FocusState private var isFocused: Bool
     
     @StateObject private var undo = UndoModule()
     
@@ -58,9 +59,10 @@ struct ActivityEditorView: View {
                         .labelStyle(.iconOnly)
                         .foregroundColor(Color("TextDark"))
                 }
+                .buttonStyle(BorderlessButtonStyle())
                 .scrollContentBackground(.hidden)
-                .disabled(!undo.isUndoAvailable())
-                .opacity(!undo.isUndoAvailable() ? 0 : 1)
+                .disabled(!undo.isUndoAvailable() || !isFocused)
+                .opacity(!undo.isUndoAvailable() || !isFocused ? 0 : 1)
 
                 Button(action: {
                     save(note: undo.redo())
@@ -69,15 +71,17 @@ struct ActivityEditorView: View {
                         .labelStyle(.iconOnly)
                         .foregroundColor(Color("TextDark"))
                 }
+                .buttonStyle(BorderlessButtonStyle())
                 .scrollContentBackground(.hidden)
-                .disabled(!undo.isRedoAvailable())
-                .opacity(!undo.isRedoAvailable() ? 0 : 1)
+                .disabled(!undo.isRedoAvailable() || !isFocused)
+                .opacity(!undo.isRedoAvailable() || !isFocused ? 0 : 1)
             }
             .padding([.top, .leading, .trailing])
         
 
             HStack {
                 TextField("...", text: $note, axis: .vertical)
+                    .focused($isFocused)
                     .scrollDisabled(true)
                     .onChange(of: note) { _ in
                         undo.add(entry: note)
