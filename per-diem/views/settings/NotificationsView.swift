@@ -19,8 +19,6 @@ struct NotificationsView: View {
     }
     
     private func scheduleNotifications() {
-        print("notificationTime!")
-
         let current = UNUserNotificationCenter.current()
         
         current.removeAllPendingNotificationRequests()

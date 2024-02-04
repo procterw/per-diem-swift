@@ -52,7 +52,7 @@ struct ViewNav: View {
                 ViewNavItem(label: "List", icon: "list.dash", viewKey: CoreViews.streamView)
                 Spacer()
             }
-            .frame(height: 40)
+            .frame(height: 50)
         }
         .background(Color("ToolbarBackground"))
     }

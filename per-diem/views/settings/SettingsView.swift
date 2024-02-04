@@ -15,12 +15,12 @@ struct SettingsView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 21) {
-                    Text("Manage Categories")
-                        .font(.custom("SourceSansPro-SemiBold", size: 18))
-                    ActivityOptionEditorView()
                     Text("Daily notifications")
                         .font(.custom("SourceSansPro-SemiBold", size: 18))
                     NotificationsView()
+                    Text("Manage categories")
+                        .font(.custom("SourceSansPro-SemiBold", size: 18))
+                    ActivityOptionEditorView()
                     Text("Export your data")
                         .font(.custom("SourceSansPro-SemiBold", size: 18))
                     ExportView()

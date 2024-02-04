@@ -23,7 +23,7 @@ struct FilterView: View {
                 ForEach(options) { option in
                     ZStack {
                         Circle()
-                            .fill(Color("TodayBackground"))
+                            .fill(Color("FilterSelectBackground"))
                             .frame(width: activityFilter.selected.contains(option.type ?? "") ? 33 : 0)
 
                         Text(option.icon ?? "")
