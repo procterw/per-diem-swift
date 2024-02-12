@@ -34,11 +34,11 @@ struct EntryItemView: View {
     var body: some View {
         HStack(alignment: .top) {
             Text(icon)
-                .font(.title)
-                .frame(width: 33)
-            VStack(alignment: .leading) {
+                .font(.title2)
+                .frame(width: 30)
+            VStack(alignment: .leading, spacing: 2) {
                 Text(type)
-                    .font(.custom("SourceSansPro-SemiBold", size: 17))
+                    .font(.custom("SourceSansPro-SemiBold", size: 15))
                 Text(note)
                     .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
@@ -69,7 +69,7 @@ struct DayLabel: View {
         }
         
         _activities = FetchRequest<Activity>(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.option?.count, ascending: false)],
             predicate: NSCompoundPredicate(
                 type: .and,
                 subpredicates: subpredicates
@@ -80,13 +80,17 @@ struct DayLabel: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline, spacing: 5) {
-                Text(day.getDayOfWeek())
-                    .font(.custom("SourceSerifPro-Bold", size: 20))
+                HStack {
+                    Text(day.getFullDayOfWeek())
+                        .font(.custom("SourceSerifPro-Bold", size: 18))
+                    Spacer()
+                }
+//                .frame(width: 50)
                 Text(day.getDate())
-                    .font(.custom("SourceSerifPro-SemiBold", size: 16))
+                    .font(.custom("SourceSerifPro-SemiBold", size: 14))
                 Spacer()
             }
-            .padding(.leading, 40.0)
+            .padding(.leading, 37.0)
             ForEach(
                 activities.filter {
                     if (activityFilter.selected.isEmpty) {

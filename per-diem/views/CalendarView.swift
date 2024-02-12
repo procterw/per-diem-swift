@@ -27,7 +27,7 @@ struct DayCell: View {
         }
         
         _activities = FetchRequest<Activity>(
-            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.dateAdded, ascending: true)],
+            sortDescriptors: [NSSortDescriptor(keyPath: \Activity.option?.count, ascending: false)],
             predicate: NSCompoundPredicate(
                 type: .and,
                 subpredicates: subpredicates

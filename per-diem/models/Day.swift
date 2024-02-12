@@ -44,7 +44,7 @@ class DayItem: Identifiable, Hashable {
     
     public func getDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d"
+        dateFormatter.dateFormat = "MMMM d"
         return dateFormatter.string(from: date)
     }
     
@@ -57,6 +57,12 @@ class DayItem: Identifiable, Hashable {
     public func getDayOfWeek() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E"
+        return dateFormatter.string(from: date)
+    }
+    
+    public func getFullDayOfWeek() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: date)
     }
     
