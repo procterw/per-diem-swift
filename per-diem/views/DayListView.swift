@@ -38,7 +38,7 @@ struct EntryItemView: View {
                 .frame(width: 30)
             VStack(alignment: .leading, spacing: 2) {
                 Text(type)
-                    .font(.custom("SourceSansPro-SemiBold", size: 15))
+                    .font(.custom("SourceSansPro-SemiBold", size: 16))
                 Text(note)
                     .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
@@ -85,7 +85,6 @@ struct DayLabel: View {
                         .font(.custom("SourceSerifPro-Bold", size: 18))
                     Spacer()
                 }
-//                .frame(width: 50)
                 Text(day.getDate())
                     .font(.custom("SourceSerifPro-SemiBold", size: 14))
                 Spacer()

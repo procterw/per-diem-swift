@@ -41,7 +41,7 @@ class Month: Identifiable, Hashable {
     
     public func getMonthName() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM"
+        dateFormatter.dateFormat = "MMMM"
         return dateFormatter.string(from: initDate)
     }
     

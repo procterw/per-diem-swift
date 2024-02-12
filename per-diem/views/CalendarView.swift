@@ -126,10 +126,10 @@ struct CalendarView: View {
                         Grid(horizontalSpacing: 1, verticalSpacing: 1) {
                             HStack(alignment: .firstTextBaseline) {
                                 Text(month.getMonthName())
-                                    .font(.custom("SourceSerifPro-Black", size: 22))
+                                    .font(.custom("SourceSerifPro-Bold", size: 21))
                                     .padding(.vertical, 5)
                                 Text(month.getYear())
-                                    .font(.custom("SourceSerifPro-Regular", size: 16))
+                                    .font(.custom("SourceSerifPro-Regular", size: 17))
                                     .padding(.vertical, 5)
                             }
                             DayOfWeekLabels()
