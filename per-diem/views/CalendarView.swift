@@ -147,7 +147,7 @@ struct CalendarView: View {
                             }
                         }
                         .padding(.horizontal, 6)
-                        .padding(.bottom, 8)
+                        .padding(.bottom, 12)
                         .rotationEffect(Angle(degrees: 180))
                         .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
                         .onAppear {
