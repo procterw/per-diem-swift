@@ -32,6 +32,7 @@ struct ViewNavItem: View {
                 .foregroundStyle(getColor())
         }
         .padding(.horizontal, 10)
+        .padding(.bottom, 4)
         .onTapGesture {
             viewManager.setView(nextViewId: viewKey)
         }
