@@ -9,19 +9,36 @@ import SwiftUI
 
 class ActivityFilter: ObservableObject {
     @Published var selected: [String]
+    @Published var open: Bool = false
 
     init(selected: [String]) {
         self.selected = selected
     }
     
+    func isEmpty() -> Bool {
+        return selected.isEmpty
+    }
+    
+    func clear() {
+        selected = []
+    }
+    
     func setSelected(next: [String]) {
         selected = next
+    }
+    
+    func toggle() {
+        self.open = !open
     }
 }
 
 class SearchTerm: ObservableObject {
     @Published var term: String = ""
     @Published var open: Bool = false
+    
+    func isEmpty() -> Bool {
+        return term.isEmpty
+    }
     
     func set(nextTerm: String) {
         self.term = nextTerm
@@ -50,6 +67,16 @@ class ActiveView: ObservableObject {
     
     func toggleSettings() {
         settings = !settings
+    }
+}
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        
+        print("Application directory: \(NSHomeDirectory())")
+        return true
     }
 }
 

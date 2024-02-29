@@ -1,19 +1,21 @@
 import SwiftUI
 
 struct TopNavbar: View {
- 
+
     var body: some View {
         VStack {
             HStack(spacing: 10) {
                 Logo()
-                Divider()
-                FilterView()
-                Divider()
-                SearchToggle()
-                //            SettingsToggle()
+                Spacer()
+                HStack(spacing: 15) {
+                    FilterToggle()
+                    SearchToggle()
+                }
+                .padding(.horizontal, 5)
             }
             .frame(height: 40)
             .padding(.horizontal, 10)
+            FilterView()
             SearchView()
             PdDivider()
         }

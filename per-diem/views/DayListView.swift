@@ -160,6 +160,7 @@ struct DayListView: View {
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
                 .background(Color("ViewBackground"))
+                .scrollDismissesKeyboard(.immediately)
                 // When app is reopened, refresh in case it's a new day
                 .onChange(of: scenePhase) { newPhase in
                     if newPhase == .active {

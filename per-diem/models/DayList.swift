@@ -22,10 +22,14 @@ class DayList: ObservableObject {
         var date: DayItem = firstDate;
 
         // is it today? If it is, we're done!
-        while (!date.isToday()) {
+        while (!date.isToday) {
             // if not, make it yesterday then add it to front of the list
             date = date.nextDay()
             self.list.insert(date, at: 0)
+        }
+        
+        list.forEach { item in
+            item.setIsToday()
         }
     }
 

@@ -114,6 +114,7 @@ struct ActivityStreamList: View {
             .listStyle(.plain)
             .background(Color("ViewBackground"))
             .scrollContentBackground(.hidden)
+            .scrollDismissesKeyboard(.immediately)
         }
     }
 }

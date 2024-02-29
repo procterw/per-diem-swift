@@ -2,7 +2,6 @@ import Foundation
 
 // https://stackoverflow.com/questions/24092884/get-nth-character-of-a-string-in-swift
 extension String {
-
     var length: Int {
         return count
     }
@@ -37,6 +36,7 @@ class DayItem: Identifiable, Hashable {
     var date: Date
     var dateString: String
     var dateId: Int64
+    var isToday: Bool = false
     
     public func hash(into hasher: inout Hasher) {
         return hasher.combine(id)
@@ -76,8 +76,8 @@ class DayItem: Identifiable, Hashable {
         return dateFormatter.string(from: date)
     }
     
-    public func isToday() -> Bool {
-        return Calendar.current.isDateInToday(self.date)
+    public func setIsToday() {
+        isToday = Calendar.current.isDateInToday(self.date)
     }
     
     public func nextDay() -> DayItem {
@@ -113,6 +113,7 @@ class DayItem: Identifiable, Hashable {
 
         self.dateString = dateString;
         self.dateId = dateId
+        self.setIsToday()
     }
 }
 

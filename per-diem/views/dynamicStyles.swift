@@ -8,7 +8,7 @@
 import SwiftUI
 
 func cardBackground(day: DayItem) -> Color {
-    if (day.isToday()) {
+    if (day.isToday) {
         return Color("TodayBackground")
     }
     
@@ -20,3 +20,11 @@ func cardBackground(day: DayItem) -> Color {
     
     return Color("CardBackground").opacity(opacity)
 }
+
+struct NoPressEffectButton: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .opacity(1)
+    }
+}
+
