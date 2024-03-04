@@ -80,6 +80,10 @@ class DayItem: Identifiable, Hashable {
         isToday = Calendar.current.isDateInToday(self.date)
     }
     
+    public func getIsToday() -> Bool {
+        return Calendar.current.isDateInToday(self.date)
+    }
+    
     public func nextDay() -> DayItem {
         return DayItem(
             date: Calendar.current.date(byAdding: .day, value: 1, to: date)!

@@ -20,9 +20,9 @@ class DayList: ObservableObject {
         // start at first day in list
         let firstDate: DayItem = list[0]
         var date: DayItem = firstDate;
-
+        
         // is it today? If it is, we're done!
-        while (!date.isToday) {
+        while (!date.getIsToday()) {
             // if not, make it yesterday then add it to front of the list
             date = date.nextDay()
             self.list.insert(date, at: 0)

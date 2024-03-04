@@ -26,13 +26,14 @@ struct ViewNavItem: View {
                 .foregroundColor(getColor())
                 .labelStyle(.iconOnly)
                 .font(.title3)
-                .onTapGesture {
-                    viewManager.setView(nextViewId: viewKey)
-                }
             
             Text(label)
                 .font(.custom("SourceSansPro-SemiBold", size: 13))
                 .foregroundStyle(getColor())
+        }
+        .padding(.horizontal, 10)
+        .onTapGesture {
+            viewManager.setView(nextViewId: viewKey)
         }
     }
 }
@@ -44,7 +45,7 @@ struct ViewNav: View {
         VStack {
             PdDivider()
             
-            HStack(spacing: 40) {
+            HStack(spacing: 20) {
                 Spacer()
                 ViewNavItem(label: "Settings", icon: "gearshape.fill", viewKey: CoreViews.settingsView)
                 ViewNavItem(label: "Daily", icon: "calendar.day.timeline.left", viewKey: CoreViews.listView)
