@@ -54,29 +54,36 @@ struct DayCell: View {
             EntryView(day: day)
         ) {
             VStack(spacing: 0) {
-                Group {
+                ZStack {
+                    Rectangle()
+                        .fill(cardBackground(day: day))
+                        .opacity(0.7)
+                    Text(day.getDayOfMonth())
+                        .font(.custom("SourceSerifPro-SemiBold", size: 14))
+                }
+                VStack {
                     VStack(spacing: 3) {
                         HStack(alignment: .top, spacing: 0) {
-                            Text(day.getDayOfMonth())
-                                .font(.custom("SourceSansPro-SemiBold", size: 14))
-                                .frame(maxWidth: .infinity)
                             getActivity(index: 0)
-                        }
-                        HStack(alignment: .top, spacing: 0) {
                             getActivity(index: 1)
-                            getActivity(index: 2)
                         }
+                        .frame(height: 26)
+                        HStack(alignment: .top, spacing: 0) {
+                            getActivity(index: 2)
+                            getActivity(index: 3)
+                        }
+                        .frame(height: 22)
                     }
                     .padding(4)
-                    .cornerRadius(5)
-                    .frame(height: 55, alignment: .top)
                 }
+                .cornerRadius(5)
                 .background(cardBackground(day: day))
+                .frame(alignment: .top)
             }
         }
         .isDetailLink(false)
         .buttonStyle(PlainButtonStyle())
-        .cornerRadius(3)
+        .cornerRadius(5)
     }
 }
 
@@ -134,12 +141,13 @@ struct CalendarView: View {
                             }
                             DayOfWeekLabels()
                                 .padding(.vertical, 5)
+                                .padding(.horizontal, 4)
                             ForEach(month.weeks) { week in
                                 WeekRowView(week: week)
                             }
                         }
                         .padding(.horizontal, 6)
-                        .padding(.bottom, 12)
+                        .padding(.bottom, 8)
                         .rotationEffect(Angle(degrees: 180))
                         .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
                         .onAppear {
