@@ -157,6 +157,7 @@
 		71C05F7829B47E9500E33E99 /* SourceSerifPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSerifPro-BlackItalic.ttf"; sourceTree = "<group>"; };
 		71CE58932B51EADD00332F56 /* dynamicStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dynamicStyles.swift; sourceTree = "<group>"; };
 		71CE58952B55FEC900332F56 /* ActivityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityList.swift; sourceTree = "<group>"; };
+		71F790B92CD8C3DA00BB0A18 /* per-diemRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "per-diemRelease.entitlements"; sourceTree = "<group>"; };
 		71F939DD2B019A8100C19B50 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		71FA173A2B097E0D0093F9E1 /* pd_watchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pd_watchApp.swift; sourceTree = "<group>"; };
 		71FA173C2B097E0D0093F9E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		71507310299EE61900100B88 /* per-diem */ = {
 			isa = PBXGroup;
 			children = (
+				71F790B92CD8C3DA00BB0A18 /* per-diemRelease.entitlements */,
 				71134F022ADF328000A41DE4 /* per-diem.entitlements */,
 				71C05F6B29B47E9500E33E99 /* Source_Serif_Pro */,
 				7150734829A18CD400100B88 /* models */,
@@ -360,7 +362,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					7150730D299EE61900100B88 = {
 						CreatedOnToolsVersion = 14.2;
@@ -594,7 +596,6 @@
 		71507339299EE61A00100B88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "per-diem/per-diem.entitlements";
@@ -627,10 +628,9 @@
 		7150733A299EE61A00100B88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "per-diem/per-diem.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "per-diem/per-diemRelease.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

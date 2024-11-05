@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject private var viewManager: ViewManager
-    @EnvironmentObject private var notificationManager: NotificationManager
+//    @EnvironmentObject private var notificationManager: NotificationManager
     @FetchRequest(sortDescriptors: [])
     private var options: FetchedResults<Established>
 
@@ -32,7 +32,7 @@ struct MainView: View {
                 }
             }
         }.onAppear(perform: {
-            notificationManager.setViewMananger(nextViewMananger: viewManager)
+//            notificationManager.setViewMananger(nextViewMananger: viewManager)
         })
     }
 }

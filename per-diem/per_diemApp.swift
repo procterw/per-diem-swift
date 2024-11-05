@@ -83,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 @main
 struct per_diemApp: App {
     private let persistenceController = PersistenceController.shared
-    private let notificationManager = NotificationManager()
+//    private let notificationManager = NotificationManager()
     
     // https://stackoverflow.com/questions/75640865/unable-to-add-custom-fonts-to-xcode-14-2/75648998#75648998
     private func registerCustomFonts() {
@@ -95,7 +95,7 @@ struct per_diemApp: App {
     
     init() {
         registerCustomFonts()
-        UNUserNotificationCenter.current().delegate = notificationManager
+//        UNUserNotificationCenter.current().delegate = notificationManager
     }
 
     var body: some Scene {
@@ -107,7 +107,7 @@ struct per_diemApp: App {
                 .environmentObject(ActiveView(active: "list"))
                 .environmentObject(ViewManager())
                 .environmentObject(SearchTerm())
-                .environmentObject(notificationManager)
+//                .environmentObject(notificationManager)
         }
     }
 }

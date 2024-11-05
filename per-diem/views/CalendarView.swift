@@ -126,41 +126,53 @@ struct CalendarView: View {
         NavigationStack {
             TopNavbar()
                 .padding(.bottom, -8)
-
-            ScrollView(showsIndicators: false) {
-                LazyVStack {
-                    ForEach(calendar.months) { month in
-                        Grid(horizontalSpacing: 1, verticalSpacing: 1) {
-                            HStack(alignment: .firstTextBaseline) {
-                                Text(month.getMonthName())
-                                    .font(.custom("SourceSerifPro-Bold", size: 21))
+            
+            ScrollViewReader { value in
+                
+                ScrollView(showsIndicators: false) {
+                    LazyVStack {
+                        ForEach(calendar.months) { month in
+                            Grid(horizontalSpacing: 1, verticalSpacing: 1) {
+                                HStack(alignment: .firstTextBaseline) {
+                                    Text(month.getMonthName())
+                                        .font(.custom("SourceSerifPro-Bold", size: 21))
+                                        .padding(.vertical, 5)
+                                    Text(month.getYear())
+                                        .font(.custom("SourceSerifPro-Regular", size: 17))
+                                        .padding(.vertical, 5)
+                                }
+                                DayOfWeekLabels()
                                     .padding(.vertical, 5)
-                                Text(month.getYear())
-                                    .font(.custom("SourceSerifPro-Regular", size: 17))
-                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 4)
+                                ForEach(month.weeks) { week in
+                                    WeekRowView(week: week)
+                                }
                             }
-                            DayOfWeekLabels()
-                                .padding(.vertical, 5)
-                                .padding(.horizontal, 4)
-                            ForEach(month.weeks) { week in
-                                WeekRowView(week: week)
+                            .padding(.horizontal, 6)
+                            .padding(.bottom, 12)
+                            .frame(maxWidth: 500)
+                            .rotationEffect(Angle(degrees: 180))
+                            .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
+                            .id(month.id)
+                            .onAppear {
+                                print(month.id)
+                                calendar.loadMore(month: month)
                             }
-                        }
-                        .padding(.horizontal, 6)
-                        .padding(.bottom, 12)
-                        .frame(maxWidth: 500)
-                        .rotationEffect(Angle(degrees: 180))
-                        .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
-                        .onAppear {
-                            calendar.loadMore(month: month)
                         }
                     }
                 }
+                .rotationEffect(Angle(degrees: 180))
+                .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
+                .background(Color("ViewBackground"))
+                .scrollDismissesKeyboard(.immediately)
+                .onAppear {
+                    print("####")
+                    print(calendar.initialMonthId)
+                    print("####")
+                    value.scrollTo(calendar.initialMonthId)
+                }
+
             }
-            .rotationEffect(Angle(degrees: 180))
-            .scaleEffect(x: -1.0, y: 1.0, anchor: .center)
-            .background(Color("ViewBackground"))
-            .scrollDismissesKeyboard(.immediately)
             
             ViewNav()
                 .padding(.top, -8)

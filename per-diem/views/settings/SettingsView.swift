@@ -17,7 +17,7 @@ struct SettingsView: View {
                 VStack(alignment: .leading, spacing: 21) {
                     Text("Daily notifications")
                         .font(.custom("SourceSansPro-SemiBold", size: 18))
-                    NotificationsView()
+//                    NotificationsView()
                     Text("Manage categories")
                         .font(.custom("SourceSansPro-SemiBold", size: 18))
                     ActivityOptionEditorView()

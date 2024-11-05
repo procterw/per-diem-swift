@@ -102,6 +102,7 @@ class PDCalendar: ObservableObject {
     @Published var months: [Month]
     
     var earliestMonthDate: Date
+    var initialMonthId: UUID
     
     public func loadMore(month: Month) {
         if (month.initDate >= earliestMonthDate) {
@@ -114,9 +115,12 @@ class PDCalendar: ObservableObject {
     }
     
     init () {
+        var initialMonth = Month(month: .now)
         self.months = [
-            Month(month: .now),
+            Month(month: Calendar.current.date(byAdding: .month, value: 1, to: .now)!),
+            initialMonth,
         ]
         earliestMonthDate = .now;
+        initialMonthId = initialMonth.id
     }
 }
